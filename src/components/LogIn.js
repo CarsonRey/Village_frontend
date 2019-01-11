@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { createUser } from '../store/actions/userActions'
-import { connect } from 'react-redux'
+import { getExistingUser } from '../store/actions/userActions'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-
-class SignUp extends Component {
+class Login extends Component {
 
   state = {
-    role_id: this.props.chosenRole,
-    name: "",
     email: "",
     password: ""
   }
@@ -21,41 +18,23 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    let role_id = this.determineRoleId()
-    let user = {name: this.state.name, email: this.state.email, password: this.state.password, role_id: role_id}
-    this.props.createUser(user)
-
+    this.props.getExistingUser(this.state)
   }
-
-  determineRoleId = () => {
-    let x = this.props.chosenRole
-    if (x === "Food Donator"){
-      return 1
-    } else if (x === "Food Deliverer"){
-      return 2
-    } else if (x === "Food Receiver"){
-      return 3
-    }
-  }
-
 
   render() {
-
     // const {chosenRole} = this.props
     console.log(this.state)
     return (
       <React.Fragment >
         <h1>Village</h1>
-        <h4>Join the fam!</h4>
+        <h4>Welcome back!</h4>
         <form onSubmit={(e)=> this.handleSubmit(e)} onChange={(e) => this.handleChange(e)}>
-          <label htmlFor="name">Name: </label>
-          <input type="text" name="name"/> <br/>
           <label htmlFor="email">E-mail: </label>
           <input type="text" name="email"/> <br/>
           <label htmlFor="password">Password: </label>
           <input type="password" name="password"/> <br/>
-          <Link to="/">
-            Sign Up
+          <Link to="">
+            Log In
           </Link>
         </form>
       </React.Fragment>
@@ -71,9 +50,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createUser: (user) => dispatch(createUser(user))
+    getExistingUser: (user) => dispatch(getExistingUser(user))
   }
 }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

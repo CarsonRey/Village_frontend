@@ -1,18 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux'
+import { chooseRole } from '../store'
 
-
-class ChoiceCard extends Component {
-  state = {
-
-  }
+const ChoiceCard = (props) => {
+  const {chooseRole, role} = props
   // styling has to be on the actual component and reliant on global state
-  render() {
     return (
-      <React.Fragment>
-
-      </React.Fragment>
+      <div className="ChoiceCard" onClick={() => chooseRole(role)} >
+        <h1>{role}</h1>
+      </div>
     );
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    selected: state.userInfo.chosenRole === ownProps.role
   }
 }
 
-export default ChoiceCard;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    chooseRole: (role) => dispatch(chooseRole(role))
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChoiceCard);

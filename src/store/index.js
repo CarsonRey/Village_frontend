@@ -7,3 +7,5 @@ const rootReducer = combineReducers({ userInfo: userReducer })
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 export default store
+
+export * from './actions/userActions'

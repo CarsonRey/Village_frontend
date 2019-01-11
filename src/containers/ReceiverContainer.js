@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 
-
-class NewUserContainer extends Component {
-  state = {
-
-  }
+class ReceiverContainer extends Component {
 
   render() {
     return (
       <React.Fragment>
-
+        <h1>This is a receiver</h1>
       </React.Fragment>
     );
   }
+
 }
 
-export default NewUserContainer;
+export default ReceiverContainer;

@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
-import ChoiceCard from 'ChoiceCard'
+import React from 'react';
+import ChoiceCard from './ChoiceCard'
 
-class ChoicePage extends Component {
-  state = {
-    chosenRole:
-    
-  }
+const ChoicePage = (props) => {
 
-  chooseRole = () => {
-
-  }
-
-  render() {
-    const cards = ["Food Donator", "Food Deliverer", "Food Receiver"]
+    const roles = ["Food Donator", "Food Deliverer", "Food Receiver"]
     return (
       <React.Fragment>
         <h1>I'm signing up to be a ...</h1>
-          {cards.map(card => <ChoiceCard />)}
-        <button>Continue...</button>
+          {roles.map(role => <ChoiceCard key={role} role={role} />)}
+        <button onClick={()=> props.roleChosen()}>Continue...</button>
       </React.Fragment>
     );
-  }
 }
+
+
 
 export default ChoicePage;
