@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createUser } from '../store/actions/userActions'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
 class SignUp extends Component {
@@ -23,8 +23,7 @@ class SignUp extends Component {
     e.preventDefault()
     let role_id = this.determineRoleId()
     let user = {name: this.state.name, email: this.state.email, password: this.state.password, role_id: role_id}
-    this.props.createUser(user)
-
+    this.props.createUser(user).then()
   }
 
   determineRoleId = () => {
@@ -41,7 +40,6 @@ class SignUp extends Component {
 
   render() {
 
-    // const {chosenRole} = this.props
     console.log(this.state)
     return (
       <React.Fragment >
@@ -54,9 +52,10 @@ class SignUp extends Component {
           <input type="text" name="email"/> <br/>
           <label htmlFor="password">Password: </label>
           <input type="password" name="password"/> <br/>
-          <Link to="/">
-            Sign Up
-          </Link>
+          <input type="submit" value="Sign Up"/>
+          {/* // <Link to="/">
+          //   Sign Up
+          // </Link> */}
         </form>
       </React.Fragment>
     );

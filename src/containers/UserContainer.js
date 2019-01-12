@@ -2,26 +2,30 @@ import React, { Component } from 'react';
 import DonatorContainer from './DonatorContainer'
 import DelivererContainer from './DelivererContainer'
 import ReceiverContainer from './ReceiverContainer'
+import ColumnsContainer from './ColumnsContainer'
 import { connect } from 'react-redux'
 
 class UserContainer extends Component {
 
   renderUserHomePageBasedOnRole = () => {
-    let x = localStorage.role_id
-    if (x === 1){
+    let x = localStorage.userRoleId
+    if (x === "1"){
       return <DonatorContainer />
-    }else if (x === 2) {
+    }else if (x === "2") {
       return <DelivererContainer />
-    }else if (x === 3){
+    }else if (x === "3"){
       return <ReceiverContainer />
+    }else {
+      return <h1>Local Storage Empty</h1>
     }
   }
 
   render() {
-    console.log(this.props)
+    console.log("in UserContainer",this.props)
     return (
       <React.Fragment>
         {this.renderUserHomePageBasedOnRole()}
+        <ColumnsContainer />
       </React.Fragment>
     );
   }

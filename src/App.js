@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ReturningUserContainer from './containers/ReturningUserContainer'
 import NewUserContainer from './containers/NewUserContainer'
 import LandingOrHome from './components/LandingOrHome'
-
+import NavBar from './components/NavBar'
 import './App.css';
 
 class App extends Component {
 
-  changeRoute = (input) => {
-    this.props.history.push(`/${input}`)
-  }
+  // changeRoute = (input) => {
+  //   this.props.history.push(`/${input}`)
+  // }
 
   render() {
     console.log("in app", this.props)
     return (
       <div className="App">
+        <NavBar />
         <Switch>
-          <Route path="/new-user" render={() => <NewUserContainer/>}/>
-          <Route path="/returning-user" render={() => <ReturningUserContainer/>}/>
-          <Route path="/" render={ () => <LandingOrHome />} />
+          <Route path="/new-user" component={() => <NewUserContainer/>}/>
+          <Route path="/returning-user" component={() => <ReturningUserContainer/>}/>
+          <Route path="/" component={ () => <LandingOrHome />} />
         </Switch>
       </div>
     );
@@ -29,8 +30,9 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    localStorage: state.userInfo.userLocalStorage
+    user: state.userInfo.user
     // ,route: state.userInfo.route
    }
 }
-export default connect(mapStateToProps)(App);
+
+export default withRouter(connect(mapStateToProps)(App));

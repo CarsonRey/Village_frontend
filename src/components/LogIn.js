@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { getExistingUser } from '../store/actions/userActions'
-import { Link } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+
 
 class Login extends Component {
 
@@ -23,21 +24,21 @@ class Login extends Component {
 
   render() {
     // const {chosenRole} = this.props
-    console.log(this.state)
+    console.log(this.props)
     return (
-      <React.Fragment >
-        <h1>Village</h1>
+        <React.Fragment>
+        {/* <h1>Village</h1> */}
         <h4>Welcome back!</h4>
-        <form onSubmit={(e)=> this.handleSubmit(e)} onChange={(e) => this.handleChange(e)}>
+        <form action="/" onSubmit={(e)=> this.handleSubmit(e)} onChange={(e) => this.handleChange(e)}>
           <label htmlFor="email">E-mail: </label>
           <input type="text" name="email"/> <br/>
           <label htmlFor="password">Password: </label>
           <input type="password" name="password"/> <br/>
-          <Link to="">
-            Log In
-          </Link>
+          <input type="submit" value="Log In"/>
         </form>
-      </React.Fragment>
+
+        </React.Fragment>
+
     );
   }
 }
