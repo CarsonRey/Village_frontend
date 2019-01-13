@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DonatorContainer from './DonatorContainer'
 import DelivererContainer from './DelivererContainer'
 import ReceiverContainer from './ReceiverContainer'
-import ColumnsContainer from './ColumnsContainer'
+
 import { connect } from 'react-redux'
 
 class UserContainer extends Component {
@@ -25,7 +25,6 @@ class UserContainer extends Component {
     return (
       <React.Fragment>
         {this.renderUserHomePageBasedOnRole()}
-        <ColumnsContainer />
       </React.Fragment>
     );
   }
@@ -33,7 +32,7 @@ class UserContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {user: state.userInfo.user }
+  return { user: state.userInfo.user }
 }
 
 export default connect(mapStateToProps)(UserContainer);

@@ -24,6 +24,7 @@ export const chooseRole = (role) => {
 // }
 
 const storeUser = (user) => {
+  // debugger
   return {
     type: 'STORE_USER',
     payload: user
@@ -55,7 +56,7 @@ export const createUser = (user) => {
 }
 
 export const getExistingUser = (user) => {
-  return (dispatch) => {
+  return function (dispatch) {
     return fetch(`${base_url}/login`, {
       method: 'POST',
       headers: {
@@ -65,10 +66,11 @@ export const getExistingUser = (user) => {
     })
     .then(r => r.json())
     .then(userInfo => {
-
+// debugger
       localStorage.setItem("token", userInfo.jwt)
       localStorage.setItem("userRoleId", userInfo.user.role_id)
       localStorage.setItem("userName", userInfo.user.name)
+      localStorage.setItem("userId", userInfo.user.id)
 
       dispatch(storeUser(userInfo.user))
       dispatch(chooseRole(userInfo.user.role_id))
