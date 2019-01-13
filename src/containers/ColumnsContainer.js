@@ -8,9 +8,9 @@ import { connect } from 'react-redux'
 const ColumnsContainer = (props) => {
   return(
     <React.Fragment>
-      <ColumnOneContainer  user={props.user} />
-      <ColumnTwoContainer user={props.user} />
-      <ColumnThreeContainer user={props.user} />
+      <ColumnOneContainer  role={props.container} user={props.user} />
+      <ColumnTwoContainer role={props.container} user={props.user} />
+      <ColumnThreeContainer role={props.container} user={props.user} />
     </React.Fragment>
   )
 }

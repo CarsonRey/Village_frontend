@@ -14,10 +14,9 @@ const setReceiverRequests = (requests) => {
   }
 }
 
-
 /*---------- THUNK CREATORS ----------*/
 
-export const getAllRequests = (userId) => {
+export const getRequests = (userId) => {
   return (dispatch) => {
     return fetch(`${base_url}/requests`)
                 .then(r => r.json())

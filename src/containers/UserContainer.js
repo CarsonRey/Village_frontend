@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DonatorContainer from './DonatorContainer'
 import DelivererContainer from './DelivererContainer'
 import ReceiverContainer from './ReceiverContainer'
-
 import { connect } from 'react-redux'
 
 class UserContainer extends Component {

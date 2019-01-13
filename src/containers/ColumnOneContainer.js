@@ -1,37 +1,27 @@
 import React, { Component } from 'react';
 import RequestCard from '../components/RequestCard'
 import { connect } from 'react-redux'
-import { getAllRequests } from '../store'
+import { getRequests, getColumnOneHeader } from '../store'
 
 class ColumnOneContainer extends Component {
 
 
-  getColumnOne = (x) => {
-    if (x === "1"){
-      return this.props.getRequests()
-    }else if (x === "2") {
-      return this.props.getRequests()
-    }else if (x === "3"){
-      return this.props.getRequests(parseInt(localStorage.userId))
-      // need to figure out userAction/Reducer!!
+  getColumnOne = () => {
+    const {role, getRequests} = this.props
+    if (role === "Donator"){
+      return getRequests()
+    }else if (role === "Deliverer"){
+      return getRequests()
+    }else if (role === "Receiver"){
+      return getRequests(parseInt(localStorage.userId))
+      // need to figure out userAction/Reducer so we don't have to use localStorage!!
     }
   }
 
   componentDidMount() {
-   this.getColumnOne(localStorage.userRoleId)
-   //   (!this.props.user) &&
+   this.getColumnOne()
   }
 
-  getColumnHeader = (x) => {
-    if (x === "1"){
-      return "People In Need"
-    }else if (x === "2") {
-      return "Available Jobs"
-    }else if (x === "3"){
-      return "Recent Requests"
-      // need to figure out userAction/Reducer!!
-    }
-  }
 
   render(){
     console.log("in column one", this.props)
@@ -43,9 +33,14 @@ class ColumnOneContainer extends Component {
       // available jobs <-- iterate over all donations that don't have a delivery id (thunk, connect)
       // recent requests <-- iterate over all requests that belong to that user
       <React.Fragment>
-      <h3>{this.getColumnHeader(localStorage.userRoleId)}</h3>
-      {this.props.receiverRequests.map(request => <RequestCard req={request} key={request.id} />)}
+      <h3>{getColumnOneHeader(localStorage.userRoleId)}</h3>
+      {/* Donator */}
       {this.props.requests.map(request => <RequestCard req={request} key={request.id} />)}
+      {/* Donator */}
+      {}
+      {/* Receiver */}
+      {this.props.receiverRequests.map(request => <RequestCard req={request} key={request.id} />)}
+
     </React.Fragment>
     )
     }
@@ -61,7 +56,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getRequests: (userId) => dispatch(getAllRequests(userId)),
+    getRequests: (userId) => dispatch(getRequests(userId)),
   }
 }
 
