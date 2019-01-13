@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getExistingUser } from '../store/actions/userActions'
-// import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -17,14 +17,14 @@ class Login extends Component {
     })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.getExistingUser(this.state)
-  }
+  // handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   this.props.getExistingUser(this.state)
+  // }
 
   render() {
     // const {chosenRole} = this.props
-    console.log(this.props)
+    console.log(this.state)
     return (
         <React.Fragment>
         {/* <h1>Village</h1> */}
@@ -34,7 +34,10 @@ class Login extends Component {
           <input type="text" name="email"/> <br/>
           <label htmlFor="password">Password: </label>
           <input type="password" name="password"/> <br/>
-          <input type="submit" value="Log In"/>
+          <Link to="/" onClick={() => this.props.getExistingUser(this.state)} >
+              Log In
+          </Link>
+           {/* <input type="submit" value="Log In"/> */}
         </form>
 
         </React.Fragment>

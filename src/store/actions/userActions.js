@@ -1,6 +1,5 @@
 // import { push } from 'react-router-redux'
 // import { browserHistory } from 'react-router'
-
 const base_url = "http://localhost:3000/api/v1"
 /*---------- HELPER METHODS ----------*/
 // const determineRole = () => {
@@ -9,7 +8,7 @@ const base_url = "http://localhost:3000/api/v1"
 
 /*---------- ACTION CREATORS ----------*/
 export const chooseRole = (role) => {
-  // console.log("hi i made mom")
+  // console.log("hi i made mom", base_url)
   return {
     type: 'CHOOSE_ROLE',
     payload: role
@@ -66,9 +65,11 @@ export const getExistingUser = (user) => {
     })
     .then(r => r.json())
     .then(userInfo => {
+
       localStorage.setItem("token", userInfo.jwt)
       localStorage.setItem("userRoleId", userInfo.user.role_id)
       localStorage.setItem("userName", userInfo.user.name)
+
       dispatch(storeUser(userInfo.user))
       dispatch(chooseRole(userInfo.user.role_id))
       // // browserHistory.push('/')
