@@ -4,13 +4,21 @@ import userReducer from './reducers/userReducer'
 import requestReducer from './reducers/requestReducer'
 import donationReducer from './reducers/donationReducer'
 
-const rootReducer = combineReducers({ userInfo: userReducer, requestInfo: requestReducer, donationInfo: donationReducer })
+
+
+const rootReducer = combineReducers({ userInfo: userReducer, requestInfo: requestReducer , donationInfo: donationReducer})
+
+//
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
-
+// console.log("testing", store.getState())
 export default store
 
-// const base_url = "http://localhost:3000/api/v1"
+export const base_url = () =>{
+  return "http://localhost:3000/api/v1"
+}
+
+
 
 
 export * from './RoleOutput'

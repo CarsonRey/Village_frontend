@@ -1,5 +1,7 @@
+// import { base_url } from '../store'
+
 const base_url = "http://localhost:3000/api/v1"
-/*---------- ACTION CREATORS ----------*/
+ /*---------- ACTION CREATORS ----------*/
 const setRequests = (requests) => {
   return {
     type: 'SET_REQUESTS',
@@ -18,6 +20,7 @@ const setReceiverRequests = (requests) => {
 
 export const getRequests = (userId) => {
   return (dispatch) => {
+    // debugger
     return fetch(`${base_url}/requests`)
                 .then(r => r.json())
                 .then(requests => {

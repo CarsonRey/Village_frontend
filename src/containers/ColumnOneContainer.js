@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import RequestCard from '../components/RequestCard'
 import { connect } from 'react-redux'
-import { getRequests, getColumnOneHeader } from '../store'
+import {  getRequests, getColumnOneHeader } from '../store'
+
+// getDonations,
 
 class ColumnOneContainer extends Component {
 
@@ -26,17 +28,13 @@ class ColumnOneContainer extends Component {
   render(){
     console.log("in column one", this.props)
     return(
-      // we want the heading here for each person
-      // want to rely on connecting to the user state or localStorage
-
-      // people in need <-- iterate over all requests (thunk, connect)
       // available jobs <-- iterate over all donations that don't have a delivery id (thunk, connect)
-      // recent requests <-- iterate over all requests that belong to that user
+
       <React.Fragment>
       <h3>{getColumnOneHeader(localStorage.userRoleId)}</h3>
       {/* Donator */}
       {this.props.requests.map(request => <RequestCard req={request} key={request.id} />)}
-      {/* Donator */}
+      {/* Deliverer */}
       {}
       {/* Receiver */}
       {this.props.receiverRequests.map(request => <RequestCard req={request} key={request.id} />)}
@@ -47,7 +45,9 @@ class ColumnOneContainer extends Component {
   }
 
 const mapStateToProps = (state) => {
+  debugger
   return {
+    // donations: state.donationInfo.donations,
     requests: state.requestInfo.requests,
     receiverRequests: state.requestInfo.receiverRequests
 
@@ -57,6 +57,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getRequests: (userId) => dispatch(getRequests(userId)),
+    // getDonations: (userId) => dispatch(getDonations(userId))
   }
 }
 
