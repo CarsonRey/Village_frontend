@@ -1,17 +1,13 @@
 const initialState = {
-  deliveries: null,
-  setUserDeliveries: null
+  userDeliveries: []
 }
 
 
 const reducer = (state = initialState, action) => {
 
   switch (action.type) {
-    case 'SET_DELIVERIES': {
-      return {...state, donations: action.payload}
-    }
     case 'SET_USER_DELIVERIES': {
-      return {...state, userDonations: action.payload}
+      return {...state, userDeliveries: action.payload}
     }
     default:
       return state

@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+// import { connect } from 'react-redux'
+
 
 const NavBar = (props) => {
     return (
@@ -10,4 +12,9 @@ const NavBar = (props) => {
       </React.Fragment>
     );
 }
+
+const mapStateToProps = (state) => {
+  return { user: state.userInfo.user }
+}
+// connect(mapStateToProps)
 export default NavBar;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { getUser } from './store'
 import ReturningUserContainer from './containers/ReturningUserContainer'
 import NewUserContainer from './containers/NewUserContainer'
 import LandingOrHome from './components/LandingOrHome'
@@ -9,12 +10,12 @@ import './App.css';
 
 class App extends Component {
 
-  // changeRoute = (input) => {
-  //   this.props.history.push(`/${input}`)
-  // }
+  componentDidMount(){
+    this.props.getUser()
+  }
 
   render() {
-    console.log("in app", this.props)
+    // console.log("in app", this.props)
     return (
       <div className="App">
         <NavBar />
@@ -28,11 +29,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.userInfo.user
-    // ,route: state.userInfo.route
-   }
+
+const mapDispatchToProps = (dispatch) => {
+  return { getUser: () => dispatch(getUser()) }
 }
 
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect(null, mapDispatchToProps)(App));

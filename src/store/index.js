@@ -1,14 +1,15 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import userReducer from './reducers/userReducer'
-import requestReducer from './reducers/requestReducer'
+import userReducer from './reducers/userReducer.js'
+import requestReducer from './reducers/requestReducer.js'
 import donationReducer from './reducers/donationReducer.js'
+import deliveryReducer from './reducers/deliveryReducer.js'
 
 
 
-const rootReducer = combineReducers({ userInfo: userReducer, requestInfo: requestReducer , donationInfo: donationReducer})
+const rootReducer = combineReducers({ userInfo: userReducer, requestInfo: requestReducer , donationInfo: donationReducer, deliveryInfo: deliveryReducer})
 
-//
+
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 // console.log("testing", store.getState())
@@ -21,7 +22,8 @@ export const base_url = () =>{
 
 
 
-export * from './RoleOutput'
+export * from './RoleOutput.js'
 export * from './actions/userActions'
-export * from './actions/requestActions'
-export * from './actions/donationActions'
+export * from './actions/requestActions.js'
+export * from './actions/donationActions.js'
+export * from './actions/deliveryActions.js'

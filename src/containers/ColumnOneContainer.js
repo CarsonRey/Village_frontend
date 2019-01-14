@@ -9,13 +9,15 @@ class ColumnOneContainer extends Component {
 
 
   getColumnOne = () => {
-    const {role, getRequests, getDonations} = this.props
+    const {user, role, getRequests, getDonations} = this.props
     if (role === "Donator"){
       return getRequests()
     }else if (role === "Deliverer"){
       return getDonations()
     }else if (role === "Receiver"){
+      // debugger
       return getRequests(parseInt(localStorage.userId))
+      //
       // need to figure out userAction/Reducer so we don't have to use localStorage!!
     }
   }
@@ -24,11 +26,10 @@ class ColumnOneContainer extends Component {
    this.getColumnOne()
   }
 
-
   render(){
-    console.log("in column one", this.props)
+    // const {user} = this.props
+    // console.log("in column one", this.props)
     return(
-      // available jobs <-- iterate over all donations that don't have a delivery id (thunk, connect)
 
       <React.Fragment>
       <h3>{getColumnOneHeader(localStorage.userRoleId)}</h3>
@@ -48,7 +49,8 @@ const mapStateToProps = (state) => {
   return {
     availableJobs: state.donationInfo.donations,
     requests: state.requestInfo.requests,
-    receiverRequests: state.requestInfo.receiverRequests
+    receiverRequests: state.requestInfo.receiverRequests,
+    user: state.userInfo.user
 
    }
 }

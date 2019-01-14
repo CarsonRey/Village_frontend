@@ -24,7 +24,7 @@ export const chooseRole = (role) => {
 // }
 
 const storeUser = (user) => {
-  // debugger
+
   return {
     type: 'STORE_USER',
     payload: user
@@ -56,7 +56,7 @@ export const createUser = (user) => {
 }
 
 export const getExistingUser = (user) => {
-  return function (dispatch) {
+  return (dispatch) => {
     return fetch(`${base_url}/login`, {
       method: 'POST',
       headers: {
@@ -78,4 +78,23 @@ export const getExistingUser = (user) => {
       // dispatch(push('/'))
     })
   }
+}
+
+export const getUser = () => {
+ return (dispatch) => {
+   let token =  localStorage.getItem("token")
+   return fetch("http://localhost:3000/api/v1/current_user", {
+     method: "GET",
+     headers: {
+     "Content-Type": "application/json",
+     'Action': "application/json",
+     'Authorization': `${token}`
+     }
+   })
+     .then(resp => resp.json())
+       .then(resp => {
+
+         dispatch(storeUser(resp.user))
+       })
+ }
 }

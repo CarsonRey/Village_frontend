@@ -1,7 +1,7 @@
 const initialState = {
   user: null,
   chosenRole: null
-  // route: null
+
 }
 
 
@@ -9,14 +9,14 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'CHOOSE_ROLE': {
-      console.log("CHOOSE_ROLE", action.payload)
-      console.log("state is", state)
+      // console.log("CHOOSE_ROLE", action.payload)
+      // console.log("state is", state)
       // debugger
       return {...state, chosenRole: action.payload}
     }
     case 'STORE_USER': {
-      console.log("STORE_USER", action.payload)
-      console.log("state is", state)
+      // console.log("STORE_USER", action.payload)
+      // console.log("state is", state)
       // debugger
       return {...state, user: action.payload}
     }

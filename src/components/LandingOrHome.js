@@ -5,7 +5,7 @@ import LandingPage from './LandingPage'
 const LandingOrHome = (props) => {
     return (
       <React.Fragment>
-        {localStorage.length === 0 ? <LandingPage/> : <UserContainer/> }
+        {localStorage.token ? <UserContainer/> : <LandingPage/>}
       </React.Fragment>
     );
 }
