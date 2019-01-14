@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import RequestCard from '../components/RequestCard'
 import { connect } from 'react-redux'
-import {  getRequests, getColumnOneHeader } from '../store'
+import { getDonations, getRequests, getColumnOneHeader } from '../store'
 
-// getDonations,
+//
 
 class ColumnOneContainer extends Component {
 
 
   getColumnOne = () => {
-    const {role, getRequests} = this.props
+    const {role, getRequests, getDonations} = this.props
     if (role === "Donator"){
       return getRequests()
     }else if (role === "Deliverer"){
-      return getRequests()
+      return getDonations()
     }else if (role === "Receiver"){
       return getRequests(parseInt(localStorage.userId))
       // need to figure out userAction/Reducer so we don't have to use localStorage!!
@@ -33,11 +33,11 @@ class ColumnOneContainer extends Component {
       <React.Fragment>
       <h3>{getColumnOneHeader(localStorage.userRoleId)}</h3>
       {/* Donator */}
-      {this.props.requests.map(request => <RequestCard req={request} key={request.id} />)}
+      {this.props.requests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
       {/* Deliverer */}
-      {}
+      {this.props.availableJobs.map(job => <RequestCard role={this.props.role} job={job} key={job.id} />)}
       {/* Receiver */}
-      {this.props.receiverRequests.map(request => <RequestCard req={request} key={request.id} />)}
+      {this.props.receiverRequests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
 
     </React.Fragment>
     )
@@ -45,9 +45,8 @@ class ColumnOneContainer extends Component {
   }
 
 const mapStateToProps = (state) => {
-  debugger
   return {
-    // donations: state.donationInfo.donations,
+    availableJobs: state.donationInfo.donations,
     requests: state.requestInfo.requests,
     receiverRequests: state.requestInfo.receiverRequests
 
@@ -57,7 +56,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getRequests: (userId) => dispatch(getRequests(userId)),
-    // getDonations: (userId) => dispatch(getDonations(userId))
+    getDonations: (userId) => dispatch(getDonations(userId))
   }
 }
 

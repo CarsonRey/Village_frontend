@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import userReducer from './reducers/userReducer'
 import requestReducer from './reducers/requestReducer'
-import donationReducer from './reducers/donationReducer'
+import donationReducer from './reducers/donationReducer.js'
 
 
 
