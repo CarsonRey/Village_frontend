@@ -4,7 +4,6 @@ import ColumnTwoContainer from './ColumnTwoContainer'
 import ColumnThreeContainer from './ColumnThreeContainer'
 import { connect } from 'react-redux'
 
-
 const ColumnsContainer = (props) => {
   return(
     <React.Fragment>

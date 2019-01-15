@@ -3,13 +3,13 @@ import RequestCard from '../components/RequestCard'
 import { connect } from 'react-redux'
 import { getDonations, getRequests, getColumnOneHeader } from '../store'
 
-//
 
 class ColumnOneContainer extends Component {
 
 
   getColumnOne = () => {
-    const {user, role, getRequests, getDonations} = this.props
+    // user,
+    const { role, getRequests, getDonations} = this.props
     if (role === "Donator"){
       return getRequests()
     }else if (role === "Deliverer"){

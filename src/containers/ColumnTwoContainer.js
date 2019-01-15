@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import { getDeliveries, getColumnTwoHeader } from '../store'
+import DeliveryProgressCard from '../components/DeliveryProgressCard'
 import { connect } from 'react-redux'
 
 class ColumnTwoContainer extends Component {
 
   getColumnTwo = () => {
-    const {user, role, getDeliveries} = this.props
+    // user,
+    const { role, getDeliveries} = this.props
     if (role === "Donator"){
       return getDeliveries(role, parseInt(localStorage.userId))
     }else if (role === "Deliverer"){
@@ -34,42 +36,13 @@ class ColumnTwoContainer extends Component {
     // debugger
     let donatorDonations = this.props.deliveries.filter(delivery => delivery.delivered === false)
 
+    const {role} = this.props
 
     return(
         <React.Fragment>
           <h3>{getColumnTwoHeader(localStorage.userRoleId)}</h3>
-            {
-
-              donatorDonations.map(delivery => {
-                return <div>
-                <p>You</p>
-                <p>From: Your Location</p>
-
-                <p>{delivery.receiver.name}</p>
-                <p>To: Their Location</p>
-
-                {delivery.pick_up !== null && <p>Pick up time: {delivery.pick_up}</p>}
-
-                <p>{this.getDeliveryStatus(delivery)}</p>
-                <p>Deliverer: { delivery.deliverer.name}</p>
-                </div>
-
-              })
-
-            }
-
+          {donatorDonations.map(delivery => <DeliveryProgressCard getDeliveryStatus={this.getDeliveryStatus} delivery={delivery} key={delivery.id} role={role} />)}
         </React.Fragment>
-      // donations in progress <-- iterate over deliveries that belong to that donator, that haven't been delivered or don't have a pick_up time
-
-
-      //
-      // {this.donatorDonations()}
-
-      // deliveries in progress <-- iterate over deliveries that belong to that deliverer that aren't delivered
-
-      // deliveries in progress <-- iterate over deliveries that belong to that receiver
-
-
     )
   }
 
