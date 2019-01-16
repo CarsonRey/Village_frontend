@@ -5,7 +5,7 @@ import { getUser } from './store'
 import ReturningUserContainer from './containers/ReturningUserContainer'
 import NewUserContainer from './containers/NewUserContainer'
 import LandingOrHome from './components/LandingOrHome'
-import DonationForm from './components/DonationForm'
+import DonationFormContainer from './containers/DonationFormContainer'
 import NavBar from './components/NavBar'
 import './App.css';
 
@@ -23,7 +23,7 @@ class App extends Component {
         <Switch>
           <Route path="/new-user" component={() => <NewUserContainer/>}/>
           <Route path="/returning-user" component={() => <ReturningUserContainer/>}/>
-          <Route path="/test" component={ () => <DonationForm />} />
+          <Route path="/donation-form" component={ () => <DonationFormContainer />} />
           <Route path="/" component={ () => <LandingOrHome />} />
 
         </Switch>

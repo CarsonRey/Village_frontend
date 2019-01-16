@@ -9,7 +9,7 @@ const RequestCard = (props) => {
       <div>
 
         {
-          role === "Donator" && <p>{req.user.name} needs food for {req.mouths_to_feed} people. <Link to="/test">Can you help?</Link> </p>
+          role === "Donator" && <p>{req.user.name} needs food for {req.mouths_to_feed} people. <Link to="/donation-form">I want to help.</Link> </p>
         }
 
         {
