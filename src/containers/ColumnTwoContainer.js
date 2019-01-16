@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import { getDeliveries, getColumnTwoHeader } from '../store'
+import { getColumnTwoHeader, getDeliveries } from '../store'
 import DeliveryProgressCard from '../components/DeliveryProgressCard'
 import { connect } from 'react-redux'
 
 class ColumnTwoContainer extends Component {
 
   getColumnTwo = () => {
-    // user,
     const { role, getDeliveries} = this.props
     if (role === "Donator"){
       return getDeliveries(role, parseInt(localStorage.userId))

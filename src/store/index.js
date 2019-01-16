@@ -20,9 +20,8 @@ export const base_url = () =>{
 }
 
 
-
-
-export * from './RoleOutput.js'
+export * from './helperMethods/DateTimeFormatting.js'
+export * from './helperMethods/RoleOutput.js'
 export * from './actions/userActions'
 export * from './actions/requestActions.js'
 export * from './actions/donationActions.js'

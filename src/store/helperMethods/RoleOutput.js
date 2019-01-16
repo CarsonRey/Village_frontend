@@ -25,12 +25,23 @@ export const  getColumnThreeHeader = (x) => {
   if (x === "1"){
     return "Your Past Donations"
   }else if (x === "2") {
-    return "Yout Past Deliveries"
+    return "Your Past Deliveries"
   }else if (x === "3"){
     return "Your Past Received Donations"
     // need to figure out userAction/Reducer!!
   }
 }
+
+// export const getDetailHeaderInfo = (x) => {
+//   if (x === "1"){
+//     return "Donations"
+//   }else if (x === "2") {
+//     return "Deliveries"
+//   }else if (x === "3"){
+//     return "Your Past Received Donations"
+//     // need to figure out userAction/Reducer!!
+//   }
+// }
 
 
 /*---------- ?? METHODS ----------*/

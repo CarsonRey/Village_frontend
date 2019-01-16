@@ -24,16 +24,17 @@ export const getRequests = (userId) => {
     return fetch(`${base_url}/requests`)
                 .then(r => r.json())
                 .then(requests => {
-                
+
                   if (userId){
                     let receiverRequests = requests.filter(request => request.user_id === userId)
                     dispatch(setReceiverRequests(receiverRequests))
                   } else {
-                    dispatch(setRequests(requests))
+                    let unfulfilledRequests = requests.filter(request => request.taken === false )
+                    dispatch(setRequests(unfulfilledRequests))
                   }
 
                 })
-}
+ }
 }
 
 // if a user is passed in, then setReceiver, if not set all.

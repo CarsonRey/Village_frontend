@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import { getColumnThreeHeader, getDeliveries } from '../store'
+import { getColumnThreeHeader , getDeliveries } from '../store'
+// import getDeliveries from '../store'
+
 import PastDeliveryCard from '../components/PastDeliveryCard'
 import { connect } from 'react-redux'
 
@@ -25,9 +27,6 @@ class ColumnThreeContainer extends Component {
   render(){
       let pastDeliveries = this.props.deliveries.filter(delivery => delivery.delivered === true)
     return(
-      // Your Past Donations <-- iterate over deliveries that belong to that donator that are delivered
-      // Your past deliveries <-- iterate over deliveries that belong to that deliverer that are delivered
-      // Your past received donations <-- iterate over deliveries that belong to that receiver that are delivered
       <React.Fragment>
         <h3>{getColumnThreeHeader(localStorage.userRoleId)}</h3>
         {pastDeliveries.map(delivery => <PastDeliveryCard  delivery={delivery} key={delivery.id} role={this.props.role} />)}

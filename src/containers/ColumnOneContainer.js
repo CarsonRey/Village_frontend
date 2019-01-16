@@ -17,7 +17,7 @@ class ColumnOneContainer extends Component {
     }else if (role === "Receiver"){
       // debugger
       return getRequests(parseInt(localStorage.userId))
-      //
+
       // need to figure out userAction/Reducer so we don't have to use localStorage!!
     }
   }
@@ -32,15 +32,14 @@ class ColumnOneContainer extends Component {
     return(
 
       <React.Fragment>
-      <h3>{getColumnOneHeader(localStorage.userRoleId)}</h3>
-      {/* Donator */}
-      {this.props.requests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
-      {/* Deliverer */}
-      {this.props.availableJobs.map(job => <RequestCard role={this.props.role} job={job} key={job.id} />)}
-      {/* Receiver */}
-      {this.props.receiverRequests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
-
-    </React.Fragment>
+        <h3>{getColumnOneHeader(localStorage.userRoleId)}</h3>
+        {/* Donator */}
+        {this.props.requests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
+        {/* Deliverer */}
+        {this.props.availableJobs.map(job => <RequestCard role={this.props.role} job={job} key={job.id} />)}
+        {/* Receiver */}
+        {this.props.receiverRequests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
+      </React.Fragment>
     )
     }
   }

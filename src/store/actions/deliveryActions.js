@@ -9,6 +9,13 @@ const setUserDeliveries = (deliveries) => {
   }
 }
 
+const updateDeliveries = (delivery) => {
+  return {
+    type: 'UPDATE_DELIVERIES',
+    payload: delivery
+  }
+}
+
 /*---------- THUNK CREATORS ----------*/
 
 export const getDeliveries = (role, userId) => {
@@ -29,7 +36,37 @@ export const getDeliveries = (role, userId) => {
         dispatch(setUserDeliveries(userDeliveries))
       }
 
-
     })
+  }
+}
+
+// export default getDeliveries
+
+
+export const finishDelivery = (oldDelivery, time) => {
+  return (dispatch) => {
+    return fetch (`${base_url}/delivery_done/${oldDelivery.id}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({drop_off: time, delivered: true})
+    })
+    .then(r => r.json())
+    .then(delivery => dispatch(updateDeliveries(delivery)))
+  }
+}
+
+export const completePickUp = (oldDelivery, time) => {
+  return (dispatch) => {
+    return fetch (`${base_url}/picked_up/${oldDelivery.id}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({pick_up: time})
+    })
+    .then(r => r.json())
+    .then(delivery => dispatch(updateDeliveries(delivery)))
   }
 }
