@@ -8,7 +8,7 @@ const DonationFormContainer = (props) => {
     return (
       <React.Fragment>
       <div><Link to="/">Back</Link></div>
-      <h1></h1>
+      {/* <h1></h1> */}
       <DonationForm/>
       </React.Fragment>
     );

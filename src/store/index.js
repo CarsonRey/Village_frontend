@@ -23,6 +23,6 @@ export const base_url = () =>{
 export * from './helperMethods/DateTimeFormatting.js'
 export * from './helperMethods/RoleOutput.js'
 export * from './actions/userActions'
-export * from './actions/requestActions.js'
+export * from './actions/requestActions'
 export * from './actions/donationActions.js'
 export * from './actions/deliveryActions.js'

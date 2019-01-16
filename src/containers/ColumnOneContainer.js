@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getDonations, getRequests, getColumnOneHeader } from '../store'
 
 
+
 class ColumnOneContainer extends Component {
 
 
@@ -15,9 +16,7 @@ class ColumnOneContainer extends Component {
     }else if (role === "Deliverer"){
       return getDonations()
     }else if (role === "Receiver"){
-      // debugger
       return getRequests(parseInt(localStorage.userId))
-
       // need to figure out userAction/Reducer so we don't have to use localStorage!!
     }
   }
@@ -27,8 +26,6 @@ class ColumnOneContainer extends Component {
   }
 
   render(){
-    // const {user} = this.props
-    // console.log("in column one", this.props)
     return(
 
       <React.Fragment>

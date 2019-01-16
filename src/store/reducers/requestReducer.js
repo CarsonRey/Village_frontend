@@ -1,6 +1,7 @@
 const initialState = {
   requests: [],
-  receiverRequests: []
+  receiverRequests: [],
+  chosenRequest: {}
 }
 
 
@@ -12,6 +13,10 @@ const reducer = (state = initialState, action) => {
     }
     case 'SET_RECEIVER_REQUESTS':{
       return {...state, receiverRequests: action.payload}
+    }
+    case 'SET_CHOSEN_REQUEST':{
+      debugger
+      return {...state, chosenRequest: action.payload}
     }
     default:
       return state

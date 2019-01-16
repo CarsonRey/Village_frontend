@@ -16,8 +16,15 @@ const setReceiverRequests = (requests) => {
   }
 }
 
-/*---------- THUNK CREATORS ----------*/
+export const setChosenRequest = (request) => {
+  return {
+    type: 'SET_CHOSEN_REQUEST',
+    payload: request
+  }
+}
 
+
+/*---------- THUNK CREATORS ----------*/
 export const getRequests = (userId) => {
   return (dispatch) => {
     // debugger
@@ -36,6 +43,8 @@ export const getRequests = (userId) => {
                 })
  }
 }
+
+
 
 // if a user is passed in, then setReceiver, if not set all.
 
