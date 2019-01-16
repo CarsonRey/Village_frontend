@@ -1,3 +1,5 @@
+import { createFoodItem } from './foodItemActions'
+
 const base_url = "http://localhost:3000/api/v1"
 
 
@@ -34,6 +36,27 @@ export const getDonations = (userId) => {
                     dispatch(setAvailableDonationJobs(availableDonations))
                   }
 
+                })
+}
+}
+
+export const createDonation = (params, foodItems) => {
+  return (dispatch) => {
+    // debugger
+    return fetch(`${base_url}/donations`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({request_id: params.request_id, giver_id: params.giver_id, receiver_id: params.receiver_id})
+    })
+                .then(r => r.json())
+                .then(donation => {
+
+                  foodItems.forEach(foodItem => {
+
+                    dispatch(createFoodItem(foodItem, donation.id))
+                  })
                 })
 }
 }

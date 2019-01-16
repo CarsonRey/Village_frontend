@@ -16,7 +16,7 @@ const RequestCard = (props) => {
         }
 
         {
-          role === "Deliverer" && <div><p>{job.giver.name} is looking for someone to deliver to {job.receiver.name}</p> <Link to="/">Details</Link> </div>
+          role === "Deliverer" && <div><p>{job.giver.name} is looking for someone to deliver to {job.receiver.name}</p> <Link to="/">Details</Link> <button onClick={console.log("job taken")}>Take the job</button> </div>
         }
 
         {

@@ -15,7 +15,6 @@ const reducer = (state = initialState, action) => {
       return {...state, receiverRequests: action.payload}
     }
     case 'SET_CHOSEN_REQUEST':{
-      debugger
       return {...state, chosenRequest: action.payload}
     }
     default:

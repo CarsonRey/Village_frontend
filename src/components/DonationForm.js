@@ -1,6 +1,7 @@
 import React from "react"
 import FoodItemInput from "./FoodItemInput"
 import { connect } from 'react-redux'
+import { createDonation } from '../store'
 import { Link } from 'react-router-dom'
 
   class DonationForm extends React.Component {
@@ -42,13 +43,19 @@ import { Link } from 'react-router-dom'
     handleSubmit = (e) => { e.preventDefault() }
 
     render() {
+      console.log(this.props)
         let {foodItems} = this.state
+        let { chosenRequest, user, createDonation } = this.props
+        let info = {request_id: chosenRequest.id, giver_id: user.id, receiver_id: chosenRequest.user.id}
         return (
+          <React.Fragment>
+          <h2>{chosenRequest.user.name} is in need! What will you donate ?</h2>
           <form  onChange={this.handleChange} >
+
             <FoodItemInput foodItems={foodItems} />
 
             <div className="addNewInput" onClick={this.addNewInputRow}>Add New Item +</div>
-            <Link to="/" onClick={() => console.log("hi")}>
+            <Link to="/" onClick={() => createDonation(info, foodItems)}>
               Donate
             </Link>
             {/* On click
@@ -57,12 +64,17 @@ import { Link } from 'react-router-dom'
               3. In the "then" of the creation of the foodItem we fetch to create the food_item donation, passing in the ID of the foodItem and the ID of the donation  */}
             {/* <input type="submit" value="Submit" /> */}
           </form>
+        </React.Fragment>
         )
       }
     }
 
     const mapStateToProps = (state) => {
-      return { chosenRequest: state.requestInfo.chosenRequest }
+      return { chosenRequest: state.requestInfo.chosenRequest, user: state.userInfo.user }
     }
 
-    export default connect(mapStateToProps)(DonationForm);
+    const mapDispatchToProps = (dispatch) => {
+      return { createDonation: (info, foodItems) => dispatch(createDonation(info, foodItems)) }
+    }
+
+    export default connect(mapStateToProps, mapDispatchToProps)(DonationForm);
