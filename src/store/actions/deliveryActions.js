@@ -1,3 +1,4 @@
+import { assignDonationToDelivery } from './donationActions'
 const base_url = "http://localhost:3000/api/v1"
 
 /*---------- ACTION CREATORS ----------*/
@@ -40,8 +41,22 @@ export const getDeliveries = (role, userId) => {
   }
 }
 
-// export default getDeliveries
-
+export const createDelivery = (params, donationId) => {
+   return (dispatch) => {
+     return fetch (`${base_url}/deliveries`, {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({giver_id: params.giver_id, receiver_id: params.receiver_id, deliverer_id: params.deliverer_id})
+     })
+     .then(r => r.json())
+     .then(delivery => {
+       dispatch(updateDeliveries(delivery))
+       dispatch(assignDonationToDelivery(donationId, delivery.id))
+     })
+   }
+}
 
 export const finishDelivery = (oldDelivery, time) => {
   return (dispatch) => {

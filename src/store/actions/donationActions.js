@@ -20,6 +20,13 @@ const base_url = "http://localhost:3000/api/v1"
    }
  }
 
+ const updateDonations = (donation) => {
+   return{
+     type: 'UPDATE_DONATIONS',
+     payload: donation
+   }
+ }
+
 
 /*---------- THUNK CREATORS ----------*/
 
@@ -60,4 +67,21 @@ export const createDonation = (params, foodItems) => {
                   })
                 })
 }
+}
+
+export const assignDonationToDelivery = (donationId, deliveryId) => {
+  return (dispatch) => {
+    // debugger
+    return fetch(`${base_url}/add_to_delivery/${donationId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({delivery_id: deliveryId})
+    })
+                .then(r => r.json())
+                .then(donation => {
+                    dispatch(updateDonations(donation))
+                  })
+                }
 }
