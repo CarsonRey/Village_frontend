@@ -5,9 +5,7 @@ import { setChosenRequest, createDelivery } from '../store'
 
 const RequestCard = (props) => {
     const { req, role, job, setRequest, takeJob } = props
-    console.log(job)
-    // const time = new Date(req.created_at)
-// (req) => setChosenRequest(req)
+
     return (
       <div className="RequestCard">
 
@@ -37,5 +35,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(RequestCard);
-// .substr(0,15)
-// strftime("%b-%d-%I-%")

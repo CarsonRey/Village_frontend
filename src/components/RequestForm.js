@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createRequest, showOrHideForm } from '../store'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
 class RequestForm extends Component {
@@ -33,7 +33,7 @@ class RequestForm extends Component {
           <div onClick={() => createRequest(params)}>
              Submit Request
           </div>
-          <div onClick={() => this.props.hideForm(true)}>
+          <div onClick={() => hideForm(true)}>
              cancel
           </div>
 

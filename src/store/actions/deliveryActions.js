@@ -85,3 +85,22 @@ export const completePickUp = (oldDelivery, time) => {
     .then(delivery => dispatch(updateDeliveries(delivery)))
   }
 }
+
+export const userHasRatedDelivery = (deliveryId, userRole) => {
+  let params
+
+  userRole === "1" ? params = {giver_has_rated: true} : params = {receiver_has_rated: true}
+
+
+  return (dispatch) => {
+    return fetch (`${base_url}/rated/${deliveryId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(params)
+    })
+    .then(r => r.json())
+    .then(delivery => dispatch(updateDeliveries(delivery)))
+  }
+}

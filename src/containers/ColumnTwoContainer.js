@@ -29,10 +29,7 @@ class ColumnTwoContainer extends Component {
   }
 
   render(){
-    // console.log("in column two",this.props)
-    // console.log("deliveries", this.props.deliveries)
-    // console.log("donatorDonations",donatorDonations)
-    // debugger
+
     let donatorDonations = this.props.deliveries.filter(delivery => delivery.delivered === false)
 
     const {role} = this.props
