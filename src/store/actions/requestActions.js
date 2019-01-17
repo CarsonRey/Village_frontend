@@ -37,6 +37,13 @@ export const updateRequests = (request) => {
   }
 }
 
+export const showOrHideForm = (isShowing) => {
+  return {
+    type: 'SHOW_OR_HIDE_FORM',
+    payload: isShowing
+  }
+}
+
 
 /*---------- THUNK CREATORS ----------*/
 export const getRequests = (userId) => {

@@ -18,6 +18,10 @@ const reducer = (state = initialState, action) => {
     case 'SET_CHOSEN_REQUEST':{
       return {...state, chosenRequest: action.payload}
     }
+    case 'SHOW_OR_HIDE_FORM':{
+      let showingOrNot = !action.payload
+      return {...state, showRequestForm: showingOrNot}
+    }
     case 'ADD_REQUEST':{
       return {...state, receiverRequests: [...state.receiverRequests, action.payload] }
     }

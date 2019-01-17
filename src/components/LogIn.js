@@ -17,14 +17,8 @@ class Login extends Component {
     })
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   this.props.getExistingUser(this.state)
-  // }
-
   render() {
-    // const {chosenRole} = this.props
-    // console.log(this.state)
+
     return (
         <React.Fragment>
         {/* <h1>Village</h1> */}
