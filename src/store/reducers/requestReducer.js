@@ -1,7 +1,8 @@
 const initialState = {
   requests: [],
   receiverRequests: [],
-  chosenRequest: {}
+  chosenRequest: {},
+  showRequestForm: false
 }
 
 
@@ -16,6 +17,13 @@ const reducer = (state = initialState, action) => {
     }
     case 'SET_CHOSEN_REQUEST':{
       return {...state, chosenRequest: action.payload}
+    }
+    case 'ADD_REQUEST':{
+      return {...state, receiverRequests: [...state.receiverRequests, action.payload] }
+    }
+    case 'UPDATE_REQUESTS':{
+      let requests = state.requests.filter(request => request.id !== action.payload.id)
+      return {...state, requests: requests}
     }
     default:
       return state

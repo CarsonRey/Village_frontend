@@ -43,7 +43,7 @@ import { Link } from 'react-router-dom'
     handleSubmit = (e) => { e.preventDefault() }
 
     render() {
-      console.log(this.props)
+      
         let {foodItems} = this.state
         let { chosenRequest, user, createDonation } = this.props
         let info = {request_id: chosenRequest.id, giver_id: user.id, receiver_id: chosenRequest.user.id}

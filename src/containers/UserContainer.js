@@ -20,7 +20,7 @@ class UserContainer extends Component {
   }
 
   render() {
-    console.log("in UserContainer",this.props)
+    // console.log("in UserContainer",this.props)
     return (
       <React.Fragment>
         {this.renderUserHomePageBasedOnRole()}

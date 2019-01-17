@@ -5,11 +5,11 @@ import  { setChosenRequest }  from '../store'
 
 const RequestCard = (props) => {
     const {req, role, job} = props
-    console.log(props)
+    // console.log(props)
     // const time = new Date(req.created_at)
 // (req) => setChosenRequest(req)
     return (
-      <div>
+      <div className="RequestCard">
 
         {
           role === "Donator" && <p>{req.user.name} needs food for {req.mouths_to_feed} people. <Link to="/donation-form" onClick={() => props.setRequest(req)}>I want to help.</Link> </p>

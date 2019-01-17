@@ -16,9 +16,23 @@ const setReceiverRequests = (requests) => {
   }
 }
 
+export const addRequest = (request) => {
+  return {
+    type: 'ADD_REQUEST',
+    payload: request
+  }
+}
+
 export const setChosenRequest = (request) => {
   return {
     type: 'SET_CHOSEN_REQUEST',
+    payload: request
+  }
+}
+
+export const updateRequests = (request) => {
+  return {
+    type: 'UPDATE_REQUESTS',
     payload: request
   }
 }
@@ -31,7 +45,7 @@ export const getRequests = (userId) => {
     return fetch(`${base_url}/requests`)
                 .then(r => r.json())
                 .then(requests => {
-
+// debugger
                   if (userId){
                     let receiverRequests = requests.filter(request => request.user_id === userId)
                     dispatch(setReceiverRequests(receiverRequests))
@@ -41,6 +55,41 @@ export const getRequests = (userId) => {
                   }
 
                 })
+ }
+}
+
+export const createRequest = (params) => {
+  return (dispatch) => {
+
+    return fetch(`${base_url}/requests`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({mouths_to_feed: params.mouths_to_feed, user_id: params.user_id, taken: false})
+    })
+    .then(r => r.json())
+    .then(request => {
+      dispatch(addRequest(request))
+    })
+ }
+}
+
+
+export const updateRequest = (requestId) => {
+  return (dispatch) => {
+    return fetch(`${base_url}/request_taken/${requestId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({taken: true})
+    })
+    .then(r => r.json())
+    .then(request => {
+      // debugger
+      dispatch(updateRequests(request))
+    })
  }
 }
 

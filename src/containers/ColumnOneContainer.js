@@ -20,12 +20,16 @@ class ColumnOneContainer extends Component {
       // need to figure out userAction/Reducer so we don't have to use localStorage!!
     }
   }
+  // shouldComponentUpdate(nextProps, nextState){
+  //   return this.props.requests !== nextProps.requests;
+  // }
 
   componentDidMount() {
    this.getColumnOne()
   }
 
   render(){
+    console.log("in column one", this.props.receiverRequests)
     return(
 
       <React.Fragment>

@@ -1,4 +1,6 @@
 import { createFoodItem } from './foodItemActions'
+import { updateRequest } from './requestActions'
+
 
 const base_url = "http://localhost:3000/api/v1"
 
@@ -52,9 +54,8 @@ export const createDonation = (params, foodItems) => {
     })
                 .then(r => r.json())
                 .then(donation => {
-
+                  dispatch(updateRequest(params.request_id))
                   foodItems.forEach(foodItem => {
-
                     dispatch(createFoodItem(foodItem, donation.id))
                   })
                 })

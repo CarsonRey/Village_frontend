@@ -29,7 +29,7 @@ class ColumnTwoContainer extends Component {
   }
 
   render(){
-    console.log("in column two",this.props)
+    // console.log("in column two",this.props)
     // console.log("deliveries", this.props.deliveries)
     // console.log("donatorDonations",donatorDonations)
     // debugger

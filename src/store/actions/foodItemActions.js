@@ -21,7 +21,7 @@ export const createFoodItem = (foodItem, donationId) => {
 }
 
 const createFoodItemDonation = (foodItemId, donationId) => {
-  debugger
+  // debugger
     return (dispatch) => {
       return fetch(`${base_url}/food_item_donations`, {
         method: 'POST',
