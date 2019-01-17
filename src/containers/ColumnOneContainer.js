@@ -26,7 +26,6 @@ class ColumnOneContainer extends Component {
   }
 
   render(){
-    console.log("in column one", this.props.receiverRequests)
     return(
 
       <React.Fragment>

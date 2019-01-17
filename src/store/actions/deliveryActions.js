@@ -17,6 +17,13 @@ const updateDeliveries = (delivery) => {
   }
 }
 
+export const setSelectedDelivery = (delivery) => {
+  return {
+    type: 'SET_SELECTED_DELIVERY',
+    payload: delivery
+  }
+}
+
 /*---------- THUNK CREATORS ----------*/
 
 export const getDeliveries = (role, userId) => {

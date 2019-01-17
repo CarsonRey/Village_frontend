@@ -17,7 +17,6 @@ export const createRating = (params, deliveryId) => {
      .then(r => r.json())
      .then(rating => {
        dispatch(userHasRatedDelivery(deliveryId, userRole))
-
      })
    }
 }
