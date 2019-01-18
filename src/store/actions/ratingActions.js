@@ -8,11 +8,11 @@ export const showOrHideRatingForm = (isShowing) => {
     payload: isShowing
   }
 }
-
 /*---------- THUNK CREATORS ----------*/
 
 export const createRating = (params, deliveryId) => {
    let userRole = localStorage.userRoleId
+
    return (dispatch) => {
      return fetch (`${base_url}/ratings`, {
        method: 'POST',

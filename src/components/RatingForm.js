@@ -22,8 +22,10 @@ class RatingForm extends Component {
 
     let userId = parseInt(localStorage.userId)
     let rating = parseInt(this.state.rating)
-    let params = {rating: rating, notes: this.state.notes, delivery_id: delivery.id, deliverer_id: delivery.deliverer_id, rater_id: userId}
+    let params = {number: rating, notes: this.state.notes, delivery_id: delivery.id, deliverer_id: delivery.deliverer.id, rater_id: userId}
+    let deliveryId = delivery.id
 
+    console.log(delivery)
     return (
       <React.Fragment >
 <div className="bg-modal">
@@ -33,7 +35,7 @@ class RatingForm extends Component {
           <label htmlFor="notes">Any comments? </label> <br/>
           <input type="text" name="notes" value={this.state.notes} /> <br/>
 
-          <div onClick={() => createRating(params, delivery.id)}>
+          <div onClick={() => {hideForm(true); createRating(params, deliveryId);}}>
              Submit Rating
           </div>
           <div onClick={() => hideForm(true)}>
@@ -56,7 +58,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createRating: (delivery) => dispatch(createRating(delivery)),
+    createRating: (delivery, id) => dispatch(createRating(delivery, id)),
     hideForm: (isShowing) => dispatch(showOrHideRatingForm(isShowing))
 
   }

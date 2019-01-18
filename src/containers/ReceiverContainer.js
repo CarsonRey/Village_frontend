@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RequestFormOrButtonContainer from './RequestFormOrButtonContainer'
 import RateDelivererContainer from './RateDelivererContainer'
 import ColumnsContainer from './ColumnsContainer'
+import HoursForm from '../components/HoursForm'
 import { connect } from 'react-redux'
 
 class ReceiverContainer extends Component {
@@ -15,6 +16,7 @@ class ReceiverContainer extends Component {
       <React.Fragment>
         <h1>This is a receiver</h1>
             { unratedDeliveries.length > 0 && <RateDelivererContainer/>}
+        <HoursForm />
         <RequestFormOrButtonContainer/>
         <ColumnsContainer container="Receiver" />
       </React.Fragment>
