@@ -5,6 +5,7 @@ import requestReducer from './reducers/requestReducer.js'
 import donationReducer from './reducers/donationReducer.js'
 import deliveryReducer from './reducers/deliveryReducer.js'
 import ratingReducer from './reducers/ratingReducer.js'
+// import ratingReducer from './reducers/hourReducer.js'
 
 
 
@@ -28,3 +29,4 @@ export * from './actions/requestActions'
 export * from './actions/donationActions'
 export * from './actions/deliveryActions.js'
 export * from './actions/ratingActions'
+export * from './actions/hourActions'
