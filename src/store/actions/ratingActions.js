@@ -1,6 +1,13 @@
 import { userHasRatedDelivery } from './deliveryActions'
 const base_url = "http://localhost:3000/api/v1"
 
+/*---------- ACTION CREATORS ----------*/
+export const showOrHideRatingForm = (isShowing) => {
+  return {
+    type: 'SHOW_OR_HIDE_RATING_FORM',
+    payload: isShowing
+  }
+}
 
 /*---------- THUNK CREATORS ----------*/
 

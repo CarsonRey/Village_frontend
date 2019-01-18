@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DonatorContainer from './DonatorContainer'
 import DelivererContainer from './DelivererContainer'
 import ReceiverContainer from './ReceiverContainer'
+import RatingForm from '../components/RatingForm'
 import { connect } from 'react-redux'
 
 class UserContainer extends Component {
@@ -21,8 +22,10 @@ class UserContainer extends Component {
 
   render() {
     // console.log("in UserContainer",this.props)
+    let {userClickedRate} = this.props
     return (
       <React.Fragment>
+        {userClickedRate && <RatingForm/>}
         {this.renderUserHomePageBasedOnRole()}
       </React.Fragment>
     );
@@ -31,7 +34,11 @@ class UserContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { user: state.userInfo.user }
+  console.log(state.ratingInfo)
+  return {
+     user: state.userInfo.user,
+     userClickedRate: state.ratingInfo.showRatingForm
+   }
 }
 
 export default connect(mapStateToProps)(UserContainer);

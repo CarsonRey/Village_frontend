@@ -1,19 +1,19 @@
 import React from 'react';
-import { setSelectedDelivery } from '../store'
+import { setSelectedDelivery, showOrHideRatingForm } from '../store'
 import { connect } from 'react-redux'
 
 const RatingPrompt = (props) => {
-  let { delivery, setDelivery } = props
+  let { delivery, setDelivery, showForm } = props
 
     return (
       <React.Fragment>
         {localStorage.userRoleId === "1" ?
 
          (
-           <div>Please rate your deliverer <span>{delivery.deliverer.name}</span> for your recent donation to <span>{delivery.receiver.name}</span> <div onMouseOver={()=> setDelivery(delivery)} onClick={() => console.log("clicked")}>Rate</div> </div>
+           <div>Please rate your deliverer <span>{delivery.deliverer.name}</span> for your recent donation to <span>{delivery.receiver.name}</span> <div onMouseOver={()=> setDelivery(delivery)} onClick={() => showForm(false)}>Rate</div> </div>
          )
         : (
-          <div>Please rate your deliverer <span>{delivery.deliverer.name}</span> for your recent donation from <span>{delivery.giver.name}</span> <div onMouseOver={()=> setDelivery(delivery)} onClick={() => console.log("clicked")}>Rate</div> </div>
+          <div>Please rate your deliverer <span>{delivery.deliverer.name}</span> for your recent donation from <span>{delivery.giver.name}</span> <div onMouseOver={()=> setDelivery(delivery)} onClick={() => showForm(false)}>Rate</div> </div>
           )
 
       }
@@ -29,9 +29,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-
   return {
-    setDelivery: (delivery) => dispatch(setSelectedDelivery(delivery))
+    setDelivery: (delivery) => dispatch(setSelectedDelivery(delivery)),
+    showForm: (isShowing) => dispatch(showOrHideRatingForm(isShowing))
   }
   // on mouseHover of rate we want to set the selected delivery to that delivery so that our Rating form can have that info to display
 

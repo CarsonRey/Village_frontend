@@ -3,7 +3,6 @@ const base_url = "http://localhost:3000/api/v1"
 
 /*---------- ACTION CREATORS ----------*/
 const setUserDeliveries = (deliveries) => {
-
   return {
     type: 'SET_USER_DELIVERIES',
     payload: deliveries

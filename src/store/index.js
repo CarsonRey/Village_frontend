@@ -4,10 +4,11 @@ import userReducer from './reducers/userReducer.js'
 import requestReducer from './reducers/requestReducer.js'
 import donationReducer from './reducers/donationReducer.js'
 import deliveryReducer from './reducers/deliveryReducer.js'
+import ratingReducer from './reducers/ratingReducer.js'
 
 
 
-const rootReducer = combineReducers({ userInfo: userReducer, requestInfo: requestReducer , donationInfo: donationReducer, deliveryInfo: deliveryReducer})
+const rootReducer = combineReducers({ userInfo: userReducer, requestInfo: requestReducer , donationInfo: donationReducer, deliveryInfo: deliveryReducer, ratingInfo: ratingReducer})
 
 
 
@@ -26,3 +27,4 @@ export * from './actions/userActions'
 export * from './actions/requestActions'
 export * from './actions/donationActions'
 export * from './actions/deliveryActions.js'
+export * from './actions/ratingActions'

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createRequest, showOrHideForm } from '../store'
+import { createRating, showOrHideRatingForm } from '../store'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router-dom'
 
@@ -18,33 +18,36 @@ class RatingForm extends Component {
   }
 
   render() {
-    let { createRequest, hideForm } = this.props
+    let { createRating, hideForm, delivery } = this.props
 
     let userId = parseInt(localStorage.userId)
-    let mouths = parseInt(this.state.mouths_to_feed)
-    let params = {mouths_to_feed: mouths, user_id: userId}
+    let rating = parseInt(this.state.rating)
+    let params = {rating: rating, notes: this.state.notes, delivery_id: delivery.id, deliverer_id: delivery.deliverer_id, rater_id: userId}
 
     return (
       <React.Fragment >
+<div className="bg-modal">
+        <form className="modal-content" onChange={(e) => this.handleChange(e)}>
+          <label htmlFor="rating">How would you rate your interaction with  <span>{delivery.deliverer.name}</span> ? </label> <br/>
+          <input type="number" name="rating" value={this.state.rating} /> <br/>
+          <label htmlFor="notes">Any comments? </label> <br/>
+          <input type="text" name="notes" value={this.state.notes} /> <br/>
 
-        <form onChange={(e) => this.handleChange(e)}>
-          <label htmlFor="mouths_to_feed">How many people do you need to feed? </label> <br/>
-          <input type="number" name="mouths_to_feed" value={this.state.mouths_to_feed}/> <br/>
-          <label htmlFor="mouths_to_feed">How many people do you need to feed? </label> <br/>
-          <input type="number" name="mouths_to_feed" value={this.state.mouths_to_feed}/> <br/>
-
-          <div onClick={() => createRequest(params)}>
-             Rate
+          <div onClick={() => createRating(params, delivery.id)}>
+             Submit Rating
           </div>
           <div onClick={() => hideForm(true)}>
              cancel
           </div>
 
         </form>
+
+</div>
       </React.Fragment>
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
     delivery: state.deliveryInfo.selectedDelivery
@@ -53,7 +56,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setDelivery: (delivery) => dispatch(setSelectedDelivery(delivery))
+    createRating: (delivery) => dispatch(createRating(delivery)),
+    hideForm: (isShowing) => dispatch(showOrHideRatingForm(isShowing))
+
   }
 }
 
