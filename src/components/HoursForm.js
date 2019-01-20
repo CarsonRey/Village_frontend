@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { showOrHideForm, filterDays } from '../store'
+import { showOrHideHoursForm, filterDays } from '../store'
 import { connect } from 'react-redux'
 
  // createHours,
@@ -18,39 +18,44 @@ class HoursForm extends Component {
   handleChange = (e) => {
     let days = this.state.days
     let index = parseInt(e.target.dataset.id)
-    // changing the value of days
-        days[index][e.target.name][e.target.id] = e.target.value
 
-      this.setState({ days }, () => console.log(this.state))
+    days[index][e.target.name][e.target.id] = e.target.value
+
+    this.setState({ days }, () => console.log(this.state))
   }
 
   formInputHTML = (day, index) => {
     // debugger
-    return <div> <label for={day}>{day}: </label>
-    <input type="time" name={day} data-id={index} id="start" value={this.state.days[index][`${day}`].start || ""}/>
-    <input type="time" name={day} data-id={index} id="end" value={this.state.days[index][`${day}`].end || ""}/> <br/></div>
+    return <div className="date-row">
+            <label for={day}>{day}: </label>
+            <input type="time" name={day} data-id={index} id="start" value={this.state.days[index][`${day}`].start || ""}/>
+            <input type="time" name={day} data-id={index} id="end" value={this.state.days[index][`${day}`].end || ""}/><br/>
+          </div>
   }
 
   render() {
-console.log("in form", this.props)
-    let { createRequest, hideForm, logHours } = this.props
+
+    let { hideForm, logHours } = this.props
     let hoursInfo = this.state.days
     let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
     return (
       <React.Fragment >
+        <div className="bg-modal" onClick={() => hideForm(true)}>
+          <form className="modal-content" onChange={(e) => this.handleChange(e)}>
 
-        <form onChange={(e) => this.handleChange(e)}>
+            { days.map((day, index) => this.formInputHTML(day, index)) }
 
-          { days.map((day, index) => this.formInputHTML(day, index)) }
+            <div onClick={() => logHours(hoursInfo)}>
+               Add Hours
+            </div>
 
-          <div onClick={() => logHours(hoursInfo)}>
-             Add Hours
-          </div>
-          <div onClick={() =>  console.log}>
-             cancel
-          </div>
+            <div onClick={() => hideForm(true) }>
+               cancel
+            </div>
 
-        </form>
+          </form>
+        </div>
       </React.Fragment>
     );
   }
@@ -59,7 +64,7 @@ console.log("in form", this.props)
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    hideForm: (showing) => dispatch(showOrHideForm(showing)),
+    hideForm: (isShowing) => dispatch(showOrHideHoursForm(isShowing)),
     logHours: (daysArray) => dispatch(filterDays(daysArray))
   }
 }

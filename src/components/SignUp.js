@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom'
 class SignUp extends Component {
 
   state = {
-    role_id: this.props.chosenRole,
     name: "",
     email: "",
-    password: ""
+    password: "",
+    address: ""
   }
 
   handleChange = (e) => {
@@ -20,9 +20,13 @@ class SignUp extends Component {
   }
 
   handleSubmit = () => {
-    // e.preventDefault()
-    let role_id = this.determineRoleId()
-    let user = {name: this.state.name, email: this.state.email, password: this.state.password, role_id: role_id}
+    let role_id = this.determineRoleId(), {chosenRole} = this.props, user
+
+    if(chosenRole === "Food Deliverer"){
+      user = {name: this.state.name, email: this.state.email, password: this.state.password, role_id: role_id}
+    }else {
+      user = {name: this.state.name, email: this.state.email, password: this.state.password, role_id: role_id, address: this.state.address}
+    }
     this.props.createUser(user)
   }
 
@@ -39,19 +43,24 @@ class SignUp extends Component {
 
 
   render() {
+    let {chosenRole} = this.props
 
-    // console.log(this.state)
+    console.log(this.state)
     return (
       <React.Fragment >
-        <h1>Village</h1>
         <h4>Join the fam!</h4>
         <form onSubmit={(e)=> this.handleSubmit(e)} onChange={(e) => this.handleChange(e)}>
           <label htmlFor="name">Name: </label>
-          <input type="text" name="name"/> <br/>
+          <input type="text" name="name" value={this.state.name}/> <br/>
+{(chosenRole !== "Food Deliverer" ) && <div><label htmlFor="address">Address: </label>
+<input type="text" name="address" value={this.state.address}/> <br/></div>}
+
+
           <label htmlFor="email">E-mail: </label>
-          <input type="text" name="email"/> <br/>
+          <input type="text" name="email" value={this.state.email}/> <br/>
           <label htmlFor="password">Password: </label>
-          <input type="password" name="password"/> <br/>
+          <input type="password" name="password" value={this.state.password}/> <br/>
+
           {/* <input type="submit" value="Sign Up"/> */}
 
           <Link to="/" onClick={() => this.handleSubmit()}>

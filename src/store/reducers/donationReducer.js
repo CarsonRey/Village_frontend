@@ -1,6 +1,7 @@
 let initialState = {
   donations: [],
-  userDonations: []
+  userDonations: [],
+  chosenDonation: {}
 }
 
 
@@ -12,6 +13,10 @@ const reducer = (state = initialState, action) => {
     }
     case 'SET_USER_DONATIONS': {
       return {...state, userDonations: action.payload}
+    }
+    case 'SET_CHOSEN_DONATION': {
+      // console.log("hitting", action.payload)
+      return {...state, chosenDonation: action.payload}
     }
     case 'UPDATE_DONATIONS': {
       let first = state.donations.filter(donation => donation.id !== action.payload.id)

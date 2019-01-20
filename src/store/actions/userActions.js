@@ -1,5 +1,5 @@
 // import { push } from 'react-router-redux'
-// import { browserHistory } from 'react-router'
+import { setUserHours } from './hourActions'
 const base_url = "http://localhost:3000/api/v1"
 /*---------- HELPER METHODS ----------*/
 // const determineRole = () => {
@@ -15,14 +15,6 @@ export const chooseRole = (role) => {
   }
 }
 
-// export const changeRoute = (route) => {
-//   // console.log("hi i made mom")
-//   return {
-//     type: 'CHANGE_ROUTE',
-//     payload: route
-//   }
-// }
-
 const storeUser = (user) => {
 
   return {
@@ -31,11 +23,10 @@ const storeUser = (user) => {
   }
 }
 
-
-
 /*---------- THUNK CREATORS ----------*/
 
 export const createUser = (user) => {
+  debugger
   return (dispatch) => {
     return fetch (`${base_url}/users`, {
       method: 'POST',
@@ -49,8 +40,8 @@ export const createUser = (user) => {
       // debugger
       localStorage.setItem("token", userInfo.jwt)
       localStorage.setItem("userRoleId", userInfo.user.role_id)
-      storeUser(userInfo.user)
-      chooseRole(userInfo.user.role_id)
+      dispatch(storeUser(userInfo.user))
+      dispatch(chooseRole(userInfo.user.role_id))
     })
   }
 }
@@ -74,8 +65,7 @@ export const getExistingUser = (user) => {
 
       dispatch(storeUser(userInfo.user))
       dispatch(chooseRole(userInfo.user.role_id))
-      // // browserHistory.push('/')
-      // dispatch(push('/'))
+
     })
   }
 }
@@ -93,7 +83,8 @@ export const getUser = () => {
    })
      .then(resp => resp.json())
        .then(resp => {
-
+         // debugger
+         dispatch(setUserHours(resp.hours))
          dispatch(storeUser(resp.user))
        })
  }

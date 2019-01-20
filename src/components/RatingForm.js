@@ -25,10 +25,9 @@ class RatingForm extends Component {
     let params = {number: rating, notes: this.state.notes, delivery_id: delivery.id, deliverer_id: delivery.deliverer.id, rater_id: userId}
     let deliveryId = delivery.id
 
-    console.log(delivery)
     return (
       <React.Fragment >
-<div className="bg-modal">
+      <div className="bg-modal" onClick={() => hideForm(true)}>
         <form className="modal-content" onChange={(e) => this.handleChange(e)}>
           <label htmlFor="rating">How would you rate your interaction with  <span>{delivery.deliverer.name}</span> ? </label> <br/>
           <input type="number" name="rating" value={this.state.rating} /> <br/>
@@ -44,7 +43,7 @@ class RatingForm extends Component {
 
         </form>
 
-</div>
+      </div>
       </React.Fragment>
     );
   }

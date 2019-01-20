@@ -2,12 +2,21 @@
 const base_url = "http://localhost:3000/api/v1"
 
 /*---------- ACTION CREATORS ----------*/
-// export const showOrHideRatingForm = (isShowing) => {
-//   return {
-//     type: 'SHOW_OR_HIDE_HOURS_FORM',
-//     payload: isShowing
-//   }
-// }
+
+export const setUserHours = (hours) => {
+  return {
+    type: 'SET_USER_HOURS',
+    payload: hours
+  }
+}
+
+export const showOrHideHoursForm = (showingOrNot) => {
+  return {
+    type: 'SHOW_OR_HIDE_HOUR_FORM',
+    payload: showingOrNot
+  }
+}
+
 /*---------- THUNK CREATORS ----------*/
 
 export const filterDays = (daysArray) => {
@@ -33,7 +42,7 @@ const createHours = (hourRange, dayId) => {
         dispatch(associateHourWithUser(hourInstance.id, userId))
     })
   }
-  
+
 }
 
 
@@ -55,6 +64,24 @@ const associateHourWithUser = (hourId, userId) => {
   }
 }
 
+// const fetchHours = (hourId, userId) => {
+//
+//   return (dispatch) => {
+//     return fetch (`${base_url}/hours`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({user_id: userId, hour_id: hourId})
+//     })
+//     .then(r => r.json())
+//     .then(allHours => {
+//
+//       dispatch(setUserHours(hours))
+//     })
+//   }
+// }
+
 /*---------- HELPER METHODS ----------*/
 
 const determineDay = (object, id) => {
@@ -70,7 +97,7 @@ const determineDay = (object, id) => {
 
 
 
-
+// if a user does not have hours, which will be stored in the userHours hoursReducer, we prompt them to add their hours. Maybe we'll use a settings gear with a red dot on it.
 
 
 

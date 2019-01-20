@@ -32,7 +32,7 @@ import { Link } from 'react-router-dom'
 
     addNewInputRow = () => {
       this.setState((prevState) => ({
-        foodItems: [...prevState.foodItems, {name:"", quantity: null, packaged: false, dateMade: "", expiration: ""}],
+        foodItems: [...prevState.foodItems, {name:"", quantity: 1, packaged: false, dateMade: "", expiration: ""}],
       }));
     }
 
@@ -43,7 +43,9 @@ import { Link } from 'react-router-dom'
     handleSubmit = (e) => { e.preventDefault() }
 
     render() {
-      
+
+
+
         let {foodItems} = this.state
         let { chosenRequest, user, createDonation } = this.props
         let info = {request_id: chosenRequest.id, giver_id: user.id, receiver_id: chosenRequest.user.id}

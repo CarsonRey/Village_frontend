@@ -1,6 +1,6 @@
 import React from "react"
 const FoodItemInput = (props) => {
-  // const {foodItems} = props
+  
   return (
     props.foodItems.map((val, idx)=> {
       let foodItemId = `foodItem-${idx}`, quantityId = `quantity-${idx}`, packagedId = `packaged-${idx}`,dateMadeId = `dateMade-${idx}`,expirationId = `expiration-${idx}`

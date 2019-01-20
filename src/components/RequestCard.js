@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setChosenRequest, createDelivery } from '../store'
+import { setChosenRequest, createDelivery, setChosenDonation } from '../store'
 
 const RequestCard = (props) => {
-    const { req, role, job, setRequest, takeJob } = props
+    const { req, role, job, setRequest, takeJob, setJob } = props
 
     return (
       <div className="RequestCard">
@@ -14,7 +14,7 @@ const RequestCard = (props) => {
         }
 
         {
-          role === "Deliverer" && <div><p>{job.giver.name} is looking for someone to deliver to {job.receiver.name}</p> <Link to="/">Details</Link> <button onClick={() => takeJob({giver_id: job.giver.id, receiver_id: job.receiver.id, deliverer_id: parseInt(localStorage.userId)}, job.id )}>Take the job</button></div>
+          role === "Deliverer" && <div><p>{job.giver.name} is looking for someone to deliver to {job.receiver.name}</p> <div onMouseOver={() => setJob(job)}>Details</div> <button onClick={() => takeJob({giver_id: job.giver.id, receiver_id: job.receiver.id, deliverer_id: parseInt(localStorage.userId)}, job.id )}>Take the job</button></div>
         }
 
         {
@@ -30,7 +30,8 @@ const RequestCard = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return {
      setRequest: (req) => dispatch(setChosenRequest(req)),
-     takeJob: (params, donationId) => dispatch(createDelivery(params, donationId))
+     takeJob: (params, donationId) => dispatch(createDelivery(params, donationId)),
+     setJob: (job) => dispatch(setChosenDonation(job))
    }
 }
 

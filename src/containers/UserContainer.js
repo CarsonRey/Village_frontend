@@ -34,7 +34,7 @@ class UserContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.ratingInfo)
+  // console.log(state.ratingInfo)
   return {
      user: state.userInfo.user,
      userClickedRate: state.ratingInfo.showRatingForm
