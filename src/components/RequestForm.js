@@ -30,7 +30,7 @@ class RequestForm extends Component {
           <label htmlFor="mouths_to_feed">How many people do you need to feed? </label> <br/>
           <input type="number" name="mouths_to_feed" value={this.state.mouths_to_feed}/> <br/>
 
-          <div onClick={() => createRequest(params)}>
+          <div onClick={() => {hideForm(true); createRequest(params);}}>
              Submit Request
           </div>
           <div onClick={() => hideForm(true)}>

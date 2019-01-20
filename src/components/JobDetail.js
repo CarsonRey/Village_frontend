@@ -10,12 +10,14 @@ const JobDetail = (props) => {
 
     return (
       <div className="bg-modal" onClick={() => hideDetail(true)}>
-        <div className="JobDetail modal-content">
+        <div className="JobDetail modal-content" onClick={() => hideDetail(false)}>
           <div>From: {donation.giver.name}</div>
           <div>{donation.giver.address}</div>
+          <p>Hours of Operation</p>
 
           <div>To: {donation.receiver.name}</div>
           <div>{donation.receiver.address}</div>
+          <p>Hours of Operation</p>
 
           <Items items={donation.food_items} />
 

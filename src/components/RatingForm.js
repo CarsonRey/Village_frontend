@@ -27,8 +27,8 @@ class RatingForm extends Component {
 
     return (
       <React.Fragment >
-      <div className="bg-modal" onClick={() => hideForm(true)}>
-        <form className="modal-content" onChange={(e) => this.handleChange(e)}>
+      <div className="bg-modal" >
+        <form className="modal-content"  onChange={(e) => this.handleChange(e)}>
           <label htmlFor="rating">How would you rate your interaction with  <span>{delivery.deliverer.name}</span> ? </label> <br/>
           <input type="number" name="rating" value={this.state.rating} /> <br/>
           <label htmlFor="notes">Any comments? </label> <br/>

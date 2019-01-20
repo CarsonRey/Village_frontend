@@ -14,12 +14,8 @@ const rootReducer = combineReducers({ userInfo: userReducer, requestInfo: reques
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
-// console.log("testing", store.getState())
 export default store
 
-export const base_url = () =>{
-  return "http://localhost:3000/api/v1"
-}
 
 
 export * from './helperMethods/DateTimeFormatting.js'

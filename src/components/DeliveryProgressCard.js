@@ -9,12 +9,14 @@ const DeliveryProgressCard = (props) => {
     return (
 
       <div className="DeliveryCard">
+        {role === "Deliverer" ? <p>{delivery.giver.name}</p> : "You"}
 
-        <p>You</p>
-        <p>From: Your Location</p>
+        <p>From: {delivery.giver.address}</p>
+        <p>Hours of Operation</p>
 
         <p>{delivery.receiver.name}</p>
-        <p>To: Their Location</p>
+        <p>To: {delivery.receiver.address}</p>
+        <p>Hours of Operation</p>
 
         {delivery.pick_up !== null && <p>Pick up time: {delivery.pick_up}</p>}
         { role === "Deliverer" ?

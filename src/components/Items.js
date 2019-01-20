@@ -15,7 +15,7 @@ const Items = (props) => {
 
             <div className="item">{item.name}</div>
             <div className="item">{item.quantity}</div>
-            <div className="item">{item.packaged}</div>
+            <div className="item">{item.packaged ? "yes" : "no"}</div>
             <div className="item">{item.date_made}</div>
             <div className="item">{item.expiration}</div>
 

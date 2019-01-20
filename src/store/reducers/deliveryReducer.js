@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
       return {...state, userDeliveries: userDeliveries}
     }
     case 'SET_SELECTED_DELIVERY': {
-      console.log("changing selected")
+      // console.log("changing selected")
       return {...state, selectedDelivery: action.payload}
     }
     default:
