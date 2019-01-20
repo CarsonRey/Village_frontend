@@ -35,6 +35,13 @@ const base_url = "http://localhost:3000/api/v1"
    }
  }
 
+ export const showOrHideJobDetail = (showingOrNot) => {
+   return{
+     type: 'SHOW_OR_HIDE_JOB_DETAIL',
+     payload: showingOrNot
+   }
+ }
+
 
 /*---------- THUNK CREATORS ----------*/
 
