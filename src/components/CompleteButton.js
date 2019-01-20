@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { finishDelivery, formatTime }  from '../store'
-// import { Link } from 'react-router-dom'
+import { finishDelivery }  from '../store'
 
 
 const CompleteButton = (props) => {

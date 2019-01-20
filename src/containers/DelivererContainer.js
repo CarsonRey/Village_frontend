@@ -1,6 +1,5 @@
 import React from 'react';
 import ColumnsContainer from './ColumnsContainer'
-import { showOrHideJobDetail } from '../store'
 import JobDetail from '../components/JobDetail'
 import { connect } from 'react-redux'
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { setChosenRequest, setChosenDonation, showOrHideJobDetail } from '../store'
 
 const RequestCard = (props) => {
-    const { req, role, job, setRequest, takeJob, setJob, showDetails } = props
+    const { req, role, job, setRequest, setJob, showDetails } = props
 
     return (
       <div className="RequestCard">

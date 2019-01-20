@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { showOrHideHoursForm, filterDays } from '../store'
 import { connect } from 'react-redux'
 
- // createHours,
 class HoursForm extends Component {
 
   state = {
