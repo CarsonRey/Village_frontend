@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
     }
     case 'UPDATE_DELIVERIES': {
       let first = state.userDeliveries.filter(delivery => delivery.id !== action.payload.id)
-      let userDeliveries = [...first, action.payload]
+      let userDeliveries = [action.payload, ...first]
       return {...state, userDeliveries: userDeliveries}
     }
     case 'SET_SELECTED_DELIVERY': {

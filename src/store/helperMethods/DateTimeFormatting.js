@@ -1,4 +1,5 @@
 export const formatTime = (date) => {
+  // debugger
     let hour = date.getHours()
     let minutes = date.getMinutes()
     let newMinute
@@ -9,9 +10,13 @@ export const formatTime = (date) => {
     } else {
       newMinute = minutes
     }
+
     if (hour > 12) {
       newHour = hour - 12
+    } else {
+      newHour = hour
     }
+
     let AMorPM = (hour >= 12 && hour !== 24) ? "pm" : "am"
     return `${newHour}:${newMinute}${AMorPM}`
 }
@@ -22,4 +27,4 @@ export const formatTime = (date) => {
 //     let newHour = hour.split(":")
 //     return
 //   }
-// }jklj 
+// }jklj

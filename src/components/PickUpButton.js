@@ -6,10 +6,10 @@ import { completePickUp, formatTime } from '../store'
 
 const PickUpButton = (props) => {
   const { delivery, completePickUp } = props
-    let time = formatTime(new Date())
-// debugger
+    // let time = formatTime(new Date())
+    // console.log("in pick up", time)
     return (
-        <div className="PickUpButton" onClick={() => completePickUp(delivery, time)}>
+        <div className="PickUpButton" onClick={() => completePickUp(delivery)}>
           Complete Pick Up
         </div>
     );
@@ -17,7 +17,7 @@ const PickUpButton = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    completePickUp: (delivery, time) => dispatch(completePickUp(delivery, time))
+    completePickUp: (delivery) => dispatch(completePickUp(delivery))
   }
 }
 

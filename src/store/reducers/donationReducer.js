@@ -16,16 +16,13 @@ const reducer = (state = initialState, action) => {
       return {...state, userDonations: action.payload}
     }
     case 'SET_CHOSEN_DONATION': {
-      // console.log("hitting", action.payload)
       return {...state, chosenDonation: action.payload}
     }
     case 'SHOW_OR_HIDE_JOB_DETAIL': {
-      let showingOrNot = !action.payload
-      return {...state, showJobDetail: showingOrNot}
+      return {...state, showJobDetail: !action.payload}
     }
     case 'UPDATE_DONATIONS': {
-      let first = state.donations.filter(donation => donation.id !== action.payload.id)
-      let donations = [...first, action.payload]
+      let donations = state.donations.filter(donation => donation.id !== action.payload.id)
       return {...state, donations: donations}
     }
     default:

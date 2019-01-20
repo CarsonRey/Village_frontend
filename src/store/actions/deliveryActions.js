@@ -1,4 +1,5 @@
 import { assignDonationToDelivery } from './donationActions'
+import { formatTime } from '../helperMethods/DateTimeFormatting'
 const base_url = "http://localhost:3000/api/v1"
 
 /*---------- ACTION CREATORS ----------*/
@@ -64,8 +65,11 @@ export const createDelivery = (params, donationId) => {
    }
 }
 
-export const finishDelivery = (oldDelivery, time) => {
+export const finishDelivery = (oldDelivery) => {
   return (dispatch) => {
+
+    let time = formatTime(new Date())
+
     return fetch (`${base_url}/delivery_done/${oldDelivery.id}`, {
       method: 'POST',
       headers: {
@@ -78,8 +82,11 @@ export const finishDelivery = (oldDelivery, time) => {
   }
 }
 
-export const completePickUp = (oldDelivery, time) => {
+export const completePickUp = (oldDelivery) => {
   return (dispatch) => {
+
+    let time = formatTime(new Date())
+
     return fetch (`${base_url}/picked_up/${oldDelivery.id}`, {
       method: 'POST',
       headers: {

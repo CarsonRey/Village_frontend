@@ -6,10 +6,9 @@ import { finishDelivery, formatTime }  from '../store'
 
 const CompleteButton = (props) => {
   const {delivery, finishDelivery} = props
-  let timeComplete = formatTime(new Date())
 
     return (
-        <div className="CompleteButton" onClick={() => finishDelivery(delivery, timeComplete)}>
+        <div className="CompleteButton" onClick={() => finishDelivery(delivery)}>
           Mark Delivery Complete
         </div>
     );
