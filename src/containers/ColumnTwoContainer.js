@@ -35,10 +35,10 @@ class ColumnTwoContainer extends Component {
     const {role} = this.props
 
     return(
-        <React.Fragment>
+        <div>
           <h3>{getColumnTwoHeader(localStorage.userRoleId)}</h3>
           {donatorDonations.map(delivery => <DeliveryProgressCard getDeliveryStatus={this.getDeliveryStatus} delivery={delivery} key={delivery.id} role={role} />)}
-        </React.Fragment>
+        </div>
     )
   }
 

@@ -2,6 +2,30 @@
   text-align: center;
 }
 
+.nav{
+  display: flex;
+  justify-content: space-evenly;
+}
+.nav-item{
+  width:30;
+}
+.link{
+  text-decoration: none;
+}
+
+.ColumnsContainer{
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.col{
+  display: inline-block;
+  height: 100%;
+  width: 30%;
+}
+
 .ChoiceCard{
   border: 1px solid dimgrey;
   border-radius: 10px;

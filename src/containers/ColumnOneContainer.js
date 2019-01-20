@@ -28,7 +28,7 @@ class ColumnOneContainer extends Component {
   render(){
     return(
 
-      <React.Fragment>
+      <div>
         <h3>{getColumnOneHeader(localStorage.userRoleId)}</h3>
         {/* Donator */}
         {this.props.requests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
@@ -36,7 +36,7 @@ class ColumnOneContainer extends Component {
         {this.props.availableJobs.map(job => <RequestCard role={this.props.role} job={job} key={job.id} />)}
         {/* Receiver */}
         {this.props.receiverRequests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
-      </React.Fragment>
+      </div>
     )
     }
   }

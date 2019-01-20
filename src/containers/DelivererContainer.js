@@ -8,7 +8,7 @@ const DelivererContainer = (props) => {
 
     return (
       <React.Fragment>
-        <h1>This is a deliverer</h1>
+        {/* <h1>This is a deliverer</h1> */}
         {userClickedDetails && <JobDetail/>}
         <ColumnsContainer container="Deliverer" />
       </React.Fragment>

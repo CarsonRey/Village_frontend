@@ -8,9 +8,11 @@ const NavBar = (props) => {
 
     return (
       <React.Fragment>
-        {localStorage.token && <h4>Hi, {user && user.name} ! </h4>}
-        <h1>Village</h1>
-        {localStorage.token && <Link to="/" onClick={() => localStorage.clear()}>Logout</Link> }
+      <div className="nav">
+        {localStorage.token && <h4 className="nav-item user-name">Hi, {user && user.name} ! </h4>}
+        <h1 className="nav-item logo">Village</h1>
+        {localStorage.token && <Link to="/" className="link nav-item logout" onClick={() => localStorage.clear()}>Logout</Link> }
+      </div>
       </React.Fragment>
     );
 }

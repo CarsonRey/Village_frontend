@@ -27,10 +27,10 @@ class ColumnThreeContainer extends Component {
   render(){
       let pastDeliveries = this.props.deliveries.filter(delivery => delivery.delivered === true)
     return(
-      <React.Fragment>
+      <div>
         <h3>{getColumnThreeHeader(localStorage.userRoleId)}</h3>
         {pastDeliveries.map(delivery => <PastDeliveryCard  delivery={delivery} key={delivery.id} role={this.props.role} />)}
-      </React.Fragment>
+      </div>
     )
 
   }

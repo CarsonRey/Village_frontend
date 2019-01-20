@@ -32,7 +32,7 @@ class ReceiverContainer extends Component {
 
     return (
       <React.Fragment>
-        <h1>This is a receiver</h1>
+        {/* <h1>This is a receiver</h1> */}
           {this.returnUserHoursButton()}
 
           { unratedDeliveries.length > 0 && <RateDelivererContainer/>}

@@ -14,7 +14,7 @@ class DonatorContainer extends Component {
 
     return (
       <React.Fragment>
-        <h1>This is a donator</h1>
+        {/* <h1>This is a donator</h1> */}
         { unratedDeliveries.length > 0 && <RateDelivererContainer/>}
         <ColumnsContainer container="Donator" />
       </React.Fragment>
