@@ -7,7 +7,7 @@ import Map from './Map'
 
 const JobDetail = (props) => {
   const { donation, hideDetail, takeJob, user } = props
-
+// console.log(donation)
     return (
       <div className="bg-modal" onClick={() => hideDetail(true)}>
         <div className="JobDetail modal-content" onClick={() => hideDetail(false)}>

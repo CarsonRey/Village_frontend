@@ -12,6 +12,9 @@ import '../config'
 // const {MAPS_API_KEY} = process.env
 const key = config.get('mapAPIKey')
 
+let originLocation;
+let destinationLocation;
+
 const { compose, withProps, lifecycle } = require("recompose");
 const {
   withScriptjs,
@@ -30,9 +33,10 @@ const Map = compose(
   withScriptjs,
   withGoogleMap,
   lifecycle({
-    componentDidMount() {
 
+    componentDidMount() {
       const DirectionsService = new window.google.maps.DirectionsService();
+
 
       axios.get(`https://maps.googleapis.com/maps/api/geocode/json`, {
         params:{
@@ -40,14 +44,23 @@ const Map = compose(
           key: `${key}`
         }
       }).then(resp => {
-        console.log(resp.data.error_message)
-        // console.log(resp.data.results.geometry.location.lat)
-
+         originLocation = resp.data.results[0].geometry.location
       })
 
-      DirectionsService.route({
-        origin: new window.google.maps.LatLng(41.8507300, -87.6512600),
-        destination: new window.google.maps.LatLng(41.8525800, -87.6514100),
+      axios.get(`https://maps.googleapis.com/maps/api/geocode/json`, {
+       params:{
+         address: this.props.destination,
+         key: `${key}`
+       }
+     }).then(resp => {
+       // debugger
+        destinationLocation = resp.data.results[0].geometry.location
+     })
+
+
+setTimeout(() => DirectionsService.route({
+        origin: new window.google.maps.LatLng(originLocation.lat, originLocation.lng),
+        destination: new window.google.maps.LatLng(destinationLocation.lat, destinationLocation.lng),
         travelMode: window.google.maps.TravelMode.DRIVING,
       }, (result, status) => {
         if (status === window.google.maps.DirectionsStatus.OK) {
@@ -57,7 +70,8 @@ const Map = compose(
         } else {
           console.error(`error fetching directions ${result}`);
         }
-      });
+      }), 100)
+
     }
   })
 )(props =>

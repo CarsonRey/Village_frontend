@@ -17,7 +17,7 @@ const Items = (props) => {
               <div className="exp-header">Exp. Date</div>
             </div>
             <div className="under-header">
-              {items.map(item => <div className="item-row">
+              {items.map((item, idx) => <div key={idx} className="item-row">
 
                 <div className="item">{item.name}</div>
                 <div className="item">{item.quantity}</div>
