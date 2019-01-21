@@ -7,7 +7,7 @@ const CompleteButton = (props) => {
   const {delivery, finishDelivery} = props
 
     return (
-        <div className="CompleteButton" onClick={() => finishDelivery(delivery)}>
+        <div className="CompleteButton rate" onClick={() => finishDelivery(delivery)}>
           Mark Delivery Complete
         </div>
     );

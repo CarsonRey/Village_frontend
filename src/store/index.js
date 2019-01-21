@@ -20,7 +20,7 @@ export default store
 
 export * from './helperMethods/DateTimeFormatting.js'
 export * from './helperMethods/RoleOutput.js'
-export * from './actions/userActions'
+export * from './actions/userActions.js'
 export * from './actions/requestActions'
 export * from './actions/donationActions'
 export * from './actions/deliveryActions.js'

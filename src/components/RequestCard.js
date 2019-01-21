@@ -10,15 +10,15 @@ const RequestCard = (props) => {
       <div className="RequestCard">
 
         {
-          role === "Donator" && <p>{req.user.name} needs food for {req.mouths_to_feed} people. <Link to="/donation-form" onClick={() => setRequest(req)}>I want to help.</Link> </p>
+          role === "Donator" && <p> <span>{req.user.name}</span> needs food for <span>{req.mouths_to_feed}</span> {req.mouths_to_feed > 2 ? "people" : "person"}.  <Link className="link btn-link rate" to="/donation-form" onClick={() => setRequest(req)}>I want to help.</Link> </p>
         }
 
         {
-          role === "Deliverer" && <div><p>{job.giver.name} is looking for someone to deliver to {job.receiver.name}</p> <div onMouseOver={() => setJob(job)} onClick={() => showDetails(false) }>Details</div> </div>
+          role === "Deliverer" && <div><p> <span>{job.giver.name}</span> <br/> is looking for someone to deliver to <br/> <span>{job.receiver.name}</span></p> <div onMouseOver={() => setJob(job)} onClick={() => showDetails(false) } className="btn rate">Details</div> </div>
         }
 
         {
-          role === "Receiver" && <div><p>Your request to feed {req.mouths_to_feed} people.</p>
+          role === "Receiver" && <div><p>Your request to feed <span>{req.mouths_to_feed}</span> people.</p>
           <p>Requested: {req.created_at.substr(0, 10)}</p></div>
         }
 

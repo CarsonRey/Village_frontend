@@ -10,10 +10,10 @@ const RatingPrompt = (props) => {
         {localStorage.userRoleId === "1" ?
 
          (
-           <div>Please rate your deliverer <span>{delivery.deliverer.name}</span> for your recent donation to <span>{delivery.receiver.name}</span> <div onMouseOver={()=> setDelivery(delivery)} onClick={() => showForm(false)}>Rate</div> </div>
+           <div className="prompt">Please rate your deliverer <span>{delivery.deliverer.name}</span> for your recent donation to <span>{delivery.receiver.name}</span> <div className="rate" onMouseOver={()=> setDelivery(delivery)} onClick={() => showForm(false)}>Rate</div> </div>
          )
         : (
-          <div>Please rate your deliverer <span>{delivery.deliverer.name}</span> for your recent donation from <span>{delivery.giver.name}</span> <div onMouseOver={()=> setDelivery(delivery)} onClick={() => showForm(false)}>Rate</div> </div>
+          <div className="prompt">Please rate your deliverer <span>{delivery.deliverer.name}</span> for your recent donation from <span>{delivery.giver.name}</span> <div className="rate" onMouseOver={()=> setDelivery(delivery)} onClick={() => showForm(false)}>Rate</div> </div>
           )
 
       }

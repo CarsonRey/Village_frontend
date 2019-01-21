@@ -7,9 +7,9 @@ import { connect } from 'react-redux'
 const ColumnsContainer = (props) => {
   return(
     <div className="ColumnsContainer">
-      <ColumnOneContainer className="col"  role={props.container} user={props.user} />
-      <ColumnTwoContainer className="col" role={props.container} user={props.user} />
-      <ColumnThreeContainer className="col" role={props.container} user={props.user} />
+      <ColumnOneContainer role={props.container} user={props.user} />
+      <ColumnTwoContainer role={props.container} user={props.user} />
+      <ColumnThreeContainer role={props.container} user={props.user} />
     </div>
   )
 }

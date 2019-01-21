@@ -6,7 +6,7 @@ const DetailButton = (props) => {
   // const {delivery, role} = props
 
     return (
-        <div className="DetailButton" onClick={() =>console.log("hi")}>
+        <div className="DetailButton rate" onClick={() =>console.log("hi")}>
           Details
         </div>
     );

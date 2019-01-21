@@ -15,7 +15,7 @@ export const chooseRole = (role) => {
   }
 }
 
-const storeUser = (user) => {
+export const storeUser = (user) => {
 
   return {
     type: 'STORE_USER',

@@ -8,11 +8,11 @@ const DeliveryProgressCard = (props) => {
     return (
       <div className="DeliveryCard">
 
-        <p>{delivery.giver.name}</p>
+        <span>{delivery.giver.name}</span>
         <p>From: {delivery.giver.address}</p>
 
 
-        <p>{delivery.receiver.name}</p>
+        <span>{delivery.receiver.name}</span>
         <p>To: {delivery.receiver.address}</p>
 
 

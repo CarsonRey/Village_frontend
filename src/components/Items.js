@@ -6,20 +6,27 @@ const Items = (props) => {
 
     return (
         <div className="items">
-          <div className="item">Item</div>
-          <div className="item">Quantity</div>
-          <div className="item">Pre-packaged?</div>
-          <div className="item">Date Made</div>
-          <div className="item">Exp. Date</div>
-          {items.map(item => <div className="item-row">
+          <h3>Items</h3>
 
-            <div className="item">{item.name}</div>
-            <div className="item">{item.quantity}</div>
-            <div className="item">{item.packaged ? "yes" : "no"}</div>
-            <div className="item">{item.date_made}</div>
-            <div className="item">{item.expiration}</div>
+          <div className="item-details">
+            <div className="items-header">
+              <div className="item-header">Item</div>
+              <div className="quantity-header">#</div>
+              <div className="packaged-header">Packaged?</div>
+              <div className="made-header">Date Made</div>
+              <div className="exp-header">Exp. Date</div>
+            </div>
+            <div className="under-header">
+              {items.map(item => <div className="item-row">
 
-          </div>)}
+                <div className="item">{item.name}</div>
+                <div className="item">{item.quantity}</div>
+                <div className="item">{item.packaged ? "yes" : "no"}</div>
+                <div className="item">{item.date_made}</div>
+                <div className="item">{item.expiration_date}</div>
+              </div>)}
+            </div>
+          </div>
         </div>
 
     );

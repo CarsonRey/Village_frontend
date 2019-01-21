@@ -28,8 +28,8 @@ class ColumnOneContainer extends Component {
   render(){
     return(
 
-      <div>
-        <h3>{getColumnOneHeader(localStorage.userRoleId)}</h3>
+      <div  className="col">
+        <h3 className="col-header">{getColumnOneHeader(localStorage.userRoleId)}</h3>
         {/* Donator */}
         {this.props.requests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
         {/* Deliverer */}

@@ -35,8 +35,8 @@ class ColumnTwoContainer extends Component {
     const {role} = this.props
 
     return(
-        <div>
-          <h3>{getColumnTwoHeader(localStorage.userRoleId)}</h3>
+        <div  className="col">
+          <h3 className="col-header">{getColumnTwoHeader(localStorage.userRoleId)}</h3>
           {donatorDonations.map(delivery => <DeliveryProgressCard getDeliveryStatus={this.getDeliveryStatus} delivery={delivery} key={delivery.id} role={role} />)}
         </div>
     )

@@ -11,15 +11,25 @@ const JobDetail = (props) => {
     return (
       <div className="bg-modal" onClick={() => hideDetail(true)}>
         <div className="JobDetail modal-content" onClick={() => hideDetail(false)}>
-          <div>From: {donation.giver.name}</div>
-          <div>{donation.giver.address}</div>
-          <p>Hours of Operation</p>
-
-          <div>To: {donation.receiver.name}</div>
-          <div>{donation.receiver.address}</div>
-          <p>Hours of Operation</p>
-
+          <h2>Details</h2>
           <Items items={donation.food_items} />
+          
+        <div className="to-from">
+          <div className="detail-place">
+            <div>From: {donation.giver.name}</div>
+            <div>{donation.giver.address}</div>
+            <div>Hours of Operation</div>
+          </div>
+
+          <div className="detail-place">
+            <div>To: {donation.receiver.name}</div>
+            <div>{donation.receiver.address}</div>
+            <div>Hours of Operation</div>
+          </div>
+        </div>
+
+
+
 
           <Map
             isMarkerShown
@@ -32,7 +42,7 @@ const JobDetail = (props) => {
 
 
 
-      <button onClick={() => takeJob({giver_id: donation.giver.id, receiver_id: donation.receiver.id, deliverer_id: user.id}, donation.id )}>Take the job</button>
+      <div className="take-job" onClick={() => takeJob({giver_id: donation.giver.id, receiver_id: donation.receiver.id, deliverer_id: user.id}, donation.id )}>Take the job</div>
         </div>
       </div>
     );

@@ -14,9 +14,9 @@ const RateDelivererContainer = (props) => {
 
 
     return (
-      <React.Fragment>
+      <div className="rate-container">
         {unrated.map(unratedDelivery => <RatingPrompt key={unratedDelivery.id} delivery={unratedDelivery}/>)}
-      </React.Fragment>
+      </div>
     );
 
 

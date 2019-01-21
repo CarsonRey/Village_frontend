@@ -32,9 +32,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {user: state.userInfo.user}
+}
 
 const mapDispatchToProps = (dispatch) => {
   return { getUser: () => dispatch(getUser()) }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+.btn-link{
+  display: block;
+  margin-top: 10px;
+  background-color:
+}
+
 .nav{
   display: flex;
   justify-content: space-evenly;
@@ -20,10 +26,80 @@
   justify-content: space-evenly;
 }
 
+.rate-container{
+    font-family: Palatino;
+  /* border: 3px solid dimgrey; */
+  border-radius: 15px;
+  height: 50px;
+}
+
+.prompt{
+  margin-top: 10px;
+  background-color: #e6f9ff;
+  border-radius: 10px ;
+}
+
+.rate {
+  font-weight: bold;
+  display: inline-block;
+  border: .5px solid #1ac9ff;
+  background-color: #093145;
+  color: #f2f3f4;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin-left: 10px;
+}
+
+.take-job{
+  font-size: 25px;
+  font-weight: bold;
+  /* display: inline-block; */
+  border: .5px solid #1ac9ff;
+  background-color: #093145;
+  color: #f2f3f4;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin-top: 10px;
+}
+
+.take-job:hover{
+  background-color: lightgreen;
+}
+
+
+
+.rate:hover{
+  background-color: #007599;
+  /* background-color: rgba(255,255,255, 0) */
+}
+
 .col{
+  font-family: Palatino;
   display: inline-block;
   height: 100%;
-  width: 30%;
+  width: 400px;
+}
+
+.col-header{
+  font-size: 25px;
+}
+
+.logout{
+  /* position: relative; */
+  border: 3px solid dimgrey;
+  /* border-radius: 15px; */
+}
+
+.RequestCard, .DeliveryCard{
+  border: 3px solid dimgrey;
+  border-radius: 15px;
+  line-height: 20px;
+  padding: 0 10px 20px 10px;
+}
+
+.DeliveryCard{
+  padding: 20px 80px;
+  line-height: 15px;
 }
 
 .ChoiceCard{
@@ -35,16 +111,26 @@
 
 span{
   font-weight: bold;
+  font-size: 20px;
+}
+
+.pert{
+    font-weight: bold;
 }
 
 #map-canvas{
   width: 400px;
   height: 300px;
+  margin-bottom: 100px;
 }
 
+
+
 .bg-modal {
+ font-family: Palatino;
  width: 100%;
  height: 150%;
+ overflow: scroll;
  left: 0px;
  background-color: rgba(0, 0, 0, 0.7);
  position: absolute;
@@ -55,18 +141,72 @@ span{
 }
 
 .modal-content {
- width: 600px;
- top: -150px;
- height: 660px;
- background-color: #333;
- border: solid;
- border-color: white;
- border-radius: 10px;
- text-align: center;
- padding: 10px;
- position: relative;
- font-size: 20px;
- color: #fff;
+   width: 600px;
+   top: -150px;
+   height: 660px;
+   background-color: #093145;
+   border: solid;
+   border-color: #f2f3f4;
+   border-radius: 10px;
+   /* text-align: center; */
+   padding: 10px;
+   position: relative;
+   font-size: 20px;
+   color: #fff;
+   overflow: scroll;
+}
+
+.items{
+  border-radius: 1px solid red;
+  /* background-color: white; */
+}
+
+.to-from{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+}
+
+.items-header{
+  display: grid;
+  grid-template-columns:30% 10% 20% 20% 20%;
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+
+}
+/*
+.under-header{
+  padding: 10px 0;
+} */
+
+.item-header{
+  float: left;
+}
+
+.item-details{
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+.item-row{
+  display: grid;
+  grid-template-columns:30% 10% 20% 20% 20%;
+  padding-top: 7px;
+}
+
+.item{
+  display: inline-block;
+}
+
+.detail-place{
+  display:inline-block;
+  float:left;
+  width: 250px;
+  border-radius: 5px;
+  border: .5px solid white;
+  padding: 10px 10px;
 }
 
 @keyframes App-logo-spin {

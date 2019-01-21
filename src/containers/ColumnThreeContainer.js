@@ -27,8 +27,8 @@ class ColumnThreeContainer extends Component {
   render(){
       let pastDeliveries = this.props.deliveries.filter(delivery => delivery.delivered === true)
     return(
-      <div>
-        <h3>{getColumnThreeHeader(localStorage.userRoleId)}</h3>
+      <div  className="col">
+        <h3 className="col-header">{getColumnThreeHeader(localStorage.userRoleId)}</h3>
         {pastDeliveries.map(delivery => <PastDeliveryCard  delivery={delivery} key={delivery.id} role={this.props.role} />)}
       </div>
     )
