@@ -39,7 +39,11 @@ const Map = compose(
           address: this.props.origin,
           key: `${key}`
         }
-      }).then(resp => console.log(resp.data.error_message))
+      }).then(resp => {
+        console.log(resp.data.error_message)
+        // console.log(resp.data.results.geometry.location.lat)
+
+      })
 
       DirectionsService.route({
         origin: new window.google.maps.LatLng(41.8507300, -87.6512600),
