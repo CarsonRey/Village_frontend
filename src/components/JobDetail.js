@@ -12,9 +12,10 @@ const JobDetail = (props) => {
       <div className="bg-modal" onClick={() => hideDetail(true)}>
         <div className="JobDetail modal-content" onClick={() => hideDetail(false)}>
           <h2>Details</h2>
-          <Items items={donation.food_items} />
-          
+
+
         <div className="to-from">
+
           <div className="detail-place">
             <div>From: {donation.giver.name}</div>
             <div>{donation.giver.address}</div>
@@ -26,7 +27,10 @@ const JobDetail = (props) => {
             <div>{donation.receiver.address}</div>
             <div>Hours of Operation</div>
           </div>
+
         </div>
+
+        <Items items={donation.food_items} />
 
 
 
@@ -37,6 +41,8 @@ const JobDetail = (props) => {
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
+            origin={donation.giver.address}
+            destination={donation.receiver.address}
           />
 
 

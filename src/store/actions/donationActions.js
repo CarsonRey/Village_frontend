@@ -2,7 +2,7 @@ import { createFoodItem } from './foodItemActions'
 import { updateRequest } from './requestActions'
 
 
-const base_url = "http://localhost:3000/api/v1"
+const base_url = "http://localhost:3000/api/v1/"
 
 
  /*---------- ACTION CREATORS ----------*/
