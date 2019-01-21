@@ -21,7 +21,7 @@ const DeliveryProgressCard = (props) => {
 
           <div className="to-from-card">
 
-              <p>{delivery.giver.address}</p>
+            <p>{delivery.giver.address}</p>
             <p>{delivery.receiver.address}</p>
           </div>
         </div>
