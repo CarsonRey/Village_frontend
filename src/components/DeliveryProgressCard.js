@@ -8,7 +8,7 @@ const DeliveryProgressCard = (props) => {
 
     return (
 
-      <div className="DeliveryCard">
+      <div className="DeliveryCard card">
         {role === "Deliverer" ? <span>{delivery.giver.name}</span> : <span>You</span>}
 
         <p>From: {delivery.giver.address}</p>

@@ -7,7 +7,7 @@ const RequestCard = (props) => {
     const { req, role, job, setRequest, setJob, showDetails } = props
 
     return (
-      <div className="RequestCard">
+      <div className="RequestCard card">
 
         {
           role === "Donator" && <p> <span>{req.user.name}</span> needs food for <span>{req.mouths_to_feed}</span> {req.mouths_to_feed > 2 ? "people" : "person"}.  <Link className="link btn-link rate" to="/donation-form" onClick={() => setRequest(req)}>I want to help.</Link> </p>

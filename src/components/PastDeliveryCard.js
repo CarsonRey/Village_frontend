@@ -6,18 +6,30 @@ const DeliveryProgressCard = (props) => {
   const {delivery} = props
 // debugger
     return (
-      <div className="DeliveryCard">
-
-        <span>{delivery.giver.name}</span>
-        <p>From: {delivery.giver.address}</p>
+      <div className="DeliveryCard card">
 
 
-        <span>{delivery.receiver.name}</span>
-        <p>To: {delivery.receiver.address}</p>
+        <div className="pudo">
+          <p>Pick up: {delivery.pick_up}</p>
+          <p>Drop off: {delivery.drop_off}</p>
+        </div>
+        <div >
+          <div className="to-from-card">
+            <span>{delivery.giver.name}</span>
+            <span>{delivery.receiver.name}</span>
+          </div>
+
+          <div className="to-from-card">
+
+              <p>{delivery.giver.address}</p>
+            <p>{delivery.receiver.address}</p>
+          </div>
+        </div>
 
 
-        <p>Pick up: {delivery.pick_up}</p>
-        <p>Drop off: {delivery.drop_off}</p>
+
+
+
 
          <DetailsButton />
 

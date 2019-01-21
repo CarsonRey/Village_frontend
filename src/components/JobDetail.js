@@ -10,20 +10,20 @@ const JobDetail = (props) => {
 // console.log(donation)
     return (
       <div className="bg-modal" onClick={() => hideDetail(true)}>
-        <div className="JobDetail modal-content" onClick={() => hideDetail(false)}>
-          <h2>Details</h2>
+        <div className="JobDetail modal-content" >
+          <h2 className="details">Details</h2>
 
-
+        <div className="to-from-text"><h4>From</h4><h4>To</h4></div>
         <div className="to-from">
 
           <div className="detail-place">
-            <div>From: {donation.giver.name}</div>
+            <div>{donation.giver.name}</div>
             <div>{donation.giver.address}</div>
             <div>Hours of Operation</div>
           </div>
 
           <div className="detail-place">
-            <div>To: {donation.receiver.name}</div>
+            <div>{donation.receiver.name}</div>
             <div>{donation.receiver.address}</div>
             <div>Hours of Operation</div>
           </div>

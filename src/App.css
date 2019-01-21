@@ -11,6 +11,7 @@
 .nav{
   display: flex;
   justify-content: space-evenly;
+  font-family: Palatino;
 }
 .nav-item{
   width:30;
@@ -53,19 +54,17 @@
 .take-job{
   font-size: 25px;
   font-weight: bold;
-  border: .5px solid #1ac9ff;
-  background-color: #093145;
-  color: #f2f3f4;
+  border: -2.5px solid #4F671D;
+  background-color: lightblue;
+  color: #fdfdfd;
   border-radius: 5px;
   padding: 6px 10px;
   margin-top: 10px;
 }
 
 .take-job:hover{
-  background-color: lightgreen;
+  background-color: #dedede;
 }
-
-
 
 .rate:hover{
   background-color: #007599;
@@ -90,22 +89,34 @@
 }
 
 .RequestCard, .DeliveryCard{
-  border: 3px solid dimgrey;
+  /* border: 3px solid #252E0D; */
   border-radius: 15px;
   line-height: 22px;
-  padding: 0 10px 20px 10px;
+  padding: 20px 10px 20px 10px;
 }
 
 .DeliveryCard{
-  padding: 20px 80px;
-  line-height: 15px;
+  padding: 20px 40px;
+  line-height: 17px;
+}
+
+.card{
+  color: #252E0D;
+  background-color: #eeefec;
+  margin-bottom: 20px;
+  box-shadow: 5px 10px 8px #888888;
 }
 
 .ChoiceCard{
-  border: 1px solid dimgrey;
+  border: 1px solid #252E0D;
   border-radius: 10px;
   display: inline-block;
   padding: 0px 15px;
+}
+
+.pudo {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 span{
@@ -144,8 +155,8 @@ span{
    top: -150px;
    height: 660px;
    background-color: #093145;
-   border: solid;
-   border-color: #f2f3f4;
+   border: solid .5px dimgrey;
+   /* border-color: #f2f3f4; */
    border-radius: 10px;
    /* text-align: center; */
    padding: 10px;
@@ -153,6 +164,18 @@ span{
    font-size: 20px;
    color: #fff;
    overflow: scroll;
+}
+
+.details{
+  margin: -10px;
+  padding: 19px 0;
+  border-radius: 4px;
+  background-color: lightblue;
+}
+
+.detail-place{
+  background-color: #eeefec;
+  color: #252E0D;
 }
 
 .items{
@@ -165,6 +188,16 @@ span{
   justify-content: space-evenly;
   margin-bottom: 15px;
 }
+.to-from-text{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.to-from-card{
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+}
 
 .items-header{
   display: grid;
@@ -173,10 +206,12 @@ span{
   padding-bottom: 5px;
 
 }
-/*
+
 .under-header{
-  padding: 10px 0;
-} */
+  background-color: #eeefec;
+  color: #252E0D;
+  padding: 7px 0;
+}
 
 .item-header{
   float: left;
@@ -185,7 +220,7 @@ span{
 .item-details{
   border: 1px solid white;
   border-radius: 4px;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   margin-bottom: 15px;
 }
 
