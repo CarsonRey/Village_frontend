@@ -56,6 +56,31 @@
   margin-bottom: 40px;
 }
 
+.back{
+  text-decoration: none;
+  background: lightblue;
+  color: white;
+  display: block;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.don-form-cont{
+  height: 500px;
+  background-color: #eeefec;
+  padding-top: 40px;
+  color: #252E0D;
+  border-radius: 20px;
+}
+
+.don-form{
+  padding: 40px 0;
+  /* background-color: lightblue; */
+  margin:auto;
+  height: 150px;
+  overflow:scroll;
+}
+
 .donation-header{
   display: grid;
   grid-template-columns: 20% 10% 20% 20% 20% 5%;
@@ -69,10 +94,17 @@
  grid-template-columns: 20% 10% 20% 18% 18% 5%;
  width: 50%;
  margin: auto;
+ margin-bottom: 10px;
+ padding: 30px -5px 30px 14px;
+ color: #252E0D;
+ background-color: #093145;
+ box-shadow: 5px 10px 8px #888888;
+ border-radius: 5px;
 }
 
 .delete{
-  margin-left: 10px;
+  color: #eeefec;
+  margin-left: 60px;
 }
 
 .delete:hover{
@@ -85,6 +117,7 @@
 
 input.packaged{
   margin-left: 65px;
+  margin-top: 10px;
   padding: 10px;
 }
 
@@ -97,7 +130,9 @@ input.expiration, input.dateMade{
 
 }
 
-
+input{
+  font-family: Palatino;
+}
 
 input.quantity{
   width: 45%;
@@ -105,6 +140,39 @@ input.quantity{
   text-align: center;
   font-size: 15px;
 }
+
+
+
+a.donate-btn{
+  padding: 15px 20px;
+  font-size: 25px;
+  box-shadow: 5px 10px 8px #888888;
+  background-color:  #093145;
+  /* border: 1px solid red; */
+  color:  white;
+  border-radius: 5px;
+}
+
+a.donate-btn:hover{
+  background-color: lightblue;
+}
+
+a.link.don-cancel{
+  margin-top: 20px;
+  color: #252E0D;
+}
+
+.date{
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  color:dimgrey;
+  /* float: left; */
+  float: right;
+}
+
+
+
 
 /* .inputRow{
 
@@ -454,16 +522,10 @@ margin:0 auto;
 }
 
 .DonationForm{
-  color: red;
+
 }
 
-.back{
-  text-decoration: none;
-  background: lightblue;
-  color: white;
-  display: block;
-  font-size: 24px;
-}
+
 
 .hours{
   height: 400px;
@@ -473,9 +535,7 @@ margin:0 auto;
   margin-top: 30px;
 }
 
-.donate{
-  margin-top: 60px;
-}
+
 
 
 @keyframes App-logo-spin {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getUser, getDonations } from './store'
+import { getUser, getDonations, getRatings } from './store'
 import ReturningUserContainer from './containers/ReturningUserContainer'
 import NewUserContainer from './containers/NewUserContainer'
 import LandingOrHome from './components/LandingOrHome'
@@ -13,11 +13,14 @@ import './flaticon.css';
 class App extends Component {
 
   // componentWillMount(){
-  //     this.props.getDonations()
+  //
   // }
 
   componentDidMount(){
     this.props.getUser()
+    // this.props.getDonations()
+    this.props.getRatings()
+
 
   }
 
@@ -45,7 +48,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getUser: () => dispatch(getUser()),
-    getDonations: (userId) => dispatch(getDonations(userId))
+    getDonations: () => dispatch(getDonations()),
+    getRatings: () => dispatch(getRatings())
    }
 }
 

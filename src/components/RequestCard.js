@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setChosenRequest, setChosenDonation, showOrHideJobDetail } from '../store'
+import { setChosenRequest, setChosenDonation, showOrHideJobDetail, getDonations } from '../store'
 
 class RequestCard extends Component {
 
-
     // componentDidMount(){
-    //
+    // this.props.getDonations()
     // }
 
     requestStatus = (req) => {
-      debugger
+      // debugger
       let status = this.props.donations.filter(donation => donation.request_id === req.id)
       return status.length > 0 ? `${status[0].giver}` : "No donator yet"
     }
@@ -59,7 +58,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
      setRequest: (req) => dispatch(setChosenRequest(req)),
      setJob: (job) => dispatch(setChosenDonation(job)),
-     showDetails: (isShowing) => dispatch(showOrHideJobDetail(isShowing))
+     showDetails: (isShowing) => dispatch(showOrHideJobDetail(isShowing)),
+     getDonations: () => dispatch(getDonations())
    }
 }
 

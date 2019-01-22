@@ -32,7 +32,7 @@ import { Link } from 'react-router-dom'
 
     addNewInputRow = () => {
       this.setState((prevState) => ({
-        foodItems: [...prevState.foodItems, {name:"", quantity: 1, packaged: false, dateMade: "", expiration: ""}],
+        foodItems: [{name:"", quantity: 1, packaged: false, dateMade: "", expiration: ""}, ...prevState.foodItems],
       }));
     }
 
@@ -64,29 +64,29 @@ import { Link } from 'react-router-dom'
             <h2>{chosenRequest.user.name} is in need! What will you donate ?</h2>
 
               <div className="addNew rate" onClick={this.addNewInputRow}>Add New Item +</div>
+          <div className="don-form-cont">
+              <div className="donation-header">
+                <div className="item-header">Item</div>
+                <div className="quantity-header">Quantity</div>
+                <div className="packaged-header">Packaged?</div>
+                <div className="made-header">Date Made</div>
+                <div className="exp-header">Exp. Date</div>
+              </div>
+              <form className="don-form"  onChange={this.handleChange} >
 
-            <div className="donation-header">
-              <div className="item-header">Item</div>
-              <div className="quantity-header">Quantity</div>
-              <div className="packaged-header">Packaged?</div>
-              <div className="made-header">Date Made</div>
-              <div className="exp-header">Exp. Date</div>
-            </div>
-            <form  onChange={this.handleChange} >
-
-              <FoodItemInput deleteRow={this.deleteInputRow} foodItems={foodItems} />
+                <FoodItemInput deleteRow={this.deleteInputRow} foodItems={foodItems} />
 
 
 
-              <Link to="/" className="donate-btn take-job" onClick={() => createDonation(info, foodItems)}>
+              </form>
+              <Link to="/" className="donate-btn link" onClick={() => createDonation(info, foodItems)}>
                 Donate
-              </Link>
+              </Link> <br/> <br/> <br/> <br/>
 
-              <Link to="/" className="link">
+              <Link to="/" className="link don-cancel">
                 cancel
               </Link>
-
-            </form>
+            </div>
           </React.Fragment>
         //   </div>
         // </div>

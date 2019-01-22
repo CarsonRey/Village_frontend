@@ -8,6 +8,13 @@ export const showOrHideRatingForm = (isShowing) => {
     payload: isShowing
   }
 }
+
+const setRatings = (ratings) => {
+  return {
+    type: 'SET_RATINGS',
+    payload: ratings
+  }
+}
 /*---------- THUNK CREATORS ----------*/
 
 export const createRating = (params, deliveryId) => {
@@ -24,6 +31,16 @@ export const createRating = (params, deliveryId) => {
      .then(r => r.json())
      .then(rating => {
        dispatch(userHasRatedDelivery(deliveryId, userRole))
+     })
+   }
+}
+
+export const getRatings = () => {
+   return (dispatch) => {
+     return fetch (`${base_url}/ratings`)
+     .then(r => r.json())
+     .then(ratings => {
+       dispatch(setRatings(ratings))
      })
    }
 }

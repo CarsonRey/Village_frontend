@@ -42,6 +42,13 @@ const base_url = "http://localhost:3000/api/v1/"
    }
  }
 
+ export const showOrHidePastDetail = (showingOrNot) => {
+   return{
+     type: 'SHOW_OR_HIDE_PAST_DETAIL',
+     payload: showingOrNot
+   }
+ }
+
  export const showOrHideDonationForm = (showingOrNot) => {
    return{
      type: 'SHOW_OR_HIDE_DONATION_FORM',

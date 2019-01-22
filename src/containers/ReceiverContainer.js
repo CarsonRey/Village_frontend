@@ -3,6 +3,7 @@ import RequestFormOrButtonContainer from './RequestFormOrButtonContainer'
 import RateDelivererContainer from './RateDelivererContainer'
 import ColumnsContainer from './ColumnsContainer'
 import HoursForm from '../components/HoursForm'
+import JobDetail from '../components/JobDetail'
 import { showOrHideHoursForm } from '../store'
 import { connect } from 'react-redux'
 
@@ -24,7 +25,7 @@ class ReceiverContainer extends Component {
 
   render() {
 
-    let {deliveries, hourFormShowing} = this.props
+    let {deliveries, hourFormShowing, userClickedDetails} = this.props
 
     let unratedDeliveries = deliveries.filter(delivery => delivery.delivered === true && delivery.receiver_has_rated === false)
 
@@ -39,6 +40,7 @@ class ReceiverContainer extends Component {
 
 
           { hourFormShowing && <HoursForm />}
+          { userClickedDetails && <JobDetail  location="ReceiverContainer" isDelivery={true}/>}
 
 
         <ColumnsContainer container="Receiver" />
@@ -53,7 +55,9 @@ const mapStateToProps = (state) => {
     deliveries: state.deliveryInfo.userDeliveries,
     user: state.userInfo.user,
     hours: state.hourInfo.userHours,
-    hourFormShowing: state.hourInfo.showHourForm
+    hourFormShowing: state.hourInfo.showHourForm,
+    userClickedDetails: state.donationInfo.showPastDetail,
+    pastDetail: state.donationInfo.chosenDonation
    }
 }
 

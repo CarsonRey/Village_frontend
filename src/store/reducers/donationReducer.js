@@ -3,7 +3,8 @@ let initialState = {
   userDonations: [],
   chosenDonation: {},
   showJobDetail: false,
-  showDonationForm: false
+  showDonationForm: false,
+  showPastDetail: false
 }
 
 
@@ -21,6 +22,9 @@ const reducer = (state = initialState, action) => {
     }
     case 'SHOW_OR_HIDE_JOB_DETAIL': {
       return {...state, showJobDetail: !action.payload}
+    }
+    case 'SHOW_OR_HIDE_PAST_DETAIL': {
+      return {...state, showPastDetail: !action.payload}
     }
     case 'SHOW_OR_HIDE_DONATION_FORM': {
       return {...state, showDonationForm: !action.payload}

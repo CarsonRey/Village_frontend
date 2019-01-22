@@ -24,7 +24,7 @@ class UserContainer extends Component {
 
   render() {
     let {userClickedRate} = this.props
-    console.log("in UserContainer", userClickedRate)
+    // console.log("in UserContainer", user)
     return (
       <div>
         <div className={userClickedRate ? "blur" : ""}>

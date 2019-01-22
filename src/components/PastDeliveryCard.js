@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom'
 import DetailsButton from './DetailsButton'
 
 const DeliveryProgressCard = (props) => {
@@ -7,7 +6,8 @@ const DeliveryProgressCard = (props) => {
 // debugger
     return (
       <div className="DeliveryCard card">
-
+      <p className="date">{delivery.created_at.substr(0, 10)}</p>
+      <br/>
 
         <div className="pudo">
           <p>Pick up: {delivery.pick_up}</p>
@@ -16,12 +16,12 @@ const DeliveryProgressCard = (props) => {
         <div >
           <div className="to-from-card">
             <span>{delivery.giver.name}</span>
-            <span>{delivery.receiver.name}</span>
+            <span>{ parseInt(localStorage.userId) === delivery.receiver.id ? "You" : delivery.receiver.name}</span>
           </div>
 
           <div className="to-from-card">
 
-            <p>{delivery.giver.address}</p>
+            <p>{parseInt(localStorage.userId) === delivery.giver.id ? "You" : delivery.giver.address}</p>
             <p>{delivery.receiver.address}</p>
           </div>
         </div>
@@ -31,7 +31,7 @@ const DeliveryProgressCard = (props) => {
 
 
 
-         <DetailsButton />
+         <DetailsButton delivery={delivery} />
 
       </div>
     );

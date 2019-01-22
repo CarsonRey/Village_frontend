@@ -1,14 +1,23 @@
 import React from 'react';
-// import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setChosenDonation, showOrHidePastDetail } from '../store'
+
 
 
 const DetailButton = (props) => {
-  // const {delivery, role} = props
+  const {delivery, setDonation, showDetail} = props
     return (
-        <div className="DetailButton rate" onClick={() =>console.log("hi")}>
+        <div className="DetailButton rate" onMouseOver={()=> setDonation(delivery)} onClick={() => showDetail(false)}>
           Details
         </div>
     );
 }
 
-export default DetailButton;
+const mapDispatchToProps = (dispatch) => {
+  return {
+     setDonation: (job) => dispatch(setChosenDonation(job)),
+     showDetail: (isShowing) => dispatch(showOrHidePastDetail(isShowing))
+   }
+}
+
+export default connect(null, mapDispatchToProps)(DetailButton);

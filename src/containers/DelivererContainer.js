@@ -9,7 +9,7 @@ const DelivererContainer = (props) => {
     return (
       <React.Fragment>
         {/* <h1>This is a deliverer</h1> */}
-        {userClickedDetails && <JobDetail/>}
+        {userClickedDetails && <JobDetail location="DelivererContainer"/>}
         <ColumnsContainer container="Deliverer" />
       </React.Fragment>
     );

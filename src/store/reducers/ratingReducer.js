@@ -1,5 +1,6 @@
 const initialState = {
-  showRatingForm: false
+  showRatingForm: false,
+  ratings: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -8,6 +9,10 @@ const reducer = (state = initialState, action) => {
     case 'SHOW_OR_HIDE_RATING_FORM': {
       let showingOrNot = !action.payload
       return {...state, showRatingForm: showingOrNot}
+    }
+    case 'SET_RATINGS': {
+      // console.log("hitting", action.payload)
+      return {...state, ratings: action.payload}
     }
     default:
       return state
