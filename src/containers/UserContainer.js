@@ -20,14 +20,18 @@ class UserContainer extends Component {
     }
   }
 
+
+
   render() {
-    // console.log("in UserContainer",this.props)
     let {userClickedRate} = this.props
+    console.log("in UserContainer", userClickedRate)
     return (
-      <React.Fragment>
-        {userClickedRate && <RatingForm/>}
-        {this.renderUserHomePageBasedOnRole()}
-      </React.Fragment>
+      <div>
+        <div className={userClickedRate ? "blur" : ""}>
+          {this.renderUserHomePageBasedOnRole()}
+        </div>
+          {userClickedRate && <RatingForm/>}
+      </div>
     );
   }
 

@@ -37,7 +37,9 @@ class ColumnTwoContainer extends Component {
     return(
         <div  className="col">
           <h3 className="col-header">{getColumnTwoHeader(localStorage.userRoleId)}</h3>
-          {donatorDonations.map(delivery => <DeliveryProgressCard getDeliveryStatus={this.getDeliveryStatus} delivery={delivery} key={delivery.id} role={role} />)}
+          <div className="card-cont">
+            {donatorDonations.map(delivery => <DeliveryProgressCard getDeliveryStatus={this.getDeliveryStatus} delivery={delivery} key={delivery.id} role={role} />)}
+          </div>
         </div>
     )
   }

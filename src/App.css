@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Palatino;
 }
 
 .btn-link{
@@ -9,10 +10,137 @@
 }
 
 .nav{
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex; */
+  /* justify-content: space-evenly; */
+  display: grid;
+  grid-template-columns: 16% 68% 16%;
   font-family: Palatino;
+  background-color: #093145;
+  color: white;
 }
+.user-name{
+  margin-top: 50px;
+  margin-left: 50px;
+  font-size: 17px
+}
+.logo{
+  font-size: 45px;
+}
+
+.logout{
+  color: white;
+  font-size: 17px;
+  margin-top: 45px;
+
+  /* position: relative; */
+  /* border: 3px solid dimgrey; */
+  /* border-radius: 15px; */
+}
+
+.hours-prompt-btn{
+  color: white;
+  font-family: Palatino;
+  width: 10%;
+  top: -100;
+}
+
+.add{
+    background-color: red;
+}
+
+.edit{
+    background-color: lightblue;
+}
+
+.addNew{
+  margin-bottom: 40px;
+}
+
+.donation-header{
+  display: grid;
+  grid-template-columns: 20% 10% 20% 20% 20% 5%;
+  width: 50%;
+  margin: auto;
+  padding-bottom: 30px;
+}
+
+.inputRow{
+ display: grid;
+ grid-template-columns: 20% 10% 20% 18% 18% 5%;
+ width: 50%;
+ margin: auto;
+}
+
+.delete{
+  margin-left: 10px;
+}
+
+.delete:hover{
+  color: lightblue;
+}
+
+.packaged{
+
+}
+
+input.packaged{
+  margin-left: 65px;
+  padding: 10px;
+}
+
+input.expiration, input.dateMade{
+  width:83%;
+  margin-left: 20px;
+}
+
+.dateMade{
+
+}
+
+
+
+input.quantity{
+  width: 45%;
+  margin-left: 20px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* .inputRow{
+
+  display:grid;
+  grid-template-columns: 10% 10% 20% 20% 20%;
+} */
+
+
+
+.form-or-button{
+  border: 1px solid #093145;
+  background-color: #093145;
+  color: white;
+  font-family: Palatino;
+  border-radius: 5px;
+  padding: 20px 38px;
+  width: 40%;
+  margin: auto;
+}
+
+.rate-and-req{
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+
+
+.rate-container{
+  font-family: Palatino;
+  border-radius: 15px;
+  height: 90px;
+  width: 80%;
+  margin: auto;
+  overflow: scroll;
+}
+
 .nav-item{
   width:30;
 }
@@ -27,12 +155,6 @@
   justify-content: space-evenly;
 }
 
-.rate-container{
-    font-family: Palatino;
-  /* border: 3px solid dimgrey; */
-  border-radius: 15px;
-  height: 50px;
-}
 
 .prompt{
   margin-top: 10px;
@@ -74,18 +196,18 @@
 .col{
   font-family: Palatino;
   display: inline-block;
-  height: 100%;
-  width: 400px;
+
+  width: 405px;
 }
 
 .col-header{
   font-size: 25px;
 }
 
-.logout{
-  /* position: relative; */
-  border: 3px solid dimgrey;
-  /* border-radius: 15px; */
+.card-cont{
+    height: 600px;
+    overflow: scroll;
+
 }
 
 .RequestCard, .DeliveryCard{
@@ -101,9 +223,9 @@
 }
 
 .card{
+  margin: 10px 5px 20px 0;
   color: #252E0D;
   background-color: #eeefec;
-  margin-bottom: 20px;
   box-shadow: 5px 10px 8px #888888;
 }
 
@@ -142,7 +264,9 @@ span{
  height: 150%;
  overflow: scroll;
  left: 0px;
+
  background-color: rgba(0, 0, 0, 0.7);
+
  position: absolute;
  top: 0px;
  display: flex;
@@ -156,6 +280,7 @@ span{
    height: 660px;
    background-color: #093145;
    border: solid .5px dimgrey;
+
    /* border-color: #f2f3f4; */
    border-radius: 10px;
    /* text-align: center; */
@@ -164,6 +289,29 @@ span{
    font-size: 20px;
    color: #fff;
    overflow: scroll;
+}
+
+.blur {
+  margin:50px 20px 0;
+  border: solid 1px black;
+  padding:20px;
+  position:relative;
+}
+
+.blur, .test-blur{
+
+  top:0;
+  left:0;
+  position:absolute;
+  width:100%;
+  height:100%;
+  filter:opacity(0.5);
+  filter:blur(20px);
+}
+
+.blur, .rate-card{
+  display:block;
+margin:0 auto;
 }
 
 .details{
@@ -242,6 +390,93 @@ span{
   border: .5px solid white;
   padding: 10px 10px;
 }
+
+.input{
+  width:98%;
+  height: 200px;
+  font-size: 25px;
+}
+
+.input-s{
+  width: 98%;
+  height: 50px;
+  margin: 10px 0;
+  font-size: 35px;
+  text-align: center;
+}
+
+.rating-form{
+  height: 600px;
+}
+
+.rating-row{
+  padding-bottom: 20px;
+}
+
+
+.req-btn{
+  margin: 23px 0;
+}
+
+
+.mouths_to_feed{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+
+.date-row{
+ display: grid;
+ grid-template-columns: 30% 70%;
+
+  /* margin: auto; */
+}
+
+.input-cont{
+  width: 100%;
+  display:flex;
+  justify-content: space-around;
+
+}
+
+.day{
+  float: left;
+}
+
+.input-time{
+  width: 35%;
+}
+
+.date-row-cont{
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+.DonationForm{
+  color: red;
+}
+
+.back{
+  text-decoration: none;
+  background: lightblue;
+  color: white;
+  display: block;
+  font-size: 24px;
+}
+
+.hours{
+  height: 400px;
+}
+
+.hours-btn{
+  margin-top: 30px;
+}
+
+.donate{
+  margin-top: 60px;
+}
+
 
 @keyframes App-logo-spin {
   from {

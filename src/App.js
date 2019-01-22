@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getUser } from './store'
+import { getUser, getDonations } from './store'
 import ReturningUserContainer from './containers/ReturningUserContainer'
 import NewUserContainer from './containers/NewUserContainer'
 import LandingOrHome from './components/LandingOrHome'
 import DonationFormContainer from './containers/DonationFormContainer'
 import NavBar from './components/NavBar'
 import './App.css';
+import './flaticon.css';
 
 class App extends Component {
 
+  // componentWillMount(){
+  //     this.props.getDonations()
+  // }
+
   componentDidMount(){
     this.props.getUser()
+
   }
 
   render() {
@@ -37,7 +43,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { getUser: () => dispatch(getUser()) }
+  return {
+    getUser: () => dispatch(getUser()),
+    getDonations: (userId) => dispatch(getDonations(userId))
+   }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

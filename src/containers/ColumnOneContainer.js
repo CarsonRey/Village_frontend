@@ -23,19 +23,24 @@ class ColumnOneContainer extends Component {
 
   componentDidMount() {
    this.getColumnOne()
+   // this.props.getDonations()
   }
 
   render(){
+
+    console.log(this.props.donations)
     return(
 
       <div  className="col">
         <h3 className="col-header">{getColumnOneHeader(localStorage.userRoleId)}</h3>
-        {/* Donator */}
-        {this.props.requests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
-        {/* Deliverer */}
-        {this.props.availableJobs.map(job => <RequestCard role={this.props.role} job={job} key={job.id} />)}
-        {/* Receiver */}
-        {this.props.receiverRequests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
+        <div className="card-cont">
+          {/* Donator */}
+          {this.props.requests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
+          {/* Deliverer */}
+          {this.props.availableJobs.map(job => <RequestCard role={this.props.role} job={job} key={job.id} />)}
+          {/* Receiver */}
+          {this.props.receiverRequests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
+        </div>
       </div>
     )
     }
@@ -47,7 +52,6 @@ const mapStateToProps = (state) => {
     requests: state.requestInfo.requests,
     receiverRequests: state.requestInfo.receiverRequests,
     user: state.userInfo.user
-
    }
 }
 

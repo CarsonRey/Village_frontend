@@ -1,6 +1,6 @@
 import React from "react"
 const FoodItemInput = (props) => {
-  
+
   return (
     props.foodItems.map((val, idx)=> {
       let foodItemId = `foodItem-${idx}`, quantityId = `quantity-${idx}`, packagedId = `packaged-${idx}`,dateMadeId = `dateMade-${idx}`,expirationId = `expiration-${idx}`
@@ -51,7 +51,7 @@ const FoodItemInput = (props) => {
             value={props.foodItems[idx].expiration}
             className="expiration"
           />
-          <span role="img" alt="delete">
+          <span data-id={idx} onClick={()=> props.deleteRow(idx)} role="img" alt="delete" className="delete">
             ⓧ
           </span>
         </div>

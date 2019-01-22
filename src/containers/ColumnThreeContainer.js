@@ -29,7 +29,9 @@ class ColumnThreeContainer extends Component {
     return(
       <div  className="col">
         <h3 className="col-header">{getColumnThreeHeader(localStorage.userRoleId)}</h3>
+        <div className="card-cont">
         {pastDeliveries.map(delivery => <PastDeliveryCard  delivery={delivery} key={delivery.id} role={this.props.role} />)}
+        </div>
       </div>
     )
 

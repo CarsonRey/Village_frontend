@@ -2,14 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import config from 'react-global-configuration'
 import '../config'
-// import { connect } from 'react-redux'
-// const dotenv = require('dotenv').config({ path: path.resolve(_components,'../../.env')})
 
-// dotenv.config({
-//   path: 'frontend_village/.env'
-// })
-
-// const {MAPS_API_KEY} = process.env
 const key = config.get('mapAPIKey')
 
 let originLocation;

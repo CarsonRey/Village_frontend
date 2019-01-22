@@ -2,7 +2,8 @@ let initialState = {
   donations: [],
   userDonations: [],
   chosenDonation: {},
-  showJobDetail: false
+  showJobDetail: false,
+  showDonationForm: false
 }
 
 
@@ -20,6 +21,9 @@ const reducer = (state = initialState, action) => {
     }
     case 'SHOW_OR_HIDE_JOB_DETAIL': {
       return {...state, showJobDetail: !action.payload}
+    }
+    case 'SHOW_OR_HIDE_DONATION_FORM': {
+      return {...state, showDonationForm: !action.payload}
     }
     case 'UPDATE_DONATIONS': {
       let donations = state.donations.filter(donation => donation.id !== action.payload.id)

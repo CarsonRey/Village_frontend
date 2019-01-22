@@ -42,6 +42,12 @@ const base_url = "http://localhost:3000/api/v1/"
    }
  }
 
+ export const showOrHideDonationForm = (showingOrNot) => {
+   return{
+     type: 'SHOW_OR_HIDE_DONATION_FORM',
+     payload: showingOrNot
+   }
+ }
 
 /*---------- THUNK CREATORS ----------*/
 

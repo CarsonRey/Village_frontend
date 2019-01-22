@@ -7,9 +7,9 @@ const RequestFormOrButtonContainer = (props) => {
   let { userClickedButton } = props
 
     return (
-      <React.Fragment>
+      <div className="form-or-button">
         { userClickedButton ? <RequestForm/> : <RequestButton/>}
-      </React.Fragment>
+      </div>
     );
 
 

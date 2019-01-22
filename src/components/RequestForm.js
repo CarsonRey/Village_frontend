@@ -24,13 +24,13 @@ class RequestForm extends Component {
     let params = {mouths_to_feed: mouths, user_id: userId}
 
     return (
-      <React.Fragment >
+      <div className="req-form">
 
         <form onChange={(e) => this.handleChange(e)}>
           <label htmlFor="mouths_to_feed">How many people do you need to feed? </label> <br/>
-          <input type="number" name="mouths_to_feed" value={this.state.mouths_to_feed}/> <br/>
+          <input className="input-s" type="number" name="mouths_to_feed" value={this.state.mouths_to_feed}/> <br/>
 
-          <div onClick={() => {hideForm(true); createRequest(params);}}>
+          <div className="rate req-btn-sub" onClick={() => {hideForm(true); createRequest(params);}}>
              Submit Request
           </div>
           <div onClick={() => hideForm(true)}>
@@ -38,7 +38,7 @@ class RequestForm extends Component {
           </div>
 
         </form>
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -15,16 +15,14 @@ class ReceiverContainer extends Component {
 
 
         if(hours.length === 0){
-          return <div onClick={() => showForm(false)}>Add Hours!</div>
+          return <div className="hours-prompt-btn add" onClick={() => showForm(false)}>Add Hours!</div>
         } else{
-          return <div onClick={() => showForm(false)}>Edit Hours</div>
+          return <div className="hours-prompt-btn edit" onClick={() => showForm(false)}>Edit Hours</div>
         }
 
   }
 
   render() {
-
-    // console.log(this.props.)
 
     let {deliveries, hourFormShowing} = this.props
 
@@ -34,12 +32,15 @@ class ReceiverContainer extends Component {
       <React.Fragment>
         {/* <h1>This is a receiver</h1> */}
           {this.returnUserHoursButton()}
-
+        <div className={unratedDeliveries.length > 0 ? "rate-and-req" : "just-req"}>
           { unratedDeliveries.length > 0 && <RateDelivererContainer/>}
+          <RequestFormOrButtonContainer/>
+        </div>
+
 
           { hourFormShowing && <HoursForm />}
 
-        <RequestFormOrButtonContainer/>
+
         <ColumnsContainer container="Receiver" />
       </React.Fragment>
     );

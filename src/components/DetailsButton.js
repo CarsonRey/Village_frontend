@@ -4,7 +4,6 @@ import React from 'react';
 
 const DetailButton = (props) => {
   // const {delivery, role} = props
-
     return (
         <div className="DetailButton rate" onClick={() =>console.log("hi")}>
           Details

@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
       return {...state, showRequestForm: showingOrNot}
     }
     case 'ADD_REQUEST':{
-      return {...state, receiverRequests: [...state.receiverRequests, action.payload] }
+      return {...state, receiverRequests: [action.payload,...state.receiverRequests] }
     }
     case 'UPDATE_REQUESTS':{
       let requests = state.requests.filter(request => request.id !== action.payload.id)

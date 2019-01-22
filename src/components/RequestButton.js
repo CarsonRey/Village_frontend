@@ -6,7 +6,7 @@ const RequestButton = (props) => {
   let { showForm } = props
 
     return (
-      <div onClick={() => showForm(false)}>
+      <div className="rate req-btn" onClick={() => showForm(false)}>
         Make A Request
       </div>
     );

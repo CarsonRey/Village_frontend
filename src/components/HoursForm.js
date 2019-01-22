@@ -26,9 +26,11 @@ class HoursForm extends Component {
   formInputHTML = (day, index) => {
     // debugger
     return <div className="date-row">
-            <label for={day}>{day}: </label>
-            <input type="time" name={day} data-id={index} id="start" value={this.state.days[index][`${day}`].start || ""}/>
-            <input type="time" name={day} data-id={index} id="end" value={this.state.days[index][`${day}`].end || ""}/><br/>
+            <label className="day" for={day}>{day}: </label>
+            <div className="input-cont">
+              <input type="time" className="input-time" name={day} data-id={index} id="start" value={this.state.days[index][`${day}`].start || ""}/>
+              <input type="time" className="input-time" name={day} data-id={index} id="end" value={this.state.days[index][`${day}`].end || ""}/><br/>
+            </div>
           </div>
   }
 
@@ -40,16 +42,17 @@ class HoursForm extends Component {
 
     return (
       <React.Fragment >
-        <div className="bg-modal" onClick={() => hideForm(true)}>
-          <form className="modal-content" onChange={(e) => this.handleChange(e)}>
-
+        <div className="bg-modal" >
+          <form className="modal-content  hours" onChange={(e) => this.handleChange(e)}>
+            <h1>Hours of Operation</h1>
+            <div className="date-row-cont">
             { days.map((day, index) => this.formInputHTML(day, index)) }
-
-            <div onClick={() => logHours(hoursInfo)}>
+            </div>
+            <div className="take-job hours-btn" onClick={() => logHours(hoursInfo)}>
                Add Hours
             </div>
 
-            <div onClick={() => hideForm(true) }>
+            <div className="hours-btn" onClick={() => hideForm(true) }>
                cancel
             </div>
 

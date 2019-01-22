@@ -1,12 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setChosenRequest, setChosenDonation, showOrHideJobDetail } from '../store'
 
-const RequestCard = (props) => {
-    const { req, role, job, setRequest, setJob, showDetails } = props
+class RequestCard extends Component {
+
+
+    // componentDidMount(){
+    //
+    // }
+
+    requestStatus = (req) => {
+      debugger
+      let status = this.props.donations.filter(donation => donation.request_id === req.id)
+      return status.length > 0 ? `${status[0].giver}` : "No donator yet"
+    }
+
+
+render(){
+  // debugger
+    let { req, role, job, setRequest, setJob, showDetails, donations } = this.props
+
+
 
     return (
+
       <div className="RequestCard card">
 
         {
@@ -24,7 +42,17 @@ const RequestCard = (props) => {
 
       </div>
 
-    );
+    )
+  };
+}
+
+// to see if there's a donator scheduling we search through all donations
+// is there a donation with that request_id
+// Donator: NAME has initiated a donation
+// Status: Waiting on a Deliverer
+
+const mapStateToProps = (state) => {
+  return { donations: state.donationInfo.donations }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -36,4 +64,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(RequestCard);
+export default connect(mapStateToProps, mapDispatchToProps)(RequestCard);
