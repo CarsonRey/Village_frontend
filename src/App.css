@@ -138,6 +138,7 @@
   font-family: Palatino;
   width: 10%;
   top: -100;
+  border-radius: 0 0 3px 0;
 }
 
 .add{

@@ -9,7 +9,7 @@ import DonationFormContainer from './containers/DonationFormContainer'
 import NavBar from './components/NavBar'
 import './App.css';
 import './flaticon.css';
-import video from './mod5.mp4'
+import video from './mod5bg.mp4'
 
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
     // console.log("in app", this.props)
     return (
       <div className="App">
-      { localStorage.length === 0 &&
+      { (localStorage.length === 0 && video )&&
         <video className="myVideo" loop autoPlay muted >
          <source src={video} type="video/mp4"/>
          <source src={video} type="video/ogg"/>

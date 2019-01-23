@@ -7,6 +7,11 @@ class RequestCard extends Component {
 
 
     requestStatus = (req) => {
+
+    // to see if there's a donator scheduling we search through all donations
+    // is there a donation with that request_id
+    // Donator: NAME has initiated a donation
+    // Status: Waiting on a Deliverer
       let {donations} = this.props
 
       if (donations){
@@ -33,24 +38,6 @@ render(){
 
     let { req, role, job, setRequest, setJob, showDetails, donations } = this.props
 
-    let donation
-// console.log("in req card",donations)
-// if (donations && donations.length > 0) {
-//   if (role === "Receiver"){
-//       let donation = donations.filter(donation => donation.request_id === req.id)
-//       // debugger
-//   }
-// }
-
-
-
-    // to see if there's a donator scheduling we search through all donations
-    // is there a donation with that request_id
-    // Donator: NAME has initiated a donation
-    // Status: Waiting on a Deliverer
-
-
-
 
     return (
 
@@ -58,11 +45,11 @@ render(){
       <p className="date">{ role === "Deliverer" ? (job && job.created_at.substr(0, 10)) : (req && req.created_at.substr(0, 10))}</p> <br/>
 
         {
-          role === "Donator" && <p> <span>{req.user.name}</span> needs food for <span>{req.mouths_to_feed}</span> {req.mouths_to_feed > 2 ? "people" : "person"}.  <Link className="link btn-link rate" to="/donation-form" onClick={() => setRequest(req)}>I want to help.</Link> </p>
+          role === "Donator" && <p> <span>{req.user.name}</span> needs food for <span>{ req && req.mouths_to_feed}</span> { req && req.mouths_to_feed > 2 ? "people" : "person"}.  <Link className="link btn-link rate" to="/donation-form" onClick={() => setRequest(req)}>I want to help.</Link> </p>
         }
 
         {
-          role === "Deliverer" && <div><p> <span>{job.giver.name}</span> <br/> is looking for someone to deliver to <br/> <span>{job.receiver.name}</span></p> <div onMouseOver={() => setJob(job)} onClick={() => showDetails(false) } className="btn rate">Details</div> </div>
+          role === "Deliverer" && <div><p> <span>{ job && job.giver.name}</span> <br/> is looking for someone to deliver to <br/> <span>{ job && job.receiver.name}</span></p> <div onMouseOver={() => setJob(job)} onClick={() => showDetails(false) } className="btn rate">Details</div> </div>
         }
 
         {
@@ -82,7 +69,6 @@ render(){
 
 const mapStateToProps = (state) => {
   return {
-    // donations: state.donationInfo.donations,
     user: state.userInfo.user
    }
 }
