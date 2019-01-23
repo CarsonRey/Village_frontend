@@ -16,19 +16,19 @@ class ColumnOneContainer extends Component {
     }else if (role === "Deliverer"){
       return getDonations()
     }else if (role === "Receiver"){
-      return getRequests(parseInt(localStorage.userId))
+      return getRequests(parseInt(localStorage.userId)) && getDonations()
+
       // need to figure out userAction/Reducer so we don't have to use localStorage!!
     }
   }
 
   componentDidMount() {
    this.getColumnOne()
-   // this.props.getDonations()
   }
 
   render(){
 
-    console.log(this.props.donations)
+    console.log("in column one",this.props.availableJobs)
     return(
 
       <div  className="col">
@@ -39,7 +39,7 @@ class ColumnOneContainer extends Component {
           {/* Deliverer */}
           {this.props.availableJobs.map(job => <RequestCard role={this.props.role} job={job} key={job.id} />)}
           {/* Receiver */}
-          {this.props.receiverRequests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
+          {this.props.receiverRequests.map(request => <RequestCard donations={this.props.availableJobs} role={this.props.role} req={request} key={request.id} />)}
         </div>
       </div>
     )
@@ -51,7 +51,8 @@ const mapStateToProps = (state) => {
     availableJobs: state.donationInfo.donations,
     requests: state.requestInfo.requests,
     receiverRequests: state.requestInfo.receiverRequests,
-    user: state.userInfo.user
+    user: state.userInfo.user,
+    donations: state.donationInfo.donations
    }
 }
 

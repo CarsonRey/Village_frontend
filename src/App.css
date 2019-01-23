@@ -3,6 +3,85 @@
   font-family: Palatino;
 }
 
+.myVideo{
+ position: fixed;
+ right: 0;
+ bottom: 0;
+ top: 0;
+ left: 0;
+ object-fit: cover;
+ width: 100%;
+ min-height: 110%;
+ z-index: -99;
+ opacity: .50;
+}
+
+.landing-box{
+  background-color: #093145;
+  border-radius: 10px;
+  color: white;
+  width: 46%;
+  margin: 270px 27% 0 27%;
+  padding: 40px 0;
+}
+
+.sign{
+  margin-top: 230px;
+}
+
+.sign-log-label{
+  font-size: 27px;
+}
+
+.sign-log-input{
+  background-color: white;
+  width: 40%;
+  height: 30px;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+
+.choice-box{
+  color: #252E0D;
+  background-color: #eeefec;
+  border-radius: 10px;
+  width: 70%;
+  margin: 190px 15% 0 15%;
+  padding: 40px 0;
+}
+
+.ChoiceCard{
+  border: 1px solid white;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 20px 15px;
+  margin: 0 5px;
+}
+
+.chosen{
+  box-shadow: 5px 10px 8px #888888;
+}
+
+.cont-btn{
+  margin-top: 40px;
+  /* border: .5px solid #252E0D; */
+  border-radius: 3px;
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cont-btn:hover{
+  background-color: lightgrey;
+  box-shadow: 5px 10px 8px #888888;
+}
+
+.app-desc{
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
 .btn-link{
   display: block;
   margin-top: 10px;
@@ -10,22 +89,39 @@
 }
 
 .nav{
-  /* display: flex; */
-  /* justify-content: space-evenly; */
   display: grid;
   grid-template-columns: 16% 68% 16%;
   font-family: Palatino;
   background-color: #093145;
   color: white;
 }
+
+.nav-no-user{
+  display: flex;
+  justify-content: center;
+  font-family: Palatino;
+  background-color: #093145;
+  color: white;
+}
+
 .user-name{
   margin-top: 50px;
   margin-left: 50px;
   font-size: 17px
 }
+
 .logo{
   font-size: 45px;
 }
+
+
+
+/* .logo-no-user{
+   width: 50%;
+   margin: auto;
+   float:right;
+   font-size: 45px;
+} */
 
 .logout{
   color: white;
@@ -45,7 +141,7 @@
 }
 
 .add{
-    background-color: red;
+    background-color: #f9797d;
 }
 
 .edit{
@@ -273,9 +369,19 @@ a.link.don-cancel{
 }
 
 .card-cont{
-    height: 600px;
+    /* height: 700px; */
+    height: 82%;
     overflow: scroll;
+    /* background-color: 	#FDF5E6; */
+    border-radius: 10px;
+    /* width: 410px; */
 
+}
+
+.card-cont-del{
+  height: 95%;
+  overflow: scroll;
+  border-radius: 10px;
 }
 
 .RequestCard, .DeliveryCard{
@@ -295,13 +401,6 @@ a.link.don-cancel{
   color: #252E0D;
   background-color: #eeefec;
   box-shadow: 5px 10px 8px #888888;
-}
-
-.ChoiceCard{
-  border: 1px solid #252E0D;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 0px 15px;
 }
 
 .pudo {
@@ -483,7 +582,7 @@ margin:0 auto;
 
 
 .req-btn{
-  margin: 23px 0;
+  margin: 5px 0;
 }
 
 
@@ -574,8 +673,6 @@ i.flaticon-help::before{
 .card-d-name{
   font-weight: bold;
 }
-
-
 
 .op {
   background-color: #fb787b;

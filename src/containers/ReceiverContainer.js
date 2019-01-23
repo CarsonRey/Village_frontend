@@ -15,7 +15,7 @@ class ReceiverContainer extends Component {
 
 
 
-        if(hours.length === 0){
+        if(hours && hours.length === 0){
           return <div className="hours-prompt-btn add" onClick={() => showForm(false)}>Add Hours!</div>
         } else{
           return <div className="hours-prompt-btn edit" onClick={() => showForm(false)}>Edit Hours</div>

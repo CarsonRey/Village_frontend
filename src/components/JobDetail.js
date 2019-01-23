@@ -130,7 +130,7 @@ const JobDetail = (props) => {
 
            :
 
-           <div className="italic">You haven't rated {donation.deliverer.name} yet.</div>
+           <div className="italic">You haven't rated <br/> {donation.deliverer.name} yet.</div>
          }
     </div>
   </React.Fragment>

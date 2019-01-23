@@ -5,26 +5,57 @@ import { setChosenRequest, setChosenDonation, showOrHideJobDetail, getDonations 
 
 class RequestCard extends Component {
 
-    // componentDidMount(){
-    // this.props.getDonations()
-    // }
 
     requestStatus = (req) => {
-      // debugger
-      let status = this.props.donations.filter(donation => donation.request_id === req.id)
-      return status.length > 0 ? `${status[0].giver}` : "No donator yet"
+      let {donations} = this.props
+
+      if (donations){
+        let donation = donations.filter(donation => donation.request_id === req.id)
+        return donation.length > 0
+
+        ?
+
+        (<React.Fragment>
+        <p>Donator: {donation[0].giver.name} </p>
+        <p>Status: Waiting on a deliverer</p>
+        </React.Fragment>)
+
+        :
+
+         (<p>Status: No donator yet</p>)
+      }
+
     }
 
 
+
 render(){
-  // debugger
+
     let { req, role, job, setRequest, setJob, showDetails, donations } = this.props
+
+    let donation
+// console.log("in req card",donations)
+// if (donations && donations.length > 0) {
+//   if (role === "Receiver"){
+//       let donation = donations.filter(donation => donation.request_id === req.id)
+//       // debugger
+//   }
+// }
+
+
+
+    // to see if there's a donator scheduling we search through all donations
+    // is there a donation with that request_id
+    // Donator: NAME has initiated a donation
+    // Status: Waiting on a Deliverer
+
 
 
 
     return (
 
       <div className="RequestCard card">
+      <p className="date">{ role === "Deliverer" ? (job && job.created_at.substr(0, 10)) : (req && req.created_at.substr(0, 10))}</p> <br/>
 
         {
           role === "Donator" && <p> <span>{req.user.name}</span> needs food for <span>{req.mouths_to_feed}</span> {req.mouths_to_feed > 2 ? "people" : "person"}.  <Link className="link btn-link rate" to="/donation-form" onClick={() => setRequest(req)}>I want to help.</Link> </p>
@@ -35,8 +66,10 @@ render(){
         }
 
         {
-          role === "Receiver" && <div><p>Your request to feed <span>{req.mouths_to_feed}</span> people.</p>
-          <p>Requested: {req.created_at.substr(0, 10)}</p></div>
+          role === "Receiver" && <div><p>Your request to feed <span>{req && req.mouths_to_feed}</span> { req && req.mouths_to_feed >= 2 ? "people" : "person"}.</p>
+          { this.requestStatus(req) }
+
+          </div>
         }
 
       </div>
@@ -45,13 +78,13 @@ render(){
   };
 }
 
-// to see if there's a donator scheduling we search through all donations
-// is there a donation with that request_id
-// Donator: NAME has initiated a donation
-// Status: Waiting on a Deliverer
+
 
 const mapStateToProps = (state) => {
-  return { donations: state.donationInfo.donations }
+  return {
+    // donations: state.donationInfo.donations,
+    user: state.userInfo.user
+   }
 }
 
 const mapDispatchToProps = (dispatch) => {

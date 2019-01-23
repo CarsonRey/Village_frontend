@@ -15,7 +15,8 @@ const reducer = (state = initialState, action) => {
       return {...state, chosenRole: action.payload}
     }
     case 'STORE_USER': {
-      // console.log("STORE_USER", action.payload)
+
+      console.log("STORE_USER (reducer)", action.payload)
       // console.log("state is", state)
       // debugger
       return {...state, user: action.payload}

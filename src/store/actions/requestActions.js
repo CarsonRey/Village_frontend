@@ -99,13 +99,3 @@ export const updateRequest = (requestId) => {
     })
  }
 }
-
-
-
-// if a user is passed in, then setReceiver, if not set all.
-
-// export const getReceiverRequests = () => {
-//   return (dispatch) => {
-//     return fetch(`${base_url}/requests`)
-//   }
-// }

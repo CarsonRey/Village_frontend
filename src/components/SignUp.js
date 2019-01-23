@@ -43,32 +43,31 @@ class SignUp extends Component {
 
 
   render() {
-    let {chosenRole} = this.props
+    let { chosenRole } = this.props
 
     console.log(this.state)
     return (
-      <React.Fragment >
-        <h4>Join the fam!</h4>
+      <div className="landing-box sign">
+
+        <h2>Join the fam!</h2>
         <form onSubmit={(e)=> this.handleSubmit(e)} onChange={(e) => this.handleChange(e)}>
-          <label htmlFor="name">Name: </label>
-          <input type="text" name="name" value={this.state.name}/> <br/>
-{(chosenRole !== "Food Deliverer" ) && <div><label htmlFor="address">Address: </label>
-<input type="text" name="address" value={this.state.address}/> <br/></div>}
+          <label className="sign-log-label" htmlFor="name">Name: </label><br/>
+          <input className="sign-log-input" type="text" name="name" value={this.state.name}/> <br/>
+{(chosenRole !== "Food Deliverer" ) && <div><label  className="sign-log-label" htmlFor="address">Address: </label><br/>
+<input  className="sign-log-input" type="text" name="address" value={this.state.address}/> <br/></div>}
 
 
-          <label htmlFor="email">E-mail: </label>
-          <input type="text" name="email" value={this.state.email}/> <br/>
-          <label htmlFor="password">Password: </label>
-          <input type="password" name="password" value={this.state.password}/> <br/>
+          <label className="sign-log-label" htmlFor="email">E-mail </label><br/>
+          <input className="sign-log-input" type="text" name="email" value={this.state.email}/> <br/>
+          <label className="sign-log-label" htmlFor="password">Password</label><br/>
+          <input className="sign-log-input" type="password" name="password" value={this.state.password}/> <br/>
 
-          {/* <input type="submit" value="Sign Up"/> */}
-
-          <Link to="/" onClick={() => this.handleSubmit()}>
+          <Link className="rate link" to="/" onClick={() => this.handleSubmit()}>
              Sign Up
           </Link>
 
         </form>
-      </React.Fragment>
+      </div>
     );
   }
 }

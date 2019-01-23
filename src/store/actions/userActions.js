@@ -16,7 +16,7 @@ export const chooseRole = (role) => {
 }
 
 export const storeUser = (user) => {
-
+console.log("STORE USER (action)", user)
   return {
     type: 'STORE_USER',
     payload: user

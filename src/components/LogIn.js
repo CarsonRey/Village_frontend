@@ -20,21 +20,21 @@ class Login extends Component {
   render() {
 
     return (
-        <React.Fragment>
+        <div className="landing-box sign-log">
         {/* <h1>Village</h1> */}
-        <h4>Welcome back!</h4>
+        <h2>Welcome back!</h2>
         <form action="/" onSubmit={(e)=> this.handleSubmit(e)} onChange={(e) => this.handleChange(e)}>
-          <label htmlFor="email">E-mail: </label>
-          <input type="text" name="email"/> <br/>
-          <label htmlFor="password">Password: </label>
-          <input type="password" name="password"/> <br/>
-          <Link to="/" onClick={() => this.props.getExistingUser(this.state)} >
+          <label className="sign-log-label" htmlFor="email">E-mail</label> <br/>
+          <input className="sign-log-input" type="text" name="email"/> <br/>
+          <label className="sign-log-label" htmlFor="password">Password</label> <br/>
+          <input className="sign-log-input" type="password" name="password"/> <br/>
+          <Link className="rate link" to="/" onClick={() => this.props.getExistingUser(this.state)} >
               Log In
           </Link>
            {/* <input type="submit" value="Log In"/> */}
         </form>
 
-        </React.Fragment>
+        </div>
 
     );
   }

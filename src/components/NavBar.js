@@ -6,13 +6,13 @@ import { connect } from 'react-redux'
 
 const NavBar = (props) => {
   let {user} = props
-
+console.log ("navbar", user)
     return (
       <React.Fragment>
-      <div className="nav">
-        {localStorage.token && <h4 className="user-name">Hi, {user && user.name} ! </h4>}
-        <h1 className="nav-item logo">Village</h1>
-        {localStorage.token && <Link to="/" className="link  logout" onClick={() => { storeUser({});localStorage.clear();}}>Logout</Link> }
+      <div className={localStorage.length > 0 ? "nav" : "nav-no-user"}>
+        {(localStorage.length > 0 && user) && <h4 className="user-name">Hi, {user && user.name} ! </h4>}
+        <h1 className={`nav-item ${ localStorage.length > 0 ? "logo" : "logo-no-user"}`} >Village</h1>
+        {(localStorage.token && user) && <Link to="/" className="link  logout" onClick={() => { storeUser({});localStorage.clear();}}>Logout</Link> }
       </div>
       </React.Fragment>
     );
@@ -23,7 +23,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { storeUser: () => dispatch(storeUser()) }
+  return { storeUser: (user) => dispatch(storeUser(user)) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
