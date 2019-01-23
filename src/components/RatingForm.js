@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { createRating, showOrHideRatingForm } from '../store'
 import { connect } from 'react-redux'
-import StarRatingComponent from 'react-star-rating-component'
 import help from '../help.png'
 import noHelp from '../help2.png'
 // import { Link } from 'react-router-dom'

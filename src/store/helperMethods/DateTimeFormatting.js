@@ -28,3 +28,24 @@ export const formatTime = (date) => {
 //     return
 //   }
 // }jklj
+
+export const returnAverageRating = (giverRating, receiverRating) => {
+  // debugger
+  let x = giverRating ? giverRating.number : 0
+  let y = receiverRating ? receiverRating.number : 0
+
+  if(y === 0){
+    return x
+  }else if (x === 0){
+    return y
+  } else {
+    return ((x+y)/2)
+  }
+
+}
+
+// if giverRating is null, set it to zero, else return it and set it equal to x
+
+// if receiverRating is null, set it to zero, else return it and set it equal to y
+
+// return (x + y)/2

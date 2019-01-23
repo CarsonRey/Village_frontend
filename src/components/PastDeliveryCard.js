@@ -26,11 +26,6 @@ const DeliveryProgressCard = (props) => {
           </div>
         </div>
 
-
-
-
-
-
          <DetailsButton delivery={delivery} />
 
       </div>

@@ -535,6 +535,31 @@ margin:0 auto;
   margin-top: 30px;
 }
 
+.italic{
+  font-style: italic;
+}
+
+.past-rate-cont{
+  /* display: flex;
+  justify-content: space-evenly; */
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: center;
+}
+
+.past-rating{
+  display: inline-block;
+}
+
+i.flaticon-help{
+
+}
+
+i.flaticon-help::before{
+  margin: 0;
+}
+
 
 
 
