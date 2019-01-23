@@ -28,7 +28,11 @@ const JobDetail = (props) => {
         <div className="JobDetail modal-content" >
           <h2 className="details">Details</h2>
 
-        <div className="to-from-text"><h4>From</h4><h4>To</h4></div>
+        <div className="to-from-text">
+          {(location === "DelivererJob" || location === "DelivererPast") && <React.Fragment><h4>From</h4><h4>To</h4></React.Fragment>}
+          {(location === "ReceiverContainer" || location === "DonatorContainer") && <React.Fragment><h4>{location === "ReceiverContainer" ? "Donator": "Recipient"}</h4><h4>Deliverer</h4></React.Fragment>}
+
+        </div>
         <div className="to-from">
 
           <div className="detail-place">
@@ -36,14 +40,114 @@ const JobDetail = (props) => {
             <div>{donation.giver.address}</div>
             <div>Hours of Operation</div>
           </div>
+{
+  (location === "ReceiverContainer" || location === "DonatorContainer") ? (
 
-          <div className="detail-place">
-            <div>{donation.receiver.name}</div>
-            <div>{donation.receiver.address}</div>
-            <div>Hours of Operation</div>
-          </div>
+    <React.Fragment>
+      <div className="detail-place">
+        <div className="delivererName">{donation.deliverer.name}</div>
+      </div>
+    </React.Fragment>
+
+      ) : (
+
+    <React.Fragment>
+      <div className="detail-place">
+        <div>{donation.receiver.name}</div>
+        <div>{donation.receiver.address}</div>
+        <div>Hours of Operation</div>
+      </div>
+    </React.Fragment>
+
+)}
+
 
         </div>
+        {/* THIS IS THE BEGINNING OF DONATOR PAST INFORMATION */}
+<div className="past-other-cont">
+
+
+
+{ location === "ReceiverContainer" &&
+
+<React.Fragment>
+<div>
+  <p>Pick up: {donation.pick_up}</p>
+  <p>Drop off: {donation.drop_off}</p>
+</div>
+  <div>
+
+    {receiverRating ?
+
+      <React.Fragment>
+        Your rating: <br/>
+        <StarRatingComponent
+          name="rate2"
+          editing={false}
+          renderStarIcon={() => <i className="flaticon-help"></i>}
+          starCount={5}
+          value={receiverRating.number}
+          starColor={'#f9bb2d'}
+          emptyStarColor={'lightgrey'}
+        /> <br/>
+        <p>Your comments: <br/> {receiverRating.notes}</p>
+      </React.Fragment>
+
+         :
+
+         <div className="italic">You haven't rated {donation.deliverer.name} yet.</div>
+       }
+  </div>
+</React.Fragment>
+
+  }
+
+
+  { location === "DonatorContainer" &&
+
+  <React.Fragment>
+  <div>
+    <p>Pick up: {donation.pick_up}</p>
+    <p>Drop off: {donation.drop_off}</p>
+  </div>
+    <div>
+
+      {giverRating ?
+
+        <React.Fragment>
+          Your rating: <br/>
+          <StarRatingComponent
+            name="rate2"
+            editing={false}
+            renderStarIcon={() => <i className="flaticon-help"></i>}
+            starCount={5}
+            value={giverRating.number}
+            starColor={'#f9bb2d'}
+            emptyStarColor={'lightgrey'}
+          /> <br/>
+          <p>Your comments: <br/> {giverRating.notes}</p>
+        </React.Fragment>
+
+           :
+
+           <div className="italic">You haven't rated {donation.deliverer.name} yet.</div>
+         }
+    </div>
+  </React.Fragment>
+
+    }
+
+
+</div>
+
+
+
+
+
+
+
+
+        {/* THIS IS THE END OF DONATOR PAST INFORMATION */}
 
         {/* THIS IS THE BEGINNING OF DELIVERER PAST INFORMATION */}
         {location === "DelivererPast" &&

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ColumnsContainer from './ColumnsContainer'
 import RateDelivererContainer from './RateDelivererContainer'
+import JobDetail from '../components/JobDetail'
 import { connect } from 'react-redux'
 import { showOrHideHoursForm } from '../store'
 
@@ -22,7 +23,7 @@ class DonatorContainer extends Component {
 
 
   render() {
-    let {deliveries} = this.props
+    let {deliveries, userClickedDetails} = this.props
 
     let unratedDeliveries = deliveries.filter(delivery => delivery.delivered === true && delivery.giver_has_rated === false)
 
@@ -30,7 +31,7 @@ class DonatorContainer extends Component {
     return (
       <React.Fragment>
         { unratedDeliveries.length > 0 && <RateDelivererContainer/>}
-    
+        { userClickedDetails && <JobDetail  location="DonatorContainer" isDelivery={true}/>}
         <ColumnsContainer container="Donator" />
       </React.Fragment>
     );
@@ -41,7 +42,8 @@ class DonatorContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     deliveries: state.deliveryInfo.userDeliveries,
-    hours: state.hourInfo.userHours
+    hours: state.hourInfo.userHours,
+    userClickedDetails: state.donationInfo.showPastDetail
   }
 }
 

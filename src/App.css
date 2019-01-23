@@ -548,6 +548,13 @@ margin:0 auto;
   justify-content: center;
 }
 
+.past-other-cont{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+}
+
 .past-rating{
   display: inline-block;
 }
@@ -558,6 +565,26 @@ i.flaticon-help{
 
 i.flaticon-help::before{
   margin: 0;
+}
+
+.delivererName{
+  margin-top: 30px;
+}
+
+.card-d-name{
+  font-weight: bold;
+}
+
+
+
+.op {
+  background-color: #fb787b;
+  color: white;
+  width: 70%;
+  margin-left: 45px;
+  /* margin: 0 25% 0 25%; */
+  border-radius: 3px;
+
 }
 
 

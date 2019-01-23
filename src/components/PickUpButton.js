@@ -7,7 +7,7 @@ const PickUpButton = (props) => {
   const { delivery, completePickUp } = props
 
     return (
-        <div className="PickUpButton" onClick={() => completePickUp(delivery)}>
+        <div className="PickUpButton rate" onClick={() => completePickUp(delivery)}>
           Complete Pick Up
         </div>
     );

@@ -15,13 +15,13 @@ const DeliveryProgressCard = (props) => {
         </div>
         <div >
           <div className="to-from-card">
-            <span>{delivery.giver.name}</span>
+            <span>{ parseInt(localStorage.userId) === delivery.giver.id ? "You" : delivery.giver.name}</span>
             <span>{ parseInt(localStorage.userId) === delivery.receiver.id ? "You" : delivery.receiver.name}</span>
           </div>
 
           <div className="to-from-card">
 
-            <p>{parseInt(localStorage.userId) === delivery.giver.id ? "You" : delivery.giver.address}</p>
+            <p>{delivery.giver.address}</p>
             <p>{delivery.receiver.address}</p>
           </div>
         </div>

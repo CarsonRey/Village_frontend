@@ -12,16 +12,16 @@ const DeliveryProgressCard = (props) => {
         {role === "Deliverer" ? <span>{delivery.giver.name}</span> : <span>You</span>}
 
         <p>From: {delivery.giver.address}</p>
-        <p>Hours of Operation</p>
+        <p className="op">Hours of Operation</p>
 
         <span>{delivery.receiver.name}</span>
         <p>To: {delivery.receiver.address}</p>
-        <p>Hours of Operation</p>
+        <p className="op">Hours of Operation</p>
 
         {delivery.pick_up !== null && <p>Pick up time: {delivery.pick_up}</p>}
         { role === "Deliverer" ?
           (delivery.pick_up === null ? <PickUpButton delivery={delivery}  /> : <CompleteButton delivery={delivery}  />) : (<div><p>{props.getDeliveryStatus(delivery)}</p>
-          <p>Deliverer: { delivery.deliverer.name}</p></div>) }
+          <p className="card-d-name">Deliverer: { delivery.deliverer.name}</p></div>) }
 
       </div>
     );
