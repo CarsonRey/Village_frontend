@@ -53,7 +53,7 @@ render(){
         }
 
         {
-          role === "Receiver" && <div><p>Your request to feed <span>{req && req.mouths_to_feed}</span> { req && req.mouths_to_feed >= 2 ? "people" : "person"}.</p>
+          role === "Receiver" && <div><p>Your request to feed <span>{ req ? req.mouths_to_feed : null}</span> { req && req.mouths_to_feed >= 2 ? "people" : "person"}.</p>
           { this.requestStatus(req) }
 
           </div>
