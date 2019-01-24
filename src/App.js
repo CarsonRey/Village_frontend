@@ -14,16 +14,10 @@ import video from './mod5bg.mp4'
 
 class App extends Component {
 
-  // componentWillMount(){
-  //
-  // }
-
   componentDidMount(){
     this.props.getUser()
     // this.props.getDonations()
     this.props.getRatings()
-
-
   }
 
   render() {

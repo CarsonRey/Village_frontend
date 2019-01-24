@@ -52,12 +52,15 @@ export const getRequests = (userId) => {
     return fetch(`${base_url}/requests`)
                 .then(r => r.json())
                 .then(requests => {
-// debugger
+                  let unfulfilledRequests
+
                   if (userId){
-                    let receiverRequests = requests.filter(request => request.user_id === userId)
+                    let receiverRequests = requests.filter(request => (request.user_id === userId) && (request.taken === false))
                     dispatch(setReceiverRequests(receiverRequests))
-                  } else {
-                    let unfulfilledRequests = requests.filter(request => request.taken === false )
+                  }
+
+                    else {
+                    unfulfilledRequests = requests.filter(request => request.taken === false )
                     dispatch(setRequests(unfulfilledRequests))
                   }
 

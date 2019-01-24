@@ -1,7 +1,7 @@
 import React from 'react';
 import DetailsButton from './DetailsButton'
 
-const DeliveryProgressCard = (props) => {
+const PastDeliveryCard = (props) => {
   const {delivery} = props
 // debugger
     return (
@@ -32,4 +32,4 @@ const DeliveryProgressCard = (props) => {
     );
 }
 
-export default DeliveryProgressCard;
+export default PastDeliveryCard;
