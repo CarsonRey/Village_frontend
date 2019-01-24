@@ -34,17 +34,32 @@ class ColumnOneContainer extends Component {
   // }
 
   render(){
+    let { requests, role, availableJobs, receiverRequests } = this.props
+    // console.log(role)
     return(
 
       <div  className="col">
         <h3 className="col-header">{getColumnOneHeader(localStorage.userRoleId)}</h3>
         <div className="card-cont">
           {/* Donator */}
-          {this.props.requests.map(request => <RequestCard role={this.props.role} req={request} key={request.id} />)}
+          {
+
+            requests.length === 0 && role === "Donator" ? <p className="none">There are no requests at this time.</p> :
+            requests.map(request => <RequestCard role={role} req={request} key={request.id} />)
+
+          }
           {/* Deliverer */}
-          {this.props.availableJobs.map(job => <RequestCard role={this.props.role} job={job} key={job.id} />)}
+          {
+            availableJobs.length === 0 && role === "Deliverer" ? <p className="none">There are no available jobs at this time.</p> :
+            availableJobs.map(job => <RequestCard role={role} job={job} key={job.id} />)
+
+          }
           {/* Receiver */}
-          {this.props.receiverRequests.map(request => <RequestCard donations={this.props.availableJobs} role={this.props.role} req={request} key={request.id} />)}
+          {
+            receiverRequests.length === 0 && role === "Receiver" ? <p>You haven't made any requests yet!</p> :
+            receiverRequests.map(request => <RequestCard donations={availableJobs} role={role} req={request} key={request.id} />)
+
+          }
         </div>
       </div>
     )

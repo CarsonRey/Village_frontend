@@ -33,6 +33,12 @@
   font-size: 27px;
 }
 
+.none{
+  font-size: 20px;
+  font-style: italic;
+  color: gray;
+}
+
 .sign-log-input{
   background-color: white;
   width: 40%;

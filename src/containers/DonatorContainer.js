@@ -30,6 +30,7 @@ class DonatorContainer extends Component {
 
     return (
       <React.Fragment>
+        {this.returnUserHoursButton()}
         { unratedDeliveries.length > 0 && <RateDelivererContainer/>}
         { userClickedDetails && <JobDetail  location="DonatorContainer" isDelivery={true}/>}
         <ColumnsContainer container="Donator" />

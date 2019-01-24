@@ -30,14 +30,33 @@ class ColumnThreeContainer extends Component {
   //   this.getColumnThree()
   // }
 
+  whichWords = (role) => {
+    switch (role) {
+      case '3': {
+        return "received any donations yet"
+      }
+      case '2': {
+        return "volunteered for any deliveries yet"
+      }
+      default: {
+        return "made any donations yet"
+      }
+    }
+  }
+
   render(){
     let { user } = this.props
+    // console.log(user)
       let pastDeliveries = this.props.deliveries.filter(delivery => delivery.delivered === true)
     return(
       <div  className="col">
         <h3 className="col-header">{getColumnThreeHeader(localStorage.userRoleId)}</h3>
         <div className={(user && user.role_id === 2 )? "card-cont-del" : "card-cont"}>
-        {pastDeliveries.map(delivery => <PastDeliveryCard  delivery={delivery} key={delivery.id} role={this.props.role} />)}
+        {
+          pastDeliveries.length === 0 ? <p className="none">You haven't {this.whichWords(localStorage.userRoleId)}.</p> :
+          pastDeliveries.map(delivery => <PastDeliveryCard  delivery={delivery} key={delivery.id} role={this.props.role} />)
+
+        }
         </div>
       </div>
     )

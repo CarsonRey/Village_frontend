@@ -15,7 +15,7 @@ class ColumnTwoContainer extends Component {
       return getDeliveries(role, parseInt(localStorage.userId))
     }
   }
-  
+
   // For demo purposes
   componentDidMount() {
     this.getColumnTwo()
@@ -45,7 +45,10 @@ class ColumnTwoContainer extends Component {
         <div  className="col">
           <h3 className="col-header">{getColumnTwoHeader(localStorage.userRoleId)}</h3>
           <div className="card-cont">
-            {donatorDonations.map(delivery => <DeliveryProgressCard getDeliveryStatus={this.getDeliveryStatus} delivery={delivery} key={delivery.id} role={role} />)}
+            {
+              donatorDonations.length === 0 ? <p className="none">No current deliveries!</p> :
+              donatorDonations.map(delivery => <DeliveryProgressCard getDeliveryStatus={this.getDeliveryStatus} delivery={delivery} key={delivery.id} role={role} />
+              )}
           </div>
         </div>
     )
