@@ -22,13 +22,16 @@ class ColumnOneContainer extends Component {
     }
   }
 
-  componentDidMount() {
-   this.getColumnOne()
+  // componentDidMount() {
+  //   setInterval(() => {this.getColumnOne()}, 3000)
+  //
+  // }
+
+  componentDidMount(){
+    this.getColumnOne()
   }
 
   render(){
-
-    console.log("in column one",this.props.availableJobs)
     return(
 
       <div  className="col">

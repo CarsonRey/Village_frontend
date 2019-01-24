@@ -16,7 +16,7 @@ const JobDetail = (props) => {
   // THE FOLLOWING ONLY HAPPENS IF isDelivery IS TRUE
     let specificRatings = ratings.filter(rating => rating.delivery.id === donation.id)
   // search through ratings
-    specificRatings.forEach(rating => rating.rater_id === donation.giver.id ? giverRating = rating : receiverRating = rating)
+    specificRatings.forEach(rating => rating.rater.id === rating.delivery.giver_id ? giverRating = rating : receiverRating = rating)
   // get the ratings where the rating.delivery.id matches donation.id (remember [0])
   // From that array, we want to iterate over it and for each object, if the rater.id
   // If the rater ID is equal to delivery.giver.id, set giverRating equal to that rating object, otherwise, set receiverRating
@@ -156,7 +156,6 @@ const JobDetail = (props) => {
 
           <React.Fragment>
             <div className="past-rate-cont">
-
               <div className="past-rating">
                 { giverRating ? (
                   <React.Fragment>
@@ -169,6 +168,8 @@ const JobDetail = (props) => {
                       starColor={'#f9bb2d'}
                       emptyStarColor={'lightgrey'}
                     />
+                    <div>{giverRating.number}/5</div>
+                    <p>Comments:</p>
                     <p>{giverRating.notes}</p>
                   </React.Fragment>
                 ) : (

@@ -9,25 +9,19 @@ import DonationFormContainer from './containers/DonationFormContainer'
 import NavBar from './components/NavBar'
 import './App.css';
 import './flaticon.css';
-import video from './mod5bg.mp4'
+import video from './final.mp4'
 
 
 class App extends Component {
-
-  // componentWillMount(){
-  //
-  // }
 
   componentDidMount(){
     this.props.getUser()
     // this.props.getDonations()
     this.props.getRatings()
-
-
   }
 
   render() {
-    // console.log("in app", this.props)
+
     return (
       <div className="App">
       { (localStorage.length === 0 && video )&&

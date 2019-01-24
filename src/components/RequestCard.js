@@ -45,7 +45,7 @@ render(){
       <p className="date">{ role === "Deliverer" ? (job && job.created_at.substr(0, 10)) : (req && req.created_at.substr(0, 10))}</p> <br/>
 
         {
-          role === "Donator" && <p> <span>{req.user.name}</span> needs food for <span>{ req && req.mouths_to_feed}</span> { req && req.mouths_to_feed > 2 ? "people" : "person"}.  <Link className="link btn-link rate" to="/donation-form" onClick={() => setRequest(req)}>I want to help.</Link> </p>
+          role === "Donator" && <p> <span>{req.user.name}</span> needs food for <span>{ req && req.mouths_to_feed}</span> { req && req.mouths_to_feed > 2 ? "people" : "person"}. <br/>  <Link className="link btn-link rate" to="/donation-form" onClick={() => setRequest(req)}>I want to help.</Link> </p>
         }
 
         {

@@ -10,7 +10,8 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'SET_REQUESTS': {
-      return {...state, requests: action.payload}
+      let sortedRequests = action.payload.sort((a, b) => b.id - a.id )
+      return {...state, requests: sortedRequests}
     }
     case 'SET_RECEIVER_REQUESTS':{
       return {...state, receiverRequests: action.payload}
