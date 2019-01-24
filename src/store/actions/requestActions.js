@@ -56,6 +56,7 @@ export const getRequests = (userId) => {
                   let unfulfilledRequests
 
                   if (userId){
+                    // debugger
                     let receiverRequests = requests.filter(request => (request.user_id === userId) && (request.taken === false))
                     dispatch(setReceiverRequests(receiverRequests))
                   }

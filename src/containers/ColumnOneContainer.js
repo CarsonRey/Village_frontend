@@ -43,21 +43,21 @@ class ColumnOneContainer extends Component {
         <div className="card-cont">
           {/* Donator */}
           {
-
-            requests.length === 0 && role === "Donator" ? <p className="none">There are no requests at this time.</p> :
-            requests.map(request => <RequestCard role={role} req={request} key={request.id} />)
+            role === "Donator" &&
+            (requests.length === 0 ? <p className="none">There are no requests at this time.</p> :
+            requests.map(request => <RequestCard role={role} req={request} key={request.id} />))
 
           }
           {/* Deliverer */}
-          {
-            availableJobs.length === 0 && role === "Deliverer" ? <p className="none">There are no available jobs at this time.</p> :
-            availableJobs.map(job => <RequestCard role={role} job={job} key={job.id} />)
+          { role === "Deliverer" &&
+            (availableJobs.length === 0 ? <p className="none">There are no available jobs at this time.</p> :
+            availableJobs.map(job => <RequestCard role={role} job={job} key={job.id} />))
 
           }
           {/* Receiver */}
-          {
-            receiverRequests.length === 0 && role === "Receiver" ? <p className="none">You haven't made any requests yet!</p> :
-            receiverRequests.map(request => <RequestCard donations={availableJobs} role={role} req={request} key={request.id} />)
+          { role === "Receiver" &&
+            (receiverRequests.length === 0 ? (<p className="none">You haven't made any requests recently.</p>) :
+            receiverRequests.map(request => <RequestCard donations={availableJobs} role={role} req={request} key={request.id} />))
 
           }
         </div>
