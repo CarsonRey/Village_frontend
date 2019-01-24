@@ -9,7 +9,7 @@ import DonationFormContainer from './containers/DonationFormContainer'
 import NavBar from './components/NavBar'
 import './App.css';
 import './flaticon.css';
-// import video from './final.mp4'
+import video from './final.mp4'
 
 
 class App extends Component {
@@ -25,12 +25,12 @@ class App extends Component {
 
     return (
       <div className="App">
-      // { (localStorage.length === 0 && video )&&
-      //   <video className="myVideo" loop autoPlay muted >
-      //    <source src={video} type="video/mp4"/>
-      //    <source src={video} type="video/ogg"/>
-      //    Your browser does not support the video tag.
-      //   </video> }
+      { (localStorage.length === 0 && video )&&
+        <video className="myVideo" loop autoPlay muted >
+         <source src={video} type="video/mp4"/>
+         <source src={video} type="video/ogg"/>
+         Your browser does not support the video tag.
+        </video> }
         <NavBar />
         <Switch>
           <Route path="/new-user" component={() => <NewUserContainer/>}/>
