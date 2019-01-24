@@ -56,7 +56,7 @@ class ColumnOneContainer extends Component {
           }
           {/* Receiver */}
           {
-            receiverRequests.length === 0 && role === "Receiver" ? <p>You haven't made any requests yet!</p> :
+            receiverRequests.length === 0 && role === "Receiver" ? <p className="none">You haven't made any requests yet!</p> :
             receiverRequests.map(request => <RequestCard donations={availableJobs} role={role} req={request} key={request.id} />)
 
           }
