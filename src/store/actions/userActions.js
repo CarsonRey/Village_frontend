@@ -87,6 +87,6 @@ export const getUser = () => {
          // debugger
          dispatch(setUserHours(resp.hours))
          dispatch(storeUser(resp.user))
-       })
+       }).catch(console.log)
  }
 }
