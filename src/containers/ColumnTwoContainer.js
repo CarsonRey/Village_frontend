@@ -15,10 +15,17 @@ class ColumnTwoContainer extends Component {
       return getDeliveries(role, parseInt(localStorage.userId))
     }
   }
-
+  
+  // For demo purposes
   componentDidMount() {
     this.getColumnTwo()
+    setInterval(() => {this.getColumnTwo()}, 3000)
+
   }
+
+  // componentDidMount() {
+  //   this.getColumnTwo()
+  // }
 
   getDeliveryStatus = (delivery) => {
     if (delivery.pick_up) {

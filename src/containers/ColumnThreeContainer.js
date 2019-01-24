@@ -19,10 +19,16 @@ class ColumnThreeContainer extends Component {
       return getDeliveries(role, parseInt(localStorage.userId))
     }
   }
-
+  // For demo purposes
   componentDidMount() {
     this.getColumnThree()
+    setInterval(() => {this.getColumnThree()}, 3000)
+
   }
+
+  // componentDidMount() {
+  //   this.getColumnThree()
+  // }
 
   render(){
     let { user } = this.props

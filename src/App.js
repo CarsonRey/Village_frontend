@@ -14,6 +14,7 @@ import video from './final.mp4'
 
 class App extends Component {
 
+
   componentDidMount(){
     this.props.getUser()
     // this.props.getDonations()

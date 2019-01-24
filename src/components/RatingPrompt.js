@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { setSelectedDelivery, showOrHideRatingForm } from '../store'
 import { connect } from 'react-redux'
 
-const RatingPrompt = (props) => {
-  let { delivery, setDelivery, showForm } = props
+class RatingPrompt extends Component {
+
+  // For demo purposes
+  componentDidMount() {
+    setInterval(() => {this.componentDidMount()}, 3000)
+
+  }
+
+render(){
+  let { delivery, setDelivery, showForm } = this.props
+
 
     return (
       <React.Fragment>
@@ -18,7 +27,7 @@ const RatingPrompt = (props) => {
 
       }
       </React.Fragment>
-    );
+    )};
 }
 
  // delivery.giver.ratings.filter(rating => rating.delivery_id === delivery.id)

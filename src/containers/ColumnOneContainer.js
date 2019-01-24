@@ -22,14 +22,16 @@ class ColumnOneContainer extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   setInterval(() => {this.getColumnOne()}, 3000)
-  //
-  // }
-
-  componentDidMount(){
+  // For demo purposes
+  componentDidMount() {
     this.getColumnOne()
+    setInterval(() => {this.getColumnOne()}, 3000)
+
   }
+
+  // componentDidMount(){
+  //   this.getColumnOne()
+  // }
 
   render(){
     return(

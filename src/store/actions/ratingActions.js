@@ -1,6 +1,6 @@
 import { userHasRatedDelivery } from './deliveryActions'
-const base_url = "http://localhost:3000/api/v1/"
-
+// const base_url = "http://localhost:3000/api/v1/"
+const base_url = "https://village-api.herokuapp.com/api/v1"
 /*---------- ACTION CREATORS ----------*/
 export const showOrHideRatingForm = (isShowing) => {
   return {
