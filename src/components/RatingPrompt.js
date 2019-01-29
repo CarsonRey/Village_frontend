@@ -6,7 +6,7 @@ class RatingPrompt extends Component {
 
   // For demo purposes
   componentDidMount() {
-    setInterval(() => {this.componentDidMount()}, 3000)
+    // setInterval(() => {this.componentDidMount()}, 3000)
 
   }
 
