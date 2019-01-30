@@ -25,8 +25,8 @@ class HoursForm extends Component {
 
   formInputHTML = (day, index) => {
     // debugger
-    return <div className="date-row">
-            <label className="day" for={day}>{day}: </label>
+    return <div className="date-row" key={index}>
+            <label className="day" htmlFor={day}>{day}: </label>
             <div className="input-cont">
               <input type="time" className="input-time" name={day} data-id={index} id="start" value={this.state.days[index][`${day}`].start || ""}/>
               <input type="time" className="input-time" name={day} data-id={index} id="end" value={this.state.days[index][`${day}`].end || ""}/><br/>

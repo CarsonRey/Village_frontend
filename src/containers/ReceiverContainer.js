@@ -4,8 +4,8 @@ import RateDelivererContainer from './RateDelivererContainer'
 import ColumnsContainer from './ColumnsContainer'
 import HoursForm from '../components/HoursForm'
 import JobDetail from '../components/JobDetail'
-import { showOrHideHoursForm } from '../store'
 import { connect } from 'react-redux'
+import { showOrHideHoursForm } from '../store'
 
 class ReceiverContainer extends Component {
 

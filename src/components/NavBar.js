@@ -5,7 +5,7 @@ import { storeUser } from '../store'
 
 
 const NavBar = (props) => {
-  let {user} = props
+  // let {user} = props
 // console.log ("navbar", user)
     return (
       <React.Fragment>

@@ -36,7 +36,7 @@ class RequestCard extends Component {
 
 render(){
 
-    let { req, role, job, setRequest, setJob, showDetails, donations } = this.props
+    let { req, role, job, setRequest, setJob, showDetails } = this.props
 
 
     return (

@@ -3,8 +3,6 @@ import { createRating, showOrHideRatingForm } from '../store'
 import { connect } from 'react-redux'
 import help from '../help.png'
 import noHelp from '../help2.png'
-// import { Link } from 'react-router-dom'
-
 
 class RatingForm extends Component {
 
@@ -106,5 +104,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-//
 export default connect(mapStateToProps, mapDispatchToProps)(RatingForm);

@@ -41,17 +41,14 @@ console.log("3/4 hitting createHours. dayId is ", dayId)
       body: JSON.stringify({time_range: hourRange, day_id: dayId})
     })
     .then(r => r.json())
-    .then(hourInstance => {
-      debugger
-        dispatch(associateHourWithUser(hourInstance.id, userId))
-    })
+    .then(hourInstance => {  dispatch(associateHourWithUser(hourInstance.id, userId))
+    }).catch(console.log)
   }
 
 }
 
 
 const associateHourWithUser = (hourId, userId) => {
-  debugger
   console.log("4/4 hitting associateHourWithUser. hourId is ", hourId)
   console.log("4/4 hitting associateHourWithUser. userId is ", userId)
   return (dispatch) => {
@@ -64,9 +61,8 @@ const associateHourWithUser = (hourId, userId) => {
     })
     .then(r => r.json())
     .then(hourInstance => {
-debugger
-      // dispatch(addDayIdToHour(deliveryId, dayId))
-    })
+
+    }).catch(console.log)
   }
 }
 
@@ -98,7 +94,7 @@ const determineDay = (object, id) => {
    let start = object[day].start
    let end = object[day].end
    let timeRange = `${start} - ${end}`
-   debugger
+
    dispatch(createHours(timeRange, id))
  }
 }
@@ -122,7 +118,7 @@ const determineDay = (object, id) => {
 
 
 // const addDayIdToHour = (hour, dayId) => {
-  //   debugger
+  //
   //
   //   return (dispatch) => {
     //     return fetch (`${base_url}/hours/${hour.id}`, {
