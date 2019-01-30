@@ -701,23 +701,28 @@ i.flaticon-help::before{
   user-select: none;
 }
 
-.popup .popuptext {
-  visibility: hidden;
-  width: 200px;
-  height:100px;
-  overflow: scroll;
-  background-color: #555;
-  color: #fff;
-  font-size: 14px;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -100px;
+.popup .popuptext  {
+    visibility: hidden;
+    width: 200px;
+    height: 64px;
+    overflow: scroll;
+    background-color: #555;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -132px;
+    left: -2px;
+    margin-left: -100px;
 }
+
+.active{
+  background-color: lightgrey;
+}
+
 
 /* bored AF project */
 /* .popup .popuptext{

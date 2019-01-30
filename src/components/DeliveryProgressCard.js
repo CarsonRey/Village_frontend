@@ -41,6 +41,7 @@ class DeliveryProgressCard extends Component {
   }
 
   togglePopUp = (e) => {
+    e.target.classList.toggle("active")
     e.target.previousElementSibling.firstElementChild.classList.toggle("showPop")
   }
 
@@ -56,7 +57,7 @@ render(){
         <p>From: {delivery.giver.address}</p>
 
         {this.htmlForHours(delivery.giver.hours)}
-        <p onMouseOver={(e) => {this.togglePopUp(e)}}  className="op give">Hours of Operation</p>
+        <p onClick={(e) => {this.togglePopUp(e)}}  className="op give">Hours of Operation</p>
 
         <span>{delivery.receiver.name}</span>
         <p>To: {delivery.receiver.address}</p>
