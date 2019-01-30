@@ -5,18 +5,46 @@ import CompleteButton from './CompleteButton'
 
 class DeliveryProgressCard extends Component {
 
-  renderDay = () => {
-
+  renderDay = (dayId) => {
+    switch (dayId) {
+      case 7: {
+        return "Sun"
+      }
+      case 6: {
+        return "Sat"
+      }
+      case 5: {
+        return "Fri"
+      }
+      case 4: {
+        return "Thurs"
+      }
+      case 3: {
+        return "Wed"
+      }
+      case 2: {
+      return "Tues"
+      }
+      default: {
+        return "Mon"
+      }
+    }
   }
 
   htmlForHours = (hoursArray) => {
-    hoursArray.map()
-    return <div className="popuptext" id="myPopup">
-      Add A New <br/> Activity!
-
-
+    let array = hoursArray.sort((a,b) => a.day_id - b.day_id)
+    return <div className="popup">
+      <div className="popuptext" id="myPopup">
+        {array.map(hourSet => <div>{this.renderDay(hourSet.day_id)}: {hourSet.time_range}</div>)}
+      </div>
     </div>
   }
+
+  togglePopUp = (e) => {
+    e.target.previousElementSibling.firstElementChild.classList.toggle("showPop")
+  }
+
+
 
 render(){
   const {delivery, role, getDeliveryStatus} = this.props
@@ -27,12 +55,13 @@ render(){
 
         <p>From: {delivery.giver.address}</p>
 
-
-        <p onMouseOver={() => {console.log(delivery.giver.hours)}} className="op give">Hours of Operation</p>
+        {this.htmlForHours(delivery.giver.hours)}
+        <p onMouseOver={(e) => {this.togglePopUp(e)}}  className="op give">Hours of Operation</p>
 
         <span>{delivery.receiver.name}</span>
         <p>To: {delivery.receiver.address}</p>
-        <p onMouseOver={() => console.log(delivery.receiver.hours)} className="op rec">Hours of Operation</p>
+        {this.htmlForHours(delivery.receiver.hours)}
+        <p onMouseOver={(e) => {this.togglePopUp(e)}} onMouseLeave={(e) => {this.togglePopUp(e)}} className="op rec">Hours of Operation</p>
 
         {delivery.pick_up !== null && <p>Pick up time: {delivery.pick_up}</p>}
         { role === "Deliverer" ?
@@ -48,9 +77,7 @@ render(){
 // Iterate through and outpout html based on the day, (use timedateformatting function)
 
 
-{/* <div className="popuptext" id="myPopup">Add A New <br/> Activity!</div>
-          <div onClick={() => this.props.newActivityForm()}  className="plus" onMouseEnter={(e)=> e.target.previousElementSibling.classList.toggle("showPop")} onMouseLeave={(e)=> e.target.previousElementSibling.classList.toggle("showPop")}>
-          </div> */}
+
 
 
 
