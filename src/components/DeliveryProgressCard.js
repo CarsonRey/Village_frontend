@@ -57,12 +57,12 @@ render(){
         <p>From: {delivery.giver.address}</p>
 
         {this.htmlForHours(delivery.giver.hours)}
-        <p onClick={(e) => {this.togglePopUp(e)}}  className="op give">Hours of Operation</p>
+        <p onClick={(e) => {this.togglePopUp(e)}}  className="op">Hours of Operation</p>
 
         <span>{delivery.receiver.name}</span>
         <p>To: {delivery.receiver.address}</p>
         {this.htmlForHours(delivery.receiver.hours)}
-        <p onMouseOver={(e) => {this.togglePopUp(e)}} onMouseLeave={(e) => {this.togglePopUp(e)}} className="op rec">Hours of Operation</p>
+        <p onClick={(e) => {this.togglePopUp(e)}} className="op">Hours of Operation</p>
 
         {delivery.pick_up !== null && <p>Pick up time: {delivery.pick_up}</p>}
         { role === "Deliverer" ?

@@ -686,9 +686,13 @@ i.flaticon-help::before{
   color: white;
   width: 70%;
   margin-left: 45px;
-  /* margin: 0 25% 0 25%; */
+  margin-top: -10px;
   border-radius: 3px;
 
+}
+
+.op:hover{
+  background-color: red;
 }
 
 .popup {
@@ -702,7 +706,8 @@ i.flaticon-help::before{
 }
 
 .popup .popuptext  {
-    visibility: hidden;
+    /* visibility: hidden; */
+    display:none;
     width: 200px;
     height: 64px;
     overflow: scroll;
@@ -714,7 +719,7 @@ i.flaticon-help::before{
     padding: 8px 0;
     position: absolute;
     z-index: 1;
-    bottom: -132px;
+    bottom: -96px;
     left: -2px;
     margin-left: -100px;
 }
@@ -723,37 +728,9 @@ i.flaticon-help::before{
   background-color: lightgrey;
 }
 
-
-/* bored AF project */
-/* .popup .popuptext{
-   visibility: hidden;
-   width: 90%;
-   background-color: #555;
-   color: #fff;
-   text-align: center;
-   border-radius: 6px;
-   font-size: 15px;
-   position: absolute;
-   z-index: 1;
-   bottom: 145%;
-   margin: 2px 0px 0px 0px;
-   /* padding: .2px 0px .7px 0px; */
-   /* top: 99%; */
-/* }  */
-
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
 .popup .showPop {
-  visibility: visible;
+  /* visibility: visible; */
+  display: block;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
 }
