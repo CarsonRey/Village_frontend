@@ -17,15 +17,15 @@ class ColumnTwoContainer extends Component {
   }
 
   // For demo purposes
-  componentDidMount() {
-    this.getColumnTwo()
-    setInterval(() => {this.getColumnTwo()}, 3000)
-
-  }
-
   // componentDidMount() {
   //   this.getColumnTwo()
+  //   setInterval(() => {this.getColumnTwo()}, 3000)
+  //
   // }
+
+  componentDidMount() {
+    this.getColumnTwo()
+  }
 
   getDeliveryStatus = (delivery) => {
     if (delivery.pick_up) {

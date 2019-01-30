@@ -20,15 +20,15 @@ class ColumnThreeContainer extends Component {
     }
   }
   // For demo purposes
-  componentDidMount() {
-    this.getColumnThree()
-    setInterval(() => {this.getColumnThree()}, 3000)
-
-  }
-
   // componentDidMount() {
   //   this.getColumnThree()
+  //   setInterval(() => {this.getColumnThree()}, 3000)
+  //
   // }
+
+  componentDidMount() {
+    this.getColumnThree()
+  }
 
   whichWords = (role) => {
     switch (role) {

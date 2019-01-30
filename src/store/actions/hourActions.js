@@ -22,6 +22,7 @@ export const showOrHideHoursForm = (showingOrNot) => {
 
 export const filterDays = (daysArray) => {
   return (dispatch) => {
+console.log(" 1/4 hitting filterDays. daysArray is ", daysArray)
   daysArray.forEach((dayObject, index) => dispatch(determineDay(dayObject, index + 1)))
   }
 }
@@ -29,7 +30,8 @@ export const filterDays = (daysArray) => {
 
 const createHours = (hourRange, dayId) => {
   let userId = parseInt(localStorage.userId)
-
+console.log("3/4 hitting createHours. hourRange is ", hourRange)
+console.log("3/4 hitting createHours. dayId is ", dayId)
   return (dispatch) => {
     return fetch (`${base_url}/hours`, {
       method: 'POST',
@@ -40,6 +42,7 @@ const createHours = (hourRange, dayId) => {
     })
     .then(r => r.json())
     .then(hourInstance => {
+      debugger
         dispatch(associateHourWithUser(hourInstance.id, userId))
     })
   }
@@ -48,7 +51,9 @@ const createHours = (hourRange, dayId) => {
 
 
 const associateHourWithUser = (hourId, userId) => {
-
+  debugger
+  console.log("4/4 hitting associateHourWithUser. hourId is ", hourId)
+  console.log("4/4 hitting associateHourWithUser. userId is ", userId)
   return (dispatch) => {
     return fetch (`${base_url}/user_hours`, {
       method: 'POST',
@@ -59,7 +64,7 @@ const associateHourWithUser = (hourId, userId) => {
     })
     .then(r => r.json())
     .then(hourInstance => {
-
+debugger
       // dispatch(addDayIdToHour(deliveryId, dayId))
     })
   }
@@ -87,10 +92,13 @@ const associateHourWithUser = (hourId, userId) => {
 
 const determineDay = (object, id) => {
   return (dispatch) => {
+    console.log("2/4 hitting determineDay. object is ", object)
+    console.log("2/4 hitting determineDay. id is ", id)
    let day = Object.keys(object)[0]
    let start = object[day].start
    let end = object[day].end
    let timeRange = `${start} - ${end}`
+   debugger
    dispatch(createHours(timeRange, id))
  }
 }

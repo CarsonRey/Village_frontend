@@ -48,7 +48,7 @@ class HoursForm extends Component {
             <div className="date-row-cont">
             { days.map((day, index) => this.formInputHTML(day, index)) }
             </div>
-            <div className="take-job hours-btn" onClick={() => logHours(hoursInfo)}>
+            <div className="take-job hours-btn" onClick={() => {logHours(hoursInfo); hideForm(true);}}>
                Add Hours
             </div>
 
