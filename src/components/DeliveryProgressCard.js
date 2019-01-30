@@ -12,11 +12,11 @@ const DeliveryProgressCard = (props) => {
         {role === "Deliverer" ? <span>{delivery.giver.name}</span> : <span>You</span>}
 
         <p>From: {delivery.giver.address}</p>
-        <p className="op give">Hours of Operation</p>
+        <p onMouseOver={() => {console.log("hi")}} className="op give">Hours of Operation</p>
 
         <span>{delivery.receiver.name}</span>
         <p>To: {delivery.receiver.address}</p>
-        <p className="op rec">Hours of Operation</p>
+        <p onMouseOver={() => console.log("hi")} className="op rec">Hours of Operation</p>
 
         {delivery.pick_up !== null && <p>Pick up time: {delivery.pick_up}</p>}
         { role === "Deliverer" ?
@@ -26,6 +26,15 @@ const DeliveryProgressCard = (props) => {
       </div>
     );
 }
+
+// Initial fetch to get all user hours, store in global state
+// reference delivery.giver.hours and find a way to format?
+// Iterate through and outpout html based on the day, (use timedateformatting function)
+
+
+{/* <div className="popuptext" id="myPopup">Add A New <br/> Activity!</div>
+          <div onClick={() => this.props.newActivityForm()}  className="plus" onMouseEnter={(e)=> e.target.previousElementSibling.classList.toggle("showPop")} onMouseLeave={(e)=> e.target.previousElementSibling.classList.toggle("showPop")}>
+          </div> */}
 
 
 
