@@ -1,7 +1,7 @@
 // import { push } from 'react-router-redux'
 import { setUserHours } from './hourActions'
-// const base_url = "http://localhost:3000/api/v1/"
-const base_url = "https://village-api.herokuapp.com/api/v1"
+const base_url = "http://localhost:3000/api/v1"
+// const base_url = "https://village-api.herokuapp.com/api/v1"
 /*---------- HELPER METHODS ----------*/
 // const determineRole = () => {
 //
@@ -41,6 +41,9 @@ export const createUser = (user) => {
       // debugger
       localStorage.setItem("token", userInfo.jwt)
       localStorage.setItem("userRoleId", userInfo.user.role_id)
+      localStorage.setItem("userName", userInfo.user.name)
+      localStorage.setItem("userId", userInfo.user.id)
+
       dispatch(storeUser(userInfo.user))
       dispatch(chooseRole(userInfo.user.role_id))
     })

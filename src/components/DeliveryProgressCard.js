@@ -31,11 +31,25 @@ class DeliveryProgressCard extends Component {
     }
   }
 
+  getRegularOrEditedHours = (sorted) => {
+    if(sorted.length > 7){
+      let x = sorted.splice(sorted.length -7,sorted.length-1)
+      return x.sort((a,b) => a.day_id - b.day_id)
+    }else{
+      return sorted
+    }
+  }
+
   htmlForHours = (hoursArray) => {
-    let array = hoursArray.sort((a,b) => a.day_id - b.day_id)
+
+    let sorted;
+    sorted = hoursArray.sort((a,b) => a.id - b.id)
+    sorted = this.getRegularOrEditedHours(sorted)
+    let array = sorted
+
     return <div className="popup">
       <div className="popuptext" id="myPopup">
-        {array.map(hourSet => <div>{this.renderDay(hourSet.day_id)}: {hourSet.time_range}</div>)}
+        {array.map((hourSet, index) => <div key={index}>{this.renderDay(hourSet.day_id)}: {hourSet.time_range}</div>)}
       </div>
     </div>
   }

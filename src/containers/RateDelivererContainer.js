@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 import RatingPrompt from '../components/RatingPrompt'
 import { connect } from 'react-redux'
 
-const RateDelivererContainer = (props) => {
-  let {deliveries} = props
+class RateDelivererContainer extends Component {
+
+  // componentDidMount() {
+  //   setInterval(() => {this.componentDidMount()}, 1000)
+  //
+  // }
+
+  render (){
+
+
+  let {deliveries} = this.props
   let unrated;
 
   if (localStorage.userRoleId === "1"){
@@ -17,7 +26,7 @@ const RateDelivererContainer = (props) => {
       <div className="rate-container">
         {unrated.map(unratedDelivery => <RatingPrompt key={unratedDelivery.id} delivery={unratedDelivery}/>)}
       </div>
-    );
+    )  };
 
 
 }

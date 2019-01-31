@@ -25,7 +25,7 @@ class ColumnOneContainer extends Component {
   // For demo purposes
   // componentDidMount() {
   //   this.getColumnOne()
-  //   setInterval(() => {this.getColumnOne()}, 3000)
+  //   setInterval(() => {this.getColumnOne()}, 1000)
   //
   // }
 

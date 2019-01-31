@@ -14,7 +14,7 @@ class DonatorContainer extends Component {
 
 
 
-        if(hours.length === 0){
+        if(hours){
           return <div className="hours-prompt-btn add" onClick={() => showForm(false)}>Add Hours!</div>
         } else{
           return <div className="hours-prompt-btn edit" onClick={() => showForm(false)}>Edit Hours</div>
@@ -26,6 +26,8 @@ class DonatorContainer extends Component {
   render() {
     let {deliveries, userClickedDetails, hourFormShowing} = this.props
 
+
+
     let unratedDeliveries = deliveries.filter(delivery => delivery.delivered === true && delivery.giver_has_rated === false)
 
 
@@ -33,7 +35,7 @@ class DonatorContainer extends Component {
       <React.Fragment>
 
         {this.returnUserHoursButton()}
-        { hourFormShowing && <HoursForm />}
+        { hourFormShowing && <HoursForm hours={this.props.hours.sort((a,b) => a.id - b.id)} />}
 
         { unratedDeliveries.length > 0 && <RateDelivererContainer/>}
 

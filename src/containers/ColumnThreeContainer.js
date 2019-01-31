@@ -22,7 +22,7 @@ class ColumnThreeContainer extends Component {
   // For demo purposes
   // componentDidMount() {
   //   this.getColumnThree()
-  //   setInterval(() => {this.getColumnThree()}, 3000)
+  //   setInterval(() => {this.getColumnThree()}, 1000)
   //
   // }
 

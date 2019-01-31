@@ -19,7 +19,7 @@ class ColumnTwoContainer extends Component {
   // For demo purposes
   // componentDidMount() {
   //   this.getColumnTwo()
-  //   setInterval(() => {this.getColumnTwo()}, 3000)
+  //   setInterval(() => {this.getColumnTwo()}, 1000)
   //
   // }
 

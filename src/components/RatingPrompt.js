@@ -5,10 +5,7 @@ import { connect } from 'react-redux'
 class RatingPrompt extends Component {
 
   // For demo purposes
-  componentDidMount() {
-    // setInterval(() => {this.componentDidMount()}, 3000)
 
-  }
 
 render(){
   let { delivery, setDelivery, showForm } = this.props
