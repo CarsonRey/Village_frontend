@@ -41,7 +41,9 @@ console.log("3/4 hitting createHours. dayId is ", dayId)
       body: JSON.stringify({time_range: hourRange, day_id: dayId})
     })
     .then(r => r.json())
-    .then(hourInstance => {  dispatch(associateHourWithUser(hourInstance.id, userId))
+    .then(hourInstance => {
+      debugger
+       dispatch(associateHourWithUser(hourInstance.id, userId))
     }).catch(console.log)
   }
 
@@ -49,6 +51,7 @@ console.log("3/4 hitting createHours. dayId is ", dayId)
 
 
 const associateHourWithUser = (hourId, userId) => {
+  debugger
   console.log("4/4 hitting associateHourWithUser. hourId is ", hourId)
   console.log("4/4 hitting associateHourWithUser. userId is ", userId)
   return (dispatch) => {
