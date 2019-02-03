@@ -49,7 +49,7 @@ render(){
         }
 
         {
-          role === "Deliverer" && <div><p> <span>{ job && job.giver.name}</span> <br/> is looking for someone to deliver to <br/> <span>{ job && job.receiver.name}</span></p> <div onMouseOver={() => setJob(job)} onClick={() => showDetails(false) } className="btn rate">Details</div> </div>
+          role === "Deliverer" && <div><p> <span>{ job && job.giver.name}</span> <br/> is looking for someone to deliver to <br/> <span>{ job && job.receiver.name}</span></p> <div onMouseEnter={() => setJob(job)} onClick={() => showDetails(false) } className="btn rate">Details</div> </div>
         }
 
         {
