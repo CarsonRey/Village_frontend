@@ -51,7 +51,7 @@ class ReceiverContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("test", state)
+  // console.log("test", state)
   return {
     deliveries: state.deliveryInfo.userDeliveries,
     user: state.userInfo.user,

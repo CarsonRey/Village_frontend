@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PickUpButton from './PickUpButton'
 import CompleteButton from './CompleteButton'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 
 class DeliveryProgressCard extends Component {
 
@@ -40,25 +40,33 @@ class DeliveryProgressCard extends Component {
     }
   }
 
-  htmlForHours = (hoursArray) => {
+  htmlForHours = (user, hoursArray) => {
 
     let sorted;
     sorted = hoursArray.sort((a,b) => a.id - b.id)
     sorted = this.getRegularOrEditedHours(sorted)
-    let array = sorted
 
-    return <div className="popup">
-      <div className="popuptext" id="myPopup">
-        {array.map((hourSet, index) => <div key={index}>{this.renderDay(hourSet.day_id)}: {hourSet.time_range}</div>)}
-      </div>
+    let array = sorted.map((hourSet, index) => <div key={index}>{this.renderDay(hourSet.day_id)}: {hourSet.time_range}</div>)
+
+    return this.hoursOrMessage(user, sorted)
+  }
+
+  hoursOrMessage = (user, array) => {
+      let sorted = array.map((hourSet, index) => <div key={index}>{this.renderDay(hourSet.day_id)}: {hourSet.time_range}</div>)
+
+      return <div className="popup" >
+        <div className="popuptext" id="myPopup">
+
+        {array.length === 0 ? <div>{user.name} has not entered their hours yet.</div> : sorted }
+        </div>
     </div>
+
   }
 
   togglePopUp = (e) => {
     e.target.classList.toggle("active")
     e.target.previousElementSibling.firstElementChild.classList.toggle("showPop")
   }
-
 
 
 render(){
@@ -70,12 +78,13 @@ render(){
 
         <p>From: {delivery.giver.address}</p>
 
-        {this.htmlForHours(delivery.giver.hours)}
+        {this.htmlForHours(delivery.giver, delivery.giver.hours)}
         <p onClick={(e) => {this.togglePopUp(e)}}  className="op">Hours of Operation</p>
 
         <span>{delivery.receiver.name}</span>
         <p>To: {delivery.receiver.address}</p>
-        {this.htmlForHours(delivery.receiver.hours)}
+
+        {this.htmlForHours(delivery.receiver, delivery.receiver.hours)}
         <p onClick={(e) => {this.togglePopUp(e)}} className="op">Hours of Operation</p>
 
         {delivery.pick_up !== null && <p>Pick up time: {delivery.pick_up}</p>}
@@ -93,7 +102,10 @@ render(){
 
 
 
+const mapStateToProps = (state) => {
+  console.log("test", state.hourInfo)
+  return {refresh: state.hourInfo.refresh}
+}
 
 
-
-export default DeliveryProgressCard;
+export default connect(mapStateToProps)(DeliveryProgressCard);

@@ -1,6 +1,7 @@
 const initialState = {
   showHourForm: false,
-  userHours: []
+  userHours: [],
+  refresh: ""
 }
 
 const reducer = (state = initialState, action) => {
@@ -13,6 +14,9 @@ const reducer = (state = initialState, action) => {
     }
     case 'SET_USER_HOURS': {
       return {...state, userHours: action.payload}
+    }
+    case 'REFRESH': {
+      return {...state, refresh: action.payload}
     }
     default:
       return state

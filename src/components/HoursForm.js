@@ -7,7 +7,7 @@ class HoursForm extends Component {
 constructor (props){
   super(props)
   let {hours} = this.props
-  console.log("hours are",hours)
+  console.log("hours are", hours)
   // debugger
   this.state = {
     days:[
