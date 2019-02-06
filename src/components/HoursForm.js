@@ -7,19 +7,33 @@ class HoursForm extends Component {
 constructor (props){
   super(props)
   let {hours} = this.props
-  console.log(hours)
+  console.log("hours are",hours)
+  // debugger
   this.state = {
     days:[
-    {Monday: {start: hours === [] ? hours[0].time_range.substr(0,5) : "", end:  hours === [] ? hours[0].time_range.substr(9,13) : ""}},
-    {Tuesday: {start:  hours === [] ?  hours[1].time_range.substr(0,5) : "", end:  hours === [] ?  hours[1].time_range.substr(9,13) : ""}},
-    {Wednesday: {start:  hours === [] ?  hours[2].time_range.substr(0,5) : "", end:  hours === [] ?  hours[2].time_range.substr(9,13) : ""}},
-    {Thursday: {start:  hours === [] ?  hours[3].time_range.substr(0,5) : "", end:  hours === [] ?  hours[3].time_range.substr(9,13) : ""}},
-    {Friday: {start:  hours === [] ?  hours[4].time_range.substr(0,5) : "", end:  hours === [] ?  hours[4].time_range.substr(9,13) : ""}},
-    {Saturday: {start:  hours === [] ?  hours[5].time_range.substr(0,5) : "", end:  hours === [] ?  hours[5].time_range.substr(9,13) : ""}},
-    {Sunday: {start:  hours === [] ?  hours[6].time_range.substr(0,5) : "", end:  hours === [] ?  hours[6].time_range.substr(9,13) : ""}}
+    {Monday: {start: hours.length > 0 ? hours[0].time_range.substr(0,5) : "", end:  hours.length > 0 ? hours[0].time_range.substr(7,13) : ""}},
+    {Tuesday: {start:  hours.length > 0 ?  hours[1].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[1].time_range.substr(7,13) : ""}},
+    {Wednesday: {start:  hours.length > 0 ?  hours[2].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[2].time_range.substr(7,13) : ""}},
+    {Thursday: {start:  hours.length > 0 ?  hours[3].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[3].time_range.substr(7,13) : ""}},
+    {Friday: {start:  hours.length > 0 ?  hours[4].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[4].time_range.substr(7,13) : ""}},
+    {Saturday: {start:  hours.length > 0 ?  hours[5].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[5].time_range.substr(7,13) : ""}},
+    {Sunday: {start:  hours.length > 0 ?  hours[6].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[6].time_range.substr(7,13) : ""}}
   ]
   }
 }
+
+  // renderHoursOrEmpty = (index, startOrEnd) => {
+  //   let {hours} = this.props
+  //   if (hours) {
+  //     if (startOrEnd === "start"){
+  //
+  //     } else{
+  //
+  //     }
+  //   } else {
+  //     return ""
+  //   }
+  // }
 
   handleChange = (e) => {
     let days = this.state.days
@@ -43,7 +57,7 @@ constructor (props){
 
   render() {
 
-    console.log(this.props.hours)
+    // console.log(this.props.hours)
 
     let { hideForm, logHours, hours } = this.props
     let hoursInfo = this.state.days
@@ -58,7 +72,7 @@ constructor (props){
             { days.map((day, index) => this.formInputHTML(day, index)) }
             </div>
 
-            { hours !== [] ?
+            { hours.length > 0 ?
 
               <div className="take-job hours-btn" onClick={() => {logHours(hoursInfo); hideForm(true);}}>
                  Edit Hours

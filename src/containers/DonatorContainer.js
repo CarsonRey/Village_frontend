@@ -49,6 +49,7 @@ class DonatorContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // console.log("test", state)
   return {
     deliveries: state.deliveryInfo.userDeliveries,
     hours: state.hourInfo.userHours,

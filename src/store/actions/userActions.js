@@ -27,7 +27,7 @@ console.log("STORE USER (action)", user)
 /*---------- THUNK CREATORS ----------*/
 
 export const createUser = (user) => {
-  debugger
+  // debugger
   return (dispatch) => {
     return fetch (`${base_url}/users`, {
       method: 'POST',
@@ -87,8 +87,8 @@ export const getUser = () => {
    })
      .then(resp => resp.json())
        .then(resp => {
-         // debugger
-         dispatch(setUserHours(resp.hours))
+
+         dispatch(setUserHours(resp.hours ? resp.hours : []))
          dispatch(storeUser(resp.user))
        }).catch(console.log)
  }

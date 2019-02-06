@@ -39,7 +39,7 @@ class ReceiverContainer extends Component {
         </div>
 
 
-          { hourFormShowing && <HoursForm />}
+          { hourFormShowing && <HoursForm hours={this.props.hours.sort((a,b) => a.id - b.id)} />}
           { userClickedDetails && <JobDetail  location="ReceiverContainer" isDelivery={true}/>}
 
 
@@ -51,6 +51,7 @@ class ReceiverContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log("test", state)
   return {
     deliveries: state.deliveryInfo.userDeliveries,
     user: state.userInfo.user,

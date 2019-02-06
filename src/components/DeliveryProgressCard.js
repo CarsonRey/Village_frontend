@@ -36,7 +36,7 @@ class DeliveryProgressCard extends Component {
       let x = sorted.splice(sorted.length -7,sorted.length-1)
       return x.sort((a,b) => a.day_id - b.day_id)
     }else{
-      return sorted
+      return sorted.sort((a,b) => a.day_id - b.day_id)
     }
   }
 
