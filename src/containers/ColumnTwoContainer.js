@@ -27,6 +27,12 @@ class ColumnTwoContainer extends Component {
     this.getColumnTwo()
   }
 
+  componentWillReceiveProps (newProps) {
+    if ( newProps.refresh !== this.props.refresh ){
+      this.componentDidMount()
+    }
+  }
+
   getDeliveryStatus = (delivery) => {
     if (delivery.pick_up) {
       return "Status: On the way"
@@ -57,7 +63,11 @@ class ColumnTwoContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { deliveries: state.deliveryInfo.userDeliveries, user: state.userInfo.user }
+  return {
+    deliveries: state.deliveryInfo.userDeliveries,
+    user: state.userInfo.user,
+    refresh: state.hourInfo.refresh
+   }
 }
 
 const mapDispatchToProps = (dispatch) => {

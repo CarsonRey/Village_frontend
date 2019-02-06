@@ -8,7 +8,6 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'SHOW_OR_HIDE_HOUR_FORM': {
-      console.log(action.payload)
       let showingOrNot = !action.payload
       return {...state, showHourForm: showingOrNot}
     }

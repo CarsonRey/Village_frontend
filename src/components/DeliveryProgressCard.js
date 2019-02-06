@@ -5,6 +5,17 @@ import { connect } from 'react-redux'
 
 class DeliveryProgressCard extends Component {
 
+  // componentDidMount(){
+  //   console.log(this.props.refresh)
+  // }
+  // 
+  // componentWillReceiveProps (newProps) {
+  //   if ( newProps.refresh !== this.props.refresh ){
+  //     debugger
+  //     this.componentDidMount()
+  //   } /* do stuff */
+  // }
+
   renderDay = (dayId) => {
     switch (dayId) {
       case 7: {
@@ -41,12 +52,9 @@ class DeliveryProgressCard extends Component {
   }
 
   htmlForHours = (user, hoursArray) => {
-
     let sorted;
     sorted = hoursArray.sort((a,b) => a.id - b.id)
     sorted = this.getRegularOrEditedHours(sorted)
-
-    let array = sorted.map((hourSet, index) => <div key={index}>{this.renderDay(hourSet.day_id)}: {hourSet.time_range}</div>)
 
     return this.hoursOrMessage(user, sorted)
   }
@@ -56,11 +64,9 @@ class DeliveryProgressCard extends Component {
 
       return <div className="popup" >
         <div className="popuptext" id="myPopup">
-
         {array.length === 0 ? <div>{user.name} has not entered their hours yet.</div> : sorted }
         </div>
-    </div>
-
+      </div>
   }
 
   togglePopUp = (e) => {
@@ -97,13 +103,8 @@ render(){
     ;
 }
 
-// reference delivery.giver.hours and find a way to format?
-// Iterate through and outpout html based on the day, (use timedateformatting function)
-
-
 
 const mapStateToProps = (state) => {
-  console.log("test", state.hourInfo)
   return {refresh: state.hourInfo.refresh}
 }
 
