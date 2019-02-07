@@ -5,16 +5,6 @@ import { connect } from 'react-redux'
 
 class DeliveryProgressCard extends Component {
 
-  // componentDidMount(){
-  //   console.log(this.props.refresh)
-  // }
-  // 
-  // componentWillReceiveProps (newProps) {
-  //   if ( newProps.refresh !== this.props.refresh ){
-  //     debugger
-  //     this.componentDidMount()
-  //   } /* do stuff */
-  // }
 
   renderDay = (dayId) => {
     switch (dayId) {
