@@ -1,4 +1,4 @@
-// import { getUser } from './userActions'
+import { getUser } from './userActions'
 const base_url = "http://localhost:3000/api/v1"
 // const base_url = "https://village-api.herokuapp.com/api/v1"
 
@@ -50,6 +50,7 @@ const createHours = (hourRange, dayId) => {
     .then(r => r.json())
     .then(hourInstance => {
       // debugger
+      dispatch(getUser())
        dispatch(associateHourWithUser(hourInstance.id, userId))
     }).catch(console.log)
   }

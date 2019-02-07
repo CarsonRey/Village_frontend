@@ -11,29 +11,30 @@ constructor (props){
   // debugger
   this.state = {
     days:[
-    {Monday: {start: hours.length > 0 ? hours[0].time_range.substr(0,5) : "", end:  hours.length > 0 ? hours[0].time_range.substr(7,13) : ""}},
-    {Tuesday: {start:  hours.length > 0 ?  hours[1].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[1].time_range.substr(7,13) : ""}},
-    {Wednesday: {start:  hours.length > 0 ?  hours[2].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[2].time_range.substr(7,13) : ""}},
-    {Thursday: {start:  hours.length > 0 ?  hours[3].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[3].time_range.substr(7,13) : ""}},
-    {Friday: {start:  hours.length > 0 ?  hours[4].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[4].time_range.substr(7,13) : ""}},
-    {Saturday: {start:  hours.length > 0 ?  hours[5].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[5].time_range.substr(7,13) : ""}},
-    {Sunday: {start:  hours.length > 0 ?  hours[6].time_range.substr(0,5) : "", end:  hours.length > 0 ?  hours[6].time_range.substr(7,13) : ""}}
+    {Monday: {start:this.renderHoursOrEmpty(1, "start"), end: this.renderHoursOrEmpty(1, "end")}},
+    {Tuesday: {start:  this.renderHoursOrEmpty(2, "start"), end:  this.renderHoursOrEmpty(2, "end")}},
+    {Wednesday: {start:  this.renderHoursOrEmpty(3, "start"), end:  this.renderHoursOrEmpty(3, "end")}},
+    {Thursday: {start:  this.renderHoursOrEmpty(4, "start"), end:  this.renderHoursOrEmpty(4, "end")}},
+    {Friday: {start:  this.renderHoursOrEmpty(5, "start"), end:  this.renderHoursOrEmpty(5, "end")}},
+    {Saturday: {start:  this.renderHoursOrEmpty(6, "start"), end:  this.renderHoursOrEmpty(6, "end")}},
+    {Sunday: {start:  this.renderHoursOrEmpty(7, "start"), end:  this.renderHoursOrEmpty(7, "end")}}
   ]
   }
 }
 
-  // renderHoursOrEmpty = (index, startOrEnd) => {
-  //   let {hours} = this.props
-  //   if (hours) {
-  //     if (startOrEnd === "start"){
-  //
-  //     } else{
-  //
-  //     }
-  //   } else {
-  //     return ""
-  //   }
-  // }
+  renderHoursOrEmpty = (day, startOrEnd) => {
+    let {hours} = this.props
+    if (hours.length > 0) {
+      let hour = hours.filter(hour => day === hour.day_id )[0]
+      if (startOrEnd === "start"){
+       return hour.time_range.substr(0,5)
+      } else{
+        return hour.time_range.substr(7,13)
+      }
+    } else {
+      return ""
+    }
+  }
 
   handleChange = (e) => {
     let days = this.state.days
