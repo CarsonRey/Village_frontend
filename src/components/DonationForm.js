@@ -3,7 +3,7 @@ import FoodItemInput from "./FoodItemInput"
 import { connect } from 'react-redux'
 import { createDonation, showOrHideDonationForm } from '../store'
 import { Link } from 'react-router-dom'
-// , Redirect
+
   class DonationForm extends React.Component {
 
     state = {

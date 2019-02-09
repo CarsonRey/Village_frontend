@@ -6,7 +6,7 @@ const FoodItemInput = (props) => {
       let foodItemId = `foodItem-${idx}`, quantityId = `quantity-${idx}`, packagedId = `packaged-${idx}`,dateMadeId = `dateMade-${idx}`,expirationId = `expiration-${idx}`
       return (
         <div className="inputRow" key={idx}>
-           {/* <label htmlFor={foodItemId}>{`1.${idx + 1}`}</label> */}
+
           <input
             type="text"
             name={foodItemId}
@@ -15,7 +15,7 @@ const FoodItemInput = (props) => {
             value={props.foodItems[idx].name}
             className="name"
           />
-         {/* <label htmlFor={quantityId}>Quantity: </label> */}
+
           <input
             type="number"
             name={quantityId}
@@ -24,7 +24,7 @@ const FoodItemInput = (props) => {
             value={props.foodItems[idx].quantity}
             className="quantity"
           />
-          {/* <label htmlFor={ageId}>Pre-packaged? </label> */}
+
           <input
             type="checkbox"
             name={packagedId}
@@ -33,7 +33,7 @@ const FoodItemInput = (props) => {
             value={props.foodItems[idx].packaged}
             className="packaged"
           />
-          {/* <label htmlFor={ageId}>Date made: </label> */}
+
           <input
             type="date"
             name={dateMadeId}
@@ -42,7 +42,7 @@ const FoodItemInput = (props) => {
             value={props.foodItems[idx].dateMade}
             className="dateMade"
           />
-           {/* <label htmlFor={ageId}>Exp. Date: </label> */}
+
           <input
             type="date"
             name={expirationId}

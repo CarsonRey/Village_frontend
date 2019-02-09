@@ -177,11 +177,12 @@
 }
 
 .don-form{
-  padding: 40px 0;
+  /* padding: 40px 0; */
   /* background-color: lightblue; */
   margin:auto;
-  height: 150px;
+  height: 40%;
   overflow:scroll;
+  margin-bottom: 60px;
 }
 
 .donation-header{
