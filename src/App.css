@@ -203,11 +203,13 @@
  background-color: #093145;
  box-shadow: 5px 10px 8px #888888;
  border-radius: 5px;
+ /* position:absolute; */
 }
 
 .delete{
   color: #eeefec;
-  margin-left: 60px;
+  margin-left: 140%;
+  /* position: fixed; */
 }
 
 .delete:hover{
