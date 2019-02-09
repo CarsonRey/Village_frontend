@@ -33,7 +33,7 @@ import { Link } from 'react-router-dom'
     addNewInputRow = () => {
       this.setState((prevState) => ({
         foodItems: [{name:"", quantity: 1, packaged: false, dateMade: "", expiration: ""}, ...prevState.foodItems],
-      }));
+      }), () => this.onAdd());
     }
 
     deleteInputRow = (deletedIndex) => {
@@ -42,6 +42,32 @@ import { Link } from 'react-router-dom'
       this.setState({
         foodItems: [...allExcept]
       })
+    }
+
+    // handleCheckbox = (addOrDelete) => {
+    //   addOrDelete === "add" ? this.onAdd() : this.onDelete()
+    // }
+
+    onAdd = () => {
+      let newFoodItems = []
+      let newIndex;
+
+      this.state.foodItems.forEach((inputRow, index) => {
+    
+        if(inputRow.packaged === true){
+          foodItems.forEach((inputRow, idx) =>{
+            if()
+
+           })
+          this.setState({
+            foodItems: [...foodItems,]
+          })
+        }
+      })
+    }
+
+    onDelete = () => {
+
     }
 
     handleSubmit = (e) => { e.preventDefault() }
