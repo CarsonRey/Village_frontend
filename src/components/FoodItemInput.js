@@ -1,4 +1,5 @@
 import React from "react"
+import CheckBox from './CheckBox'
 const FoodItemInput = (props) => {
 
   return (
@@ -11,6 +12,7 @@ const FoodItemInput = (props) => {
             type="text"
             name={foodItemId}
             data-id={idx}
+            data-type="name"
             id={foodItemId}
             value={props.foodItems[idx].name}
             className="name"
@@ -20,16 +22,19 @@ const FoodItemInput = (props) => {
             type="number"
             name={quantityId}
             data-id={idx}
+            data-type="quantity"
             id={quantityId}
             value={props.foodItems[idx].quantity}
             className="quantity"
           />
 
-          <input
+          <CheckBox
             type="checkbox"
             name={packagedId}
             data-id={idx}
+            data-type="packaged"
             id={packagedId}
+            onChange={(e) =>props.onChange(e)}
             value={props.foodItems[idx].packaged}
             className="packaged"
           />
@@ -38,6 +43,7 @@ const FoodItemInput = (props) => {
             type="date"
             name={dateMadeId}
             data-id={idx}
+            data-type="dateMade"
             id={dateMadeId}
             value={props.foodItems[idx].dateMade}
             className="dateMade"
@@ -47,6 +53,7 @@ const FoodItemInput = (props) => {
             type="date"
             name={expirationId}
             data-id={idx}
+            data-type="expiration"
             id={expirationId}
             value={props.foodItems[idx].expiration}
             className="expiration"

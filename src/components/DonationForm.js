@@ -33,7 +33,7 @@ import { Link } from 'react-router-dom'
     addNewInputRow = () => {
       this.setState((prevState) => ({
         foodItems: [{name:"", quantity: 1, packaged: false, dateMade: "", expiration: ""}, ...prevState.foodItems],
-      }), () => this.onAdd());
+      }), this.onAdd());
     }
 
     deleteInputRow = (deletedIndex) => {
@@ -51,18 +51,24 @@ import { Link } from 'react-router-dom'
     onAdd = () => {
       let newFoodItems = []
       let newIndex;
+      let newInputRow;
 
       this.state.foodItems.forEach((inputRow, index) => {
-    
-        if(inputRow.packaged === true){
-          foodItems.forEach((inputRow, idx) =>{
-            if()
 
-           })
-          this.setState({
-            foodItems: [...foodItems,]
-          })
+        if(inputRow.packaged === true){
+          inputRow.packaged = false
+          newIndex = index
+          newFoodItems.push(inputRow)
         }
+        else if (index === newIndex + 1){
+          inputRow.packaged = true
+          newFoodItems.push(inputRow)
+        } else {
+          newFoodItems.push(inputRow)
+        }
+      })
+      this.setState({
+        foodItems: [...newFoodItems]
       })
     }
 
@@ -100,7 +106,7 @@ import { Link } from 'react-router-dom'
               </div>
               <form className="don-form"  onChange={this.handleChange} >
 
-                <FoodItemInput deleteRow={this.deleteInputRow} foodItems={foodItems} />
+                <FoodItemInput onChange={this.handleChange}  deleteRow={this.deleteInputRow} foodItems={foodItems} />
 
 
 

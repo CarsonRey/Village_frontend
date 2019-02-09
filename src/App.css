@@ -207,6 +207,16 @@
  /* position:absolute; */
 }
 
+.checkbox{
+  border-radius: 2px;
+  width: 6px;
+  height: 6px;
+  padding: 4px;
+  background-color: white;
+  margin-top: 7%;
+  margin-left: 54%;;
+}
+
 .delete{
   color: #eeefec;
   margin-left: 140%;
