@@ -44,9 +44,16 @@ import { Link } from 'react-router-dom'
       })
     }
 
-    // handleCheckbox = (addOrDelete) => {
-    //   addOrDelete === "add" ? this.onAdd() : this.onDelete()
-    // }
+    handleCheckbox = (e) => {
+      if (e.target.classList.includes("checkbox")){
+        e.target.classList.toggle("checked");
+        e.target.firstElementChild.classList.toggle("checkmark-checked")
+      } else if (e.target.classList.includes("checkmark")) {
+        e.target.classList.toggle("checkmark-checked"); e.target.parentElement.classList.toggle("checked")
+      } else {
+        e.target.parentElement.classList.toggle("checkmark-checked"); e.target.parentElement.parentElement.classList.toggle("checked")
+      }
+    }
 
     onAdd = () => {
       let newFoodItems = []
@@ -106,7 +113,7 @@ import { Link } from 'react-router-dom'
               </div>
               <form className="don-form"  onChange={this.handleChange} >
 
-                <FoodItemInput onChange={this.handleChange}  deleteRow={this.deleteInputRow} foodItems={foodItems} />
+                <FoodItemInput handleCheckbox={this.handleCheckbox} onChange={this.handleChange}  deleteRow={this.deleteInputRow} foodItems={foodItems} />
 
 
 

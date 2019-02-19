@@ -216,25 +216,30 @@
   background-color: white;
   margin-top: 7%;
   margin-left: 54%;
-}
-
-.blue{
-  border: blue 1px solid;
-}
-
-.checked{
-  background-color: blue;
   color: white;
 
 }
 
+.blue{
+  border: #ccc 1px solid;
+}
+
+.checked{
+  background-color: #f77a7f;
+}
+
 .checkmark {
-    display:inline-block;
+    display:none;
     width: 22px;
     height:22px;
     -ms-transform: rotate(45deg); /* IE 9 */
     -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
     transform: rotate(45deg);
+}
+
+.checkmark-checked{
+  display:inline-block;
+
 }
 
 .checkmark_stem {

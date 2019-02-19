@@ -30,6 +30,7 @@ const FoodItemInput = (props) => {
 
           <CheckBox
             type="checkbox"
+            handleCheckbox={props.handleCheckbox}
             name={packagedId}
             data-id={idx}
             data-type="packaged"

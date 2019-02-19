@@ -21,6 +21,18 @@ class DonatorContainer extends Component {
 
   }
 
+  // handleCheckbox = (e) => {
+  //   // debugger
+  //   if (e.target.classList.contains("checkbox")){
+  //     e.target.classList.toggle("checked");
+  //     e.target.firstElementChild.classList.toggle("checkmark-checked")
+  //   } else if (e.target.classList.contains("checkmark")) {
+  //     e.target.classList.toggle("checkmark-checked"); e.target.parentElement.classList.toggle("checked")
+  //   } else {
+  //     e.target.parentElement.classList.toggle("checkmark-checked"); e.target.parentElement.parentElement.classList.toggle("checked")
+  //   }
+  // }
+
 
   render() {
     let {deliveries, userClickedDetails, hourFormShowing} = this.props
@@ -35,7 +47,7 @@ class DonatorContainer extends Component {
 
         {this.returnUserHoursButton()}
 
-        <CheckBox />
+        // <CheckBox handleCheckbox={this.handleCheckbox} />
 
         { hourFormShowing && <HoursForm hours={this.props.hours.sort((a,b) => a.id - b.id)} />}
 
