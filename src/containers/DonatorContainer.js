@@ -3,6 +3,7 @@ import RateDelivererContainer from './RateDelivererContainer'
 import ColumnsContainer from './ColumnsContainer'
 import HoursForm from '../components/HoursForm'
 import JobDetail from '../components/JobDetail'
+import CheckBox from '../components/CheckBox'
 import { connect } from 'react-redux'
 import { showOrHideHoursForm } from '../store'
 
@@ -33,6 +34,9 @@ class DonatorContainer extends Component {
       <React.Fragment>
 
         {this.returnUserHoursButton()}
+
+        <CheckBox />
+
         { hourFormShowing && <HoursForm hours={this.props.hours.sort((a,b) => a.id - b.id)} />}
 
         { unratedDeliveries.length > 0 && <RateDelivererContainer/>}

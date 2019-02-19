@@ -159,6 +159,7 @@
   margin-bottom: 40px;
 }
 
+
 .back{
   text-decoration: none;
   background: lightblue;
@@ -214,7 +215,15 @@
   padding: 4px;
   background-color: white;
   margin-top: 7%;
-  margin-left: 54%;;
+  margin-left: 54%;
+}
+
+.blue{
+  border: blue 1px solid;
+}
+
+.checked{
+  background-color: red;
 }
 
 .delete{
