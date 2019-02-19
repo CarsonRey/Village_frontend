@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom'
 
       } else if (["packaged"].includes(e.target.className)){
 
-        foodItems[e.target.dataset.id][e.target.className] = e.target.value === "false" ? true : false
+        foodItems[e.target.dataset.id][e.target.className] = !e.target.value
         this.setState({ foodItems }, () => console.log(this.state.foodItems))
 
       } else if (["quantity"].includes(e.target.className)){
@@ -36,19 +36,25 @@ import { Link } from 'react-router-dom'
       }), this.onAdd());
     }
 
-    deleteInputRow = (deletedIndex) => {
+    deleteInputRow = (checkbox, deletedIndex) => {
+
       let allExcept = [...this.state.foodItems].filter((foodItemObj, index) => index !== deletedIndex)
 
       this.setState({
         foodItems: [...allExcept]
-      })
+      }, () => {
+        if (checkbox.classList.contains("checked")){
+
+checkbox.classList.toggle("checked"); checkbox.firstElementChild.classList.toggle("checkmark-checked")
+
+      } })
     }
 
     handleCheckbox = (e) => {
-      if (e.target.classList.includes("checkbox")){
+      if (e.target.classList.contains("checkbox")){
         e.target.classList.toggle("checked");
         e.target.firstElementChild.classList.toggle("checkmark-checked")
-      } else if (e.target.classList.includes("checkmark")) {
+      } else if (e.target.classList.contains("checkmark")) {
         e.target.classList.toggle("checkmark-checked"); e.target.parentElement.classList.toggle("checked")
       } else {
         e.target.parentElement.classList.toggle("checkmark-checked"); e.target.parentElement.parentElement.classList.toggle("checked")
@@ -80,7 +86,9 @@ import { Link } from 'react-router-dom'
     }
 
     onDelete = () => {
-
+      let newFoodItems = []
+      let newIndex;
+      let newInputRow;
     }
 
     handleSubmit = (e) => { e.preventDefault() }

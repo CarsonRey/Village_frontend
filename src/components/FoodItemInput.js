@@ -35,7 +35,6 @@ const FoodItemInput = (props) => {
             data-id={idx}
             data-type="packaged"
             id={packagedId}
-            onChange={(e) =>props.onChange(e)}
             value={props.foodItems[idx].packaged}
             className="packaged"
           />
@@ -59,7 +58,11 @@ const FoodItemInput = (props) => {
             value={props.foodItems[idx].expiration}
             className="expiration"
           />
-          <span data-id={idx} onClick={()=> props.deleteRow(idx)} role="img" alt="delete" className="delete">
+          <span data-id={idx} onClick={(e)=> {
+            let checkbox = e.target.parentElement.firstElementChild.nextElementSibling.nextElementSibling
+            props.deleteRow(checkbox, idx);
+            // props.deleteRow(idx)
+          }} role="img" alt="delete" className="delete">
             ⓧ
           </span>
         </div>
