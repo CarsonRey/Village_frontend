@@ -2,7 +2,7 @@ import React from "react"
 import FoodItemInput from "./FoodItemInput"
 import { connect } from 'react-redux'
 import { createDonation, showOrHideDonationForm } from '../store'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
   class DonationForm extends React.Component {
 
@@ -53,57 +53,23 @@ import { Link } from 'react-router-dom'
       this.setState({ foodItems }, ()=> console.log(this.state.foodItems))
     }
 
-    // onAdd = () => {
-    //   let newFoodItems = []
-    //   let newIndex;
-    //   let newInputRow;
-    //
-    //   this.state.foodItems.forEach((inputRow, index) => {
-    //
-    //     if(inputRow.packaged === true){
-    //       inputRow.packaged = false
-    //       newIndex = index
-    //       newFoodItems.push(inputRow)
-    //     }
-    //     else if (index === newIndex + 1){
-    //       inputRow.packaged = true
-    //       newFoodItems.push(inputRow)
-    //     } else {
-    //       newFoodItems.push(inputRow)
-    //     }
-    //   })
-    //   this.setState({
-    //     foodItems: [...newFoodItems]
-    //   })
-    // }
-    //
-    // onDelete = () => {
-    //   let newFoodItems = []
-    //   let newIndex;
-    //   let newInputRow;
-    // }
-
     handleSubmit = (e) => { e.preventDefault() }
 
     render() {
 
-
         let {foodItems} = this.state
         let { chosenRequest, user, createDonation } = this.props
-
-        // {chosenRequest.id === null && <Redirect/>}
-
-        let info = {request_id: chosenRequest.id, giver_id: user.id, receiver_id: chosenRequest.user.id}
+        // let info = {request_id: chosenRequest.id, giver_id: parseInt(localStorage.userId),receiver_id: chosenRequest.user.id}
 
 
         return (
-        // <div className="bg-modal">
-        //   <div className="modal-content">
-        <React.Fragment>
+          {chosenRequest.user ?
+          <React.Fragment>
             <h2>{chosenRequest.user.name} is in need! What will you donate ?</h2>
 
-              <div className="addNew rate" onClick={this.addNewInputRow}>Add New Item +</div>
+          <div className="addNew rate" onClick={this.addNewInputRow}>Add New Item +</div>
           <div className="don-form-cont">
+
               <div className="donation-header">
                 <div className="item-header">Item</div>
                 <div className="quantity-header">Quantity</div>
@@ -111,24 +77,24 @@ import { Link } from 'react-router-dom'
                 <div className="made-header">Date Made</div>
                 <div className="exp-header">Exp. Date</div>
               </div>
+
               <form className="don-form"  onChange={this.handleChange} >
 
                 <FoodItemInput handleCheckbox={this.handleCheckbox} onChange={this.handleChange}  deleteRow={this.deleteInputRow} foodItems={foodItems} />
 
-
-
               </form>
-              <Link to="/" className="donate-btn link" onClick={() => createDonation(info, foodItems)}>
+
+              <Link to="/" className="donate-btn link" onClick={() => createDonation({request_id: chosenRequest.id, giver_id: parseInt(localStorage.userId), receiver_id: chosenRequest.user.id}, foodItems)}>
                 Donate
               </Link> <br/> <br/> <br/> <br/>
 
               <Link to="/" className="link don-cancel">
                 cancel
               </Link>
-            </div>
-          </React.Fragment>
-        //   </div>
-        // </div>
+          </div>
+        </React.Fragment> : <Redirect to="/" />}
+
+
         )
       }
     }
