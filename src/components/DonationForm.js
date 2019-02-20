@@ -19,8 +19,10 @@ import { Link } from 'react-router-dom'
         this.setState({ foodItems }, () => console.log(this.state.foodItems))
 
       } else if (["packaged"].includes(e.target.className)){
+        let value = e.target.value === "false" ? true: false
 
-        foodItems[e.target.dataset.id][e.target.className] = !e.target.value
+
+        foodItems[e.target.dataset.id][e.target.className] = value
         this.setState({ foodItems }, () => console.log(this.state.foodItems))
 
       } else if (["quantity"].includes(e.target.className)){
@@ -31,9 +33,8 @@ import { Link } from 'react-router-dom'
     }
 
     addNewInputRow = () => {
-      this.setState((prevState) => ({
-        foodItems: [{name:"", quantity: 1, packaged: false, dateMade: "", expiration: ""}, ...prevState.foodItems],
-      }), this.onAdd());
+      this.setState({
+        foodItems: [{name:"", quantity: 1, packaged: false, dateMade: "", expiration: ""}, ...this.state.foodItems]}, () => console.log(this.state.foodItems));
     }
 
     deleteInputRow = (checkbox, deletedIndex) => {
@@ -42,54 +43,45 @@ import { Link } from 'react-router-dom'
 
       this.setState({
         foodItems: [...allExcept]
-      }, () => {
-        if (checkbox.classList.contains("checked")){
-
-checkbox.classList.toggle("checked"); checkbox.firstElementChild.classList.toggle("checkmark-checked")
-
-      } })
-    }
-
-    handleCheckbox = (e) => {
-      if (e.target.classList.contains("checkbox")){
-        e.target.classList.toggle("checked");
-        e.target.firstElementChild.classList.toggle("checkmark-checked")
-      } else if (e.target.classList.contains("checkmark")) {
-        e.target.classList.toggle("checkmark-checked"); e.target.parentElement.classList.toggle("checked")
-      } else {
-        e.target.parentElement.classList.toggle("checkmark-checked"); e.target.parentElement.parentElement.classList.toggle("checked")
-      }
-    }
-
-    onAdd = () => {
-      let newFoodItems = []
-      let newIndex;
-      let newInputRow;
-
-      this.state.foodItems.forEach((inputRow, index) => {
-
-        if(inputRow.packaged === true){
-          inputRow.packaged = false
-          newIndex = index
-          newFoodItems.push(inputRow)
-        }
-        else if (index === newIndex + 1){
-          inputRow.packaged = true
-          newFoodItems.push(inputRow)
-        } else {
-          newFoodItems.push(inputRow)
-        }
-      })
-      this.setState({
-        foodItems: [...newFoodItems]
       })
     }
 
-    onDelete = () => {
-      let newFoodItems = []
-      let newIndex;
-      let newInputRow;
+    handleCheckbox = (value, checkedIndex) => {
+      let foodItems = [...this.state.foodItems]
+      foodItems[checkedIndex].packaged = !value
+
+      this.setState({ foodItems }, ()=> console.log(this.state.foodItems))
     }
+
+    // onAdd = () => {
+    //   let newFoodItems = []
+    //   let newIndex;
+    //   let newInputRow;
+    //
+    //   this.state.foodItems.forEach((inputRow, index) => {
+    //
+    //     if(inputRow.packaged === true){
+    //       inputRow.packaged = false
+    //       newIndex = index
+    //       newFoodItems.push(inputRow)
+    //     }
+    //     else if (index === newIndex + 1){
+    //       inputRow.packaged = true
+    //       newFoodItems.push(inputRow)
+    //     } else {
+    //       newFoodItems.push(inputRow)
+    //     }
+    //   })
+    //   this.setState({
+    //     foodItems: [...newFoodItems]
+    //   })
+    // }
+    //
+    // onDelete = () => {
+    //   let newFoodItems = []
+    //   let newIndex;
+    //   let newInputRow;
+    // }
 
     handleSubmit = (e) => { e.preventDefault() }
 

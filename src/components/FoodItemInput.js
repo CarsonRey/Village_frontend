@@ -29,15 +29,20 @@ const FoodItemInput = (props) => {
           />
 
           <CheckBox
-            type="checkbox"
             handleCheckbox={props.handleCheckbox}
+            index={idx}
+            value={props.foodItems[idx].packaged}
+          />
+
+          {/* <input
+            type="checkbox"
             name={packagedId}
             data-id={idx}
             data-type="packaged"
             id={packagedId}
             value={props.foodItems[idx].packaged}
             className="packaged"
-          />
+          /> */}
 
           <input
             type="date"
