@@ -63,9 +63,10 @@ import { Link, Redirect } from 'react-router-dom'
 
 
         return (
+        <React.Fragment>
           {chosenRequest.user ?
           <React.Fragment>
-            <h2>{chosenRequest.user.name} is in need! What will you donate ?</h2>
+          <h2>{chosenRequest.user.name} is in need! What will you donate ?</h2>
 
           <div className="addNew rate" onClick={this.addNewInputRow}>Add New Item +</div>
           <div className="don-form-cont">
@@ -93,8 +94,7 @@ import { Link, Redirect } from 'react-router-dom'
               </Link>
           </div>
         </React.Fragment> : <Redirect to="/" />}
-
-
+      </React.Fragment>
         )
       }
     }
