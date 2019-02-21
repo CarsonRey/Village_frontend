@@ -1,7 +1,7 @@
-Link to backend: https://github.com/CarsonRey/Village_backend
-Link to demo: https://www.youtube.com/watch?v=Oo4kTWBn0Bk
-Link to Village Client: https://village-client.herokuapp.com/
-Link to Village API: https://village-api.herokuapp.com/
+- Link to backend: https://github.com/CarsonRey/Village_backend
+- Link to demo: https://www.youtube.com/watch?v=Oo4kTWBn0Bk
+- Link to Village Client: https://village-client.herokuapp.com/
+- Link to Village API: https://village-api.herokuapp.com/
 
 
 # Welcome to Village!
