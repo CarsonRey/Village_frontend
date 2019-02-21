@@ -1,6 +1,6 @@
 Welcome to Village!
 
-This is a web application that solves the problem of restaurant food waste. There are 3 user roles: Donator, Deliverer and Receiver. The Flow of the app is as follows:
+This is a web application that solves the problem of restaurant food waste. There are 3 user roles: Donator, Deliverer and Receiver. The flow of the app is as follows:
 
 1) Receiver creates a request with the number of people they need to feed.
 2) This request is then read by all potential donators with information about who sent the request and how many people are in need. 
