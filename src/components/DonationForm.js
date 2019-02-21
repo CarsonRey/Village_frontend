@@ -37,7 +37,7 @@ import { Link, Redirect } from 'react-router-dom'
         foodItems: [{name:"", quantity: 1, packaged: false, dateMade: "", expiration: ""}, ...this.state.foodItems]}, () => console.log(this.state.foodItems));
     }
 
-    deleteInputRow = (checkbox, deletedIndex) => {
+    deleteInputRow = (deletedIndex) => {
 
       let allExcept = [...this.state.foodItems].filter((foodItemObj, index) => index !== deletedIndex)
 
