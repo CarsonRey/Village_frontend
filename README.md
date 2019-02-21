@@ -1,6 +1,6 @@
-Welcome to Village!
+# Welcome to Village!
 
-This is a web application that solves the problem of restaurant food waste. There are 3 user roles: Donator, Deliverer and Receiver. The flow of the app is as follows:
+### This is a web application that solves the problem of restaurant food waste. There are 3 user roles: Donator, Deliverer and Receiver. The flow of the app is as follows:
 
 1) Receiver creates a request with the number of people they need to feed.
 2) This request is then read by all potential donators with information about who sent the request and how many people are in need. 
@@ -12,7 +12,7 @@ This is a web application that solves the problem of restaurant food waste. Ther
 8) When a delivery is complete, the donators and receivers will get a prompt at the top of their homepage to rate their deliverer which links to a form that will create a rating (composed of a number (1-5) and comments). Ratings from both the deliverer and receiver are then available on the past delivery card for the deliverer. Past Donations/Received Donation cards have the pick-up and drop-off time and the rating that the current user has given (and tell them to rate their deliverer if they haven't). 
 
 
-Technologies Used:
+### Technologies Used:
 - HTML
 - pure CSS
 - Javascript
@@ -21,7 +21,7 @@ Technologies Used:
 - Google Maps Javascript API
 - Google Geocode API
 
-Improvements to be made:
+### Improvements to be made:
 - More cohesive communication between client and server (either websockets, polling or long-polling) so the user doesn't have to refresh to receive new information about a delivery or request
 - Messaging between users
 - Validations on all forms.
@@ -29,7 +29,39 @@ Improvements to be made:
 - Donation form should have a list of items that belong to that donator's menu so they don't have to type everything in.  
 - Map should ask the Deliverer for their location to provide a more relevant map. Should additionally give a travel time estimate.
 
-Wireframing (before v1 of project):
+### Wireframing (before v1 of project):
+
+Landing Page
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/landing.png" width="456" height="256" title="landing">
+
+Choice Page
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/choice.png" width="456" height="256" title="choice">
+
+Sign Up
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/signup.png" width="356" height="256" title="signup">
+
+Receiver Homepage
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/receiverhome.png" width="456" height="256" title="receiver home">
+
+Deliverer Homepage
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/delivererhome.png" width="456" height="256" title="deliverer home">
+
+Donator Homepage
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/donatorhome.png" width="456" height="256" title="donator home">
+
+Donation form
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/donationform.png" width="326" height="256" title="donation form">
+
+Request Form
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/requestform.png" width="456" height="256" title="request form">
+
+Job Detail
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/jobdetail.png" width="456" height="456" title="job detail">
+
+Past Donation Card
+<img src="https://github.com/CarsonRey/Village_frontend/blob/master/wireframe/pastdonation.png" width="456" height="256" title="past donation">
+
+
 
 
 
