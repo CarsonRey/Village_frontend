@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Village!
 
-## Available Scripts
+This is a web application that solves the problem of restaurant food waste. There are 3 user roles: Donator, Deliverer and Receiver. The Flow of the app is as follows:
 
-In the project directory, you can run:
+1) Receiver creates a request with the number of people they need to feed.
+2) This request is then read by all potential donators with information about who sent the request and how many people are in need. 
+3) A donator can create a donation by filling out a form with the food items they're going to send to the receiver that requested food. 
+4) Upon creating a donation (has many FoodItemDonations, has many FoodItems through FoodItemDonations), the initial request is marked as taken and the donation becomes an available job for a user with a deliverer role. 
+5) A deliverer can view the details of an available job (donation) which includes information about who is donating, who is receiving, what is being donated, and a map from the donator location to the receiver location. 
+6) When a deliverer volunteers to deliver a donation, they create a delivery, and this delivery is shown on the "Deliveries in Progress" column for all three user roles.
+7) A deliverer can change the status of a delivery by clicking the mark the pick-up time button -- which will log the pick up time and change the status of the delivery to "On the way" -- or mark delivery complete button -- which will move delivery to the "Past Deliveries/Donations/Received Donations" column for all three users --  on the delivery card. They also have access to the hours of operation of each establishment. 
+8) When a delivery is complete, the donators and receivers will get a prompt at the top of their homepage to rate their deliverer which links to a form that will create a rating (composed of a number (1-5) and comments). Ratings from both the deliverer and receiver are then available on the past delivery card for the deliverer. Past Donations/Received Donation cards have the pick-up and drop-off time and the rating that the current user has given (and tell them to rate their deliverer if they haven't). 
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Technologies Used:
+- HTML
+- pure CSS
+- Javascript
+- React
+- Redux (with thunk & combine reducer)
+- Google Maps Javascript API
+- Google Geocode API
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Improvements to be made:
+- More cohesive communication between client and server (either websockets, polling or long-polling) so the user doesn't have to refresh to receive new information about a delivery or request
+- Messaging between users
+- Validations on all forms.
+- Validations that query Google Places API to make sure a user signing up to be a donator is an official establishment.
+- Donation form should have a list of items that belong to that donator's menu so they don't have to type everything in.  
+- Map should ask the Deliverer for their location to provide a more relevant map. Should additionally give a travel time estimate.
 
-### `npm test`
+Wireframing (before v1 of project):
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
