@@ -1,7 +1,7 @@
 // import { push } from 'react-router-redux'
 import { setUserHours } from './hourActions'
-const base_url = "http://localhost:3000/api/v1"
-// const base_url = "https://village-api.herokuapp.com/api/v1"
+// const base_url = "http://localhost:3000/api/v1"
+const base_url = "https://village-api.herokuapp.com/api/v1"
 /*---------- HELPER METHODS ----------*/
 // const determineRole = () => {
 //
